@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep:*)",
+      "Bash(done)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nFix navigation links - replace domain URLs with local HTML files\n\n- Changed all https://browarwyszak.pl/ links to relative paths\n- Updated navigation links to point to local .html files\n- Fixed language switcher to use en-home.html and de-home.html\n- Fixed contact buttons and menu links\n- Removed broken regulamin link\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)",
+      "Bash(claude:*)",
+      "Bash(pip install:*)",
+      "Bash(python:*)",
+      "WebFetch(domain:browarwyszak.pl)",
+      "Bash(curl:*)",
+      "Bash(for file in index.html en-home.html de-home.html imprezy-firmowe.html kontakt.html menu.html piwa-rzemieslnicze.html)",
+      "Bash(do sed -i 's|background-image: url\\(https://browarwyszak.pl/wp-content/themes/nuvo2/assets/images/bg-footer.jpg\\);|background-image: url\\(/wp-content/uploads/2017/09/footer-BG.jpg\\);|g' \"$file\")",
+      "Bash(do sed -i 's|</style>|.grecaptcha-badge { visibility: hidden !important; }\\\\n</style>|' \"$file\")",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nFix footer styling and hide reCaptcha badge\n\n- Fixed footer background image URL in all HTML files\n- Added footer logo and background images to wp-content/uploads/2017/09/\n- Hidden reCaptcha badge that was showing errors due to domain mismatch\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")"
+    ]
+  }
+}
