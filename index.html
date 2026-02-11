@@ -66,8 +66,8 @@ a:hover{color:var(--gold-light)}
 .nav-lang{font-size:11px;font-weight:500;color:var(--cream-dim);padding:6px 10px;border:1px solid var(--glass-border);border-radius:4px;transition:all .3s}
 .nav-lang:hover{border-color:var(--gold);color:var(--gold)}
 .logo{flex-shrink:0}
-.logo img{height:50px;width:auto;transition:height .3s}
-.scrolled .logo img{height:40px}
+.logo img{height:65px;width:auto;transition:height .3s}
+.scrolled .logo img{height:48px}
 
 /* Hamburger */
 .hamburger{display:none;flex-direction:column;gap:6px;background:none;border:none;cursor:pointer;padding:8px;z-index:1001}
@@ -120,7 +120,7 @@ a:hover{color:var(--gold-light)}
 .section{padding:100px 0}
 .section-alt{background:var(--bg-alt)}
 .section-heading{text-align:center;margin-bottom:60px}
-.section-icon{width:60px;margin:0 auto 20px;filter:drop-shadow(0 0 20px rgba(200,148,62,.4))}
+.section-icon{width:60px;margin:0 auto 20px;filter:brightness(0) saturate(100%) invert(10%) sepia(100%) saturate(6000%) hue-rotate(360deg) brightness(75%) contrast(115%) drop-shadow(0 0 15px rgba(139,26,10,.5))}
 .section-title{font-family:var(--font-serif);font-size:clamp(1.6rem,3vw,2.4rem);letter-spacing:.08em;color:var(--cream);margin-bottom:16px}
 .section-sep{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 24px;border:none}
 .section-text{max-width:700px;margin:0 auto;font-size:.95rem;color:var(--cream-dim);text-align:center;line-height:1.9}
@@ -133,14 +133,7 @@ a:hover{color:var(--gold-light)}
 .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
 .gallery-item{position:relative;overflow:hidden;aspect-ratio:1;cursor:pointer}
 .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
-.gallery-item::after{content:'';position:absolute;inset:0;background:rgba(13,10,8,.4);opacity:0;transition:opacity .4s ease}
-.gallery-item:hover img{transform:scale(1.1)}
-.gallery-item:hover::after{opacity:1}
-.gallery-item:hover{box-shadow:inset 0 0 0 3px var(--gold)}
-.gallery-overlay{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity .4s ease;padding:16px}
-.gallery-item:hover .gallery-overlay{opacity:1}
-.gallery-overlay h4{font-family:var(--font-serif);font-size:1rem;color:var(--cream);letter-spacing:.06em}
-.gallery-overlay p{font-size:.8rem;color:var(--cream-dim);margin-top:4px}
+.gallery-item:hover img{transform:scale(1.08)}
 
 /* ===== OFERTA CARDS ===== */
 .oferta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1000px;margin:0 auto}
@@ -318,35 +311,27 @@ a:hover{color:var(--gold-light)}
     <div class="gallery-grid">
       <div class="gallery-item" data-reveal="scale" style="transition-delay:.05s">
         <img src="https://browarwyszak.pl/wp-content/uploads/2017/04/Browar-Rodzinny-Wyszak-wnetrze-5-of-10.jpg" alt="Układ stołów w nawie głównej" loading="lazy" width="481" height="428">
-        <div class="gallery-overlay"><h4>B.R. Wyszak</h4><p>układ stołów w nawie głównej</p></div>
       </div>
       <div class="gallery-item" data-reveal="scale" style="transition-delay:.1s">
         <img src="https://browarwyszak.pl/wp-content/uploads/2017/04/Browar-Rodzinny-Wyszak-wnetrze-9-of-10.jpg" alt="Krany na barze" loading="lazy" width="481" height="428">
-        <div class="gallery-overlay"><h4>B.R. Wyszak</h4><p>krany na barze</p></div>
       </div>
       <div class="gallery-item" data-reveal="scale" style="transition-delay:.15s">
         <img src="https://browarwyszak.pl/wp-content/uploads/2017/04/Browar-Rodzinny-Wyszak-wnetrze-3-of-10.jpg" alt="Widok na kadzie od strony sali" loading="lazy" width="481" height="428">
-        <div class="gallery-overlay"><h4>B.R. Wyszak</h4><p>widok na kadzie od strony sali</p></div>
       </div>
       <div class="gallery-item" data-reveal="scale" style="transition-delay:.2s">
         <img src="https://browarwyszak.pl/wp-content/uploads/2017/04/Browar-Rodzinny-Wyszak-wnetrze-2-of-10.jpg" alt="Widok na kadzie - zbliżenie" loading="lazy" width="481" height="428">
-        <div class="gallery-overlay"><h4>B.R. Wyszak</h4><p>widok na kadzie - zbliżenie</p></div>
       </div>
       <div class="gallery-item" data-reveal="scale" style="transition-delay:.25s">
         <img src="https://browarwyszak.pl/wp-content/uploads/2017/04/Browar-Rodzinny-Wyszak-wnetrze-11.jpg" alt="Widok na kadzie od frontu" loading="lazy" width="481" height="428">
-        <div class="gallery-overlay"><h4>B.R. Wyszak</h4><p>widok na kadzie od frontu</p></div>
       </div>
       <div class="gallery-item" data-reveal="scale" style="transition-delay:.3s">
         <img src="https://browarwyszak.pl/wp-content/uploads/2017/04/Browar-Rodzinny-Wyszak-wnetrze-12.jpg" alt="Widok na kadzie od strony baru" loading="lazy" width="481" height="428">
-        <div class="gallery-overlay"><h4>B.R. Wyszak</h4><p>widok na kadzie od strony baru</p></div>
       </div>
       <div class="gallery-item" data-reveal="scale" style="transition-delay:.35s">
         <img src="https://browarwyszak.pl/wp-content/uploads/2017/04/Browar-Rodzinny-Wyszak-wnerze-13.jpg" alt="Widok wnętrza - krany na barze" loading="lazy" width="481" height="428">
-        <div class="gallery-overlay"><h4>B.R. Wyszak</h4><p>widok wnętrza - krany na barze</p></div>
       </div>
       <div class="gallery-item" data-reveal="scale" style="transition-delay:.4s">
         <img src="https://browarwyszak.pl/wp-content/uploads/2017/05/Browar-Rodzinny-Wyszak-wnetrze-16.jpg" alt="Wnętrze Browaru Wyszak" loading="lazy" width="481" height="428">
-        <div class="gallery-overlay"><h4>Browar Wyszak</h4><p>wnętrze lokalu</p></div>
       </div>
     </div>
   </div>
