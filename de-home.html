@@ -52,6 +52,7 @@ a{color:var(--gold);text-decoration:none;transition:color .3s}a:hover{color:var(
 .nav-link--phone{color:var(--gold);font-weight:700}
 .nav-lang{font-size:20px;padding:4px 6px;border:none;border-radius:4px;transition:all .3s;line-height:1;opacity:.8;display:inline-flex;align-items:center}.nav-lang img{display:block;height:auto;border-radius:2px}.nav-lang:hover{opacity:1;transform:scale(1.15)}
 .logo{flex-shrink:0}.logo img{height:100px;width:auto;transition:height .3s}.scrolled .logo img{height:60px}
+.nav-mobile-langs{display:none;align-items:center;gap:6px}
 .hamburger{display:none;flex-direction:column;gap:6px;background:none;border:none;cursor:pointer;padding:8px;z-index:1001}
 .hamburger span{display:block;width:28px;height:2px;background:var(--cream);transition:all .3s ease;transform-origin:center}
 .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}.hamburger.active span:nth-child(2){opacity:0}.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px)}
@@ -121,7 +122,7 @@ a{color:var(--gold);text-decoration:none;transition:color .3s}a:hover{color:var(
 .footer-nav{display:flex;flex-wrap:wrap;gap:8px}.footer-nav a{font-size:.75rem;color:var(--cream-dim);letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;transition:color .3s}.footer-nav a:hover{color:var(--gold)}
 .pawlun-credit{font-family:'JetBrains Mono','Fira Code','SF Mono',Consolas,monospace;font-size:1rem;font-weight:600;color:#e2e8f0;text-decoration:none;transition:opacity .3s ease}.pawlun-credit:hover{opacity:.8}.pawlun-bracket{color:#00ff00}
 @media(max-width:1024px){.gallery-grid{grid-template-columns:repeat(2,1fr)}.oferta-grid{grid-template-columns:1fr;max-width:400px}.footer-grid{grid-template-columns:repeat(2,1fr)}.badges-grid{grid-template-columns:1fr;max-width:400px}}
-@media(max-width:768px){.nav-left,.nav-right{display:none}.hamburger{display:flex}.logo img{height:70px}.scrolled .logo img{height:50px}.container{padding:0 20px}.hero-content{padding:0 20px}.section{padding:70px 0}.hero-ctas{flex-direction:column;align-items:center}.btn{width:100%;max-width:260px;justify-content:center;padding:12px 24px;font-size:12px}.team-grid{gap:24px}.team-member{width:140px}.team-photo{width:110px;height:110px}.reservation-content{padding:40px 24px;margin:0 16px}.footer-grid{grid-template-columns:1fr;text-align:center}.footer-hours li{justify-content:center}.footer-bottom{flex-direction:column;text-align:center}}
+@media(max-width:768px){.nav-left,.nav-right{display:none}.nav-wrap{justify-content:space-between}.nav-mobile-langs{display:flex;flex:1}.logo{flex:0 0 auto;order:0}.hamburger{display:flex;flex:1;justify-content:flex-end}.logo img{height:70px}.scrolled .logo img{height:50px}.container{padding:0 20px}.hero-content{padding:0 20px}.section{padding:70px 0}.hero-ctas{flex-direction:column;align-items:center}.btn{width:100%;max-width:260px;justify-content:center;padding:12px 24px;font-size:12px}.team-grid{gap:24px}.team-member{width:140px}.team-photo{width:110px;height:110px}.reservation-content{padding:40px 24px;margin:0 16px}.footer-grid{grid-template-columns:1fr;text-align:center}.footer-hours li{justify-content:center}.footer-bottom{flex-direction:column;text-align:center}}
 @media(max-width:480px){.gallery-grid{grid-template-columns:repeat(2,1fr);gap:2px}.container{padding:0 16px}.hero-content{padding:0 16px}.hero-title{font-size:2.2rem;letter-spacing:.1em}.hero-subtitle{font-size:.7rem;letter-spacing:.3em}.hero-sub{font-size:.9rem;margin:0 auto 32px}.btn{max-width:240px;padding:11px 20px;font-size:11px}.logo img{height:60px}.scrolled .logo img{height:45px}}
 </style>
 </head>
@@ -129,6 +130,10 @@ a{color:var(--gold);text-decoration:none;transition:color .3s}a:hover{color:var(
 
 <header class="site-header" id="header">
   <nav class="nav-wrap">
+    <div class="nav-mobile-langs">
+      <a href="index.html" class="nav-lang" title="Polski"><img src="wp-content/uploads/2017/09/flag-pl.png" alt="PL" width="24" height="16"></a>
+      <a href="en-home.html" class="nav-lang" title="English"><img src="wp-content/uploads/2017/09/flag-gb.png" alt="EN" width="24" height="16"></a>
+    </div>
     <div class="nav-left">
       <a href="piwa-rzemieslnicze.html" class="nav-link">Handwerkliches Bier</a>
       <a href="menu.html" class="nav-link">Speisekarte</a>

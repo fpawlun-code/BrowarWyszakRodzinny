@@ -75,6 +75,7 @@ a:hover{color:var(--gold-light)}
 .scrolled .logo img{height:60px}
 
 /* Hamburger */
+.nav-mobile-langs{display:none;align-items:center;gap:6px}
 .hamburger{display:none;flex-direction:column;gap:6px;background:none;border:none;cursor:pointer;padding:8px;z-index:1001}
 .hamburger span{display:block;width:28px;height:2px;background:var(--cream);transition:all .3s ease;transform-origin:center}
 .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
@@ -172,7 +173,10 @@ a:hover{color:var(--gold-light)}
 }
 @media(max-width:768px){
   .nav-left,.nav-right{display:none}
-  .hamburger{display:flex}
+  .nav-wrap{justify-content:space-between}
+  .nav-mobile-langs{display:flex;flex:1}
+  .logo{flex:0 0 auto;order:0}
+  .hamburger{display:flex;flex:1;justify-content:flex-end}
   .logo img{height:70px}
   .scrolled .logo img{height:50px}
   .container{padding:0 20px}
@@ -197,6 +201,10 @@ a:hover{color:var(--gold-light)}
 <!-- ===== HEADER ===== -->
 <header class="site-header" id="header">
   <nav class="nav-wrap">
+    <div class="nav-mobile-langs">
+      <a href="en-home.html" class="nav-lang" title="English"><img src="wp-content/uploads/2017/09/flag-gb.png" alt="EN" width="24" height="16"></a>
+      <a href="de-home.html" class="nav-lang" title="Deutsch"><img src="wp-content/uploads/2017/09/flag-de.png" alt="DE" width="24" height="16"></a>
+    </div>
     <div class="nav-left">
       <a href="piwa-rzemieslnicze.html" class="nav-link">Piwo Rzemieślnicze</a>
       <a href="menu.html" class="nav-link">Menu</a>
