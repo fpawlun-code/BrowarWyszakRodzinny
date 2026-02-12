@@ -65,8 +65,8 @@ a:hover{color:var(--gold-light)}
 .nav-link:hover{color:var(--gold)}
 .nav-link:hover::after{transform:scaleX(1)}
 .nav-link--phone{color:var(--gold);font-weight:700}
-.nav-lang{font-size:11px;font-weight:500;color:var(--cream-dim);padding:6px 10px;border:1px solid var(--glass-border);border-radius:4px;transition:all .3s}
-.nav-lang:hover{border-color:var(--gold);color:var(--gold)}
+.nav-lang{font-size:20px;padding:4px 6px;border:none;border-radius:4px;transition:all .3s;line-height:1;opacity:.8}
+.nav-lang:hover{opacity:1;transform:scale(1.15)}
 .logo{flex-shrink:0}
 .logo img{height:100px;width:auto;transition:height .3s}
 .scrolled .logo img{height:60px}
@@ -136,8 +136,8 @@ a:hover{color:var(--gold-light)}
 .section-text{max-width:700px;margin:0 auto;font-size:.95rem;color:var(--cream-dim);text-align:center;line-height:1.9}
 
 /* ===== WYJĄTKOWY BROWAR ===== */
-.awards-img{max-width:500px;margin:40px auto 0;animation:float 6s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.awards-img{max-width:500px;margin:40px auto 0;transition:all .5s ease;filter:drop-shadow(0 0 0 transparent)}
+.awards-img:hover{filter:drop-shadow(0 0 25px rgba(200,148,62,.5));transform:scale(1.03)}
 
 /* ===== GALLERY ===== */
 .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
@@ -170,7 +170,7 @@ a:hover{color:var(--gold-light)}
 .reservation-bg{position:absolute;inset:0;background:url('https://browarwyszak.pl/wp-content/uploads/2025/04/browar-wyszak-wnetrze.webp') center/cover no-repeat;z-index:0}
 .reservation-overlay{position:absolute;inset:0;background:rgba(13,10,8,.82);z-index:1}
 .reservation-content{position:relative;z-index:2;text-align:center;max-width:600px;margin:0 auto;padding:60px 40px;background:var(--glass);border:1px solid var(--glass-border);border-radius:16px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
-.reservation .btn-gold{font-size:15px;padding:18px 48px;margin-top:8px}
+.reservation .btn-ruby{font-size:15px;padding:18px 48px;margin-top:8px}
 
 /* ===== BADGES ===== */
 .badges-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:40px;max-width:800px;margin:0 auto}
@@ -248,8 +248,8 @@ a:hover{color:var(--gold-light)}
       <a href="imprezy-firmowe.html" class="nav-link">Imprezy Firmowe</a>
       <a href="kontakt.html" class="nav-link">Kontakt</a>
       <a href="tel:+48914883481" class="nav-link nav-link--phone">(91) 488 34 81</a>
-      <a href="en-home.html" class="nav-lang">EN</a>
-      <a href="de-home.html" class="nav-lang">DE</a>
+      <a href="en-home.html" class="nav-lang" title="English">&#127468;&#127463;</a>
+      <a href="de-home.html" class="nav-lang" title="Deutsch">&#127465;&#127466;</a>
     </div>
     <button class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -265,8 +265,8 @@ a:hover{color:var(--gold-light)}
   <a href="kontakt.html">Kontakt</a>
   <a href="tel:+48914883481">(91) 488 34 81</a>
   <div class="mobile-nav-langs">
-    <a href="en-home.html" class="nav-lang">English</a>
-    <a href="de-home.html" class="nav-lang">Deutsch</a>
+    <a href="en-home.html" class="nav-lang" title="English">&#127468;&#127463;</a>
+    <a href="de-home.html" class="nav-lang" title="Deutsch">&#127465;&#127466;</a>
   </div>
 </div>
 
@@ -312,17 +312,7 @@ a:hover{color:var(--gold-light)}
     <div data-reveal="scale">
       <img src="https://browarwyszak.pl/wp-content/uploads/2019/06/wyszak-nagrody_Obszar-roboczy-1.png" alt="Nagrody Browaru Wyszak" class="awards-img" width="766" height="265">
     </div>
-  </div>
-</section>
-
-<!-- ===== GALLERY ===== -->
-<section class="section section-alt" id="gallery" style="padding-bottom:60px">
-  <div class="container" style="max-width:1000px">
-    <div class="section-heading" data-reveal>
-      <h2 class="section-title">WNĘTRZA</h2>
-      <hr class="section-sep">
-    </div>
-    <div class="gallery-grid">
+    <div class="gallery-grid" style="margin-top:60px;max-width:1000px;margin-left:auto;margin-right:auto">
       <div class="gallery-item" data-reveal="scale" style="transition-delay:.05s">
         <img src="https://browarwyszak.pl/wp-content/uploads/2017/04/Browar-Rodzinny-Wyszak-wnetrze-5-of-10.jpg" alt="Układ stołów w nawie głównej" loading="lazy" width="481" height="428">
       </div>
@@ -447,7 +437,7 @@ a:hover{color:var(--gold-light)}
     <hr class="section-sep">
     <p class="section-text" style="margin-bottom:12px">Browar Wyszak to wyjątkowe miejsce o unikalnej, rodzinnej atmosferze. Miejsce pełne radości, niezapomnianych wrażeń oraz gości z różnych zakątków Polski i świata.</p>
     <p class="section-text" style="margin-bottom:32px">Aby zapewnić miejsce w lokalu dla wszystkich odwiedzających, zachęcamy do dokonania rezerwacji. Szczególnie, jeśli planujecie Państwo spotkanie w szerszym gronie.</p>
-    <a href="kontakt.html" class="btn btn-gold">Rezerwuj Stolik</a>
+    <a href="kontakt.html" class="btn btn-ruby">Rezerwuj Stolik</a>
   </div>
 </section>
 
@@ -521,9 +511,9 @@ a:hover{color:var(--gold-light)}
         <a href="piwa-rzemieslnicze.html">Piwa Rzemieślnicze</a>
         <a href="imprezy-firmowe.html">Imprezy Firmowe</a>
         <a href="kontakt.html">Kontakt</a>
-        <a href="index.html" hreflang="pl-PL">PL</a>
-        <a href="en-home.html" hreflang="en-GB">EN</a>
-        <a href="de-home.html" hreflang="de-DE">DE</a>
+        <a href="index.html" hreflang="pl-PL">&#127477;&#127473;</a>
+        <a href="en-home.html" hreflang="en-GB">&#127468;&#127463;</a>
+        <a href="de-home.html" hreflang="de-DE">&#127465;&#127466;</a>
       </nav>
     </div>
   </div>

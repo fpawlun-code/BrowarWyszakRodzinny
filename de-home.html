@@ -50,7 +50,7 @@ a{color:var(--gold);text-decoration:none;transition:color .3s}a:hover{color:var(
 .nav-link::after{content:'';position:absolute;bottom:4px;left:12px;right:12px;height:2px;background:var(--gold);transform:scaleX(0);transition:transform .3s ease;transform-origin:center}
 .nav-link:hover{color:var(--gold)}.nav-link:hover::after{transform:scaleX(1)}
 .nav-link--phone{color:var(--gold);font-weight:700}
-.nav-lang{font-size:11px;font-weight:500;color:var(--cream-dim);padding:6px 10px;border:1px solid var(--glass-border);border-radius:4px;transition:all .3s}.nav-lang:hover{border-color:var(--gold);color:var(--gold)}
+.nav-lang{font-size:20px;padding:4px 6px;border:none;border-radius:4px;transition:all .3s;line-height:1;opacity:.8}.nav-lang:hover{opacity:1;transform:scale(1.15)}
 .logo{flex-shrink:0}.logo img{height:100px;width:auto;transition:height .3s}.scrolled .logo img{height:60px}
 .hamburger{display:none;flex-direction:column;gap:6px;background:none;border:none;cursor:pointer;padding:8px;z-index:1001}
 .hamburger span{display:block;width:28px;height:2px;background:var(--cream);transition:all .3s ease;transform-origin:center}
@@ -88,8 +88,8 @@ a{color:var(--gold);text-decoration:none;transition:color .3s}a:hover{color:var(
 .section-title{font-family:var(--font-serif);font-size:clamp(1.6rem,3vw,2.4rem);letter-spacing:.08em;color:var(--cream);margin-bottom:16px}
 .section-sep{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 24px;border:none}
 .section-text{max-width:700px;margin:0 auto;font-size:.95rem;color:var(--cream-dim);text-align:center;line-height:1.9}
-.awards-img{max-width:500px;margin:40px auto 0;animation:float 6s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.awards-img{max-width:500px;margin:40px auto 0;transition:all .5s ease;filter:drop-shadow(0 0 0 transparent)}
+.awards-img:hover{filter:drop-shadow(0 0 25px rgba(200,148,62,.5));transform:scale(1.03)}
 .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
 .gallery-item{position:relative;overflow:hidden;aspect-ratio:1;cursor:pointer}.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}.gallery-item:hover img{transform:scale(1.08)}
 .oferta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1000px;margin:0 auto}
@@ -105,7 +105,7 @@ a{color:var(--gold);text-decoration:none;transition:color .3s}a:hover{color:var(
 .reservation-bg{position:absolute;inset:0;background:url('https://browarwyszak.pl/wp-content/uploads/2025/04/browar-wyszak-wnetrze.webp') center/cover no-repeat;z-index:0}
 .reservation-overlay{position:absolute;inset:0;background:rgba(13,10,8,.82);z-index:1}
 .reservation-content{position:relative;z-index:2;text-align:center;max-width:600px;margin:0 auto;padding:60px 40px;background:var(--glass);border:1px solid var(--glass-border);border-radius:16px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
-.reservation .btn-gold{font-size:15px;padding:18px 48px;margin-top:8px}
+.reservation .btn-ruby{font-size:15px;padding:18px 48px;margin-top:8px}
 .badges-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:40px;max-width:800px;margin:0 auto}
 .badge-card{text-align:center;padding:40px 32px;background:var(--glass);border:1px solid var(--glass-border);border-radius:12px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:all .3s ease}
 .badge-card:hover{border-color:var(--gold);box-shadow:0 10px 40px rgba(200,148,62,.1)}.badge-card img{margin:0 auto 20px}.badge-card h3{font-family:var(--font-serif);font-size:1.1rem;letter-spacing:.08em;color:var(--cream);margin-bottom:12px}.badge-card p{font-size:.9rem;color:var(--cream-dim);line-height:1.7}
@@ -137,8 +137,8 @@ a{color:var(--gold);text-decoration:none;transition:color .3s}a:hover{color:var(
       <a href="imprezy-firmowe.html" class="nav-link">Firmenveranstaltungen</a>
       <a href="kontakt.html" class="nav-link">Kontakt</a>
       <a href="tel:+48914883481" class="nav-link nav-link--phone">(91) 488 34 81</a>
-      <a href="index.html" class="nav-lang">PL</a>
-      <a href="en-home.html" class="nav-lang">EN</a>
+      <a href="index.html" class="nav-lang" title="Polski">&#127477;&#127473;</a>
+      <a href="en-home.html" class="nav-lang" title="English">&#127468;&#127463;</a>
     </div>
     <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   </nav>
@@ -150,7 +150,7 @@ a{color:var(--gold);text-decoration:none;transition:color .3s}a:hover{color:var(
   <a href="imprezy-firmowe.html">Firmenveranstaltungen</a>
   <a href="kontakt.html">Kontakt</a>
   <a href="tel:+48914883481">(91) 488 34 81</a>
-  <div class="mobile-nav-langs"><a href="index.html" class="nav-lang">Polski</a><a href="en-home.html" class="nav-lang">English</a></div>
+  <div class="mobile-nav-langs"><a href="index.html" class="nav-lang" title="Polski">&#127477;&#127473;</a><a href="en-home.html" class="nav-lang" title="English">&#127468;&#127463;</a></div>
 </div>
 
 <section class="hero" id="hero">
@@ -185,13 +185,7 @@ a{color:var(--gold);text-decoration:none;transition:color .3s}a:hover{color:var(
     </div>
     <p class="section-text" data-reveal>Die Wyszak Brauerei befindet sich in den Kellerräumen des Altstadtrathauses, das ein Teil der internationalen Europäischen Route der Backsteingotik und heutzutage ein wichtiger Punkt auf der touristischen Karte von Stettin ist. In unserer Brauerei wird Bier, das Sie in den alten Kellerräumen des Rathauses genießen können, mit der handwerklichen Methode von den Brauern gebraut. Im Lokal befinden sich ein Sudhaus mit einer Ausschlagmenge von 5,5 hl und 9 Gärtanks mit einem Volumen von je 10 hl.</p>
     <div data-reveal="scale"><img src="https://browarwyszak.pl/wp-content/uploads/2019/06/wyszak-nagrody_Obszar-roboczy-1.png" alt="Auszeichnungen der Wyszak Brauerei" class="awards-img" width="766" height="265"></div>
-  </div>
-</section>
-
-<section class="section section-alt" id="gallery" style="padding-bottom:60px">
-  <div class="container" style="max-width:1000px">
-    <div class="section-heading" data-reveal><h2 class="section-title">INNENRÄUME</h2><hr class="section-sep"></div>
-    <div class="gallery-grid">
+    <div class="gallery-grid" style="margin-top:60px;max-width:1000px;margin-left:auto;margin-right:auto">
       <div class="gallery-item" data-reveal="scale" style="transition-delay:.05s"><img src="https://browarwyszak.pl/wp-content/uploads/2017/04/Browar-Rodzinny-Wyszak-wnetrze-5-of-10.jpg" alt="Haupthalle" loading="lazy" width="481" height="428"></div>
       <div class="gallery-item" data-reveal="scale" style="transition-delay:.1s"><img src="https://browarwyszak.pl/wp-content/uploads/2017/04/Browar-Rodzinny-Wyszak-wnetrze-9-of-10.jpg" alt="Zapfhähne" loading="lazy" width="481" height="428"></div>
       <div class="gallery-item" data-reveal="scale" style="transition-delay:.15s"><img src="https://browarwyszak.pl/wp-content/uploads/2017/04/Browar-Rodzinny-Wyszak-wnetrze-3-of-10.jpg" alt="Brautanks" loading="lazy" width="481" height="428"></div>
@@ -253,7 +247,7 @@ a{color:var(--gold);text-decoration:none;transition:color .3s}a:hover{color:var(
     <h2 class="section-title">RESERVIERUNGEN</h2><hr class="section-sep">
     <p class="section-text" style="margin-bottom:12px">Die Wyszak Brauerei ist ein besonderer Ort mit einer einzigartigen familiären Atmosphäre. Ein Ort voll von Freude, unvergesslichen Eindrücken und Gästen aus verschiedenen Ecken Polens und der Welt.</p>
     <p class="section-text" style="margin-bottom:32px">Damit alle unsere Besucher freie Plätze für sich finden können, ermuntern wir Sie, eine Reservierung vorzunehmen. Dies gilt insbesondere dann, wenn Sie ein Treffen im größeren Kreis planen.</p>
-    <a href="kontakt.html" class="btn btn-gold">Tisch Reservieren</a>
+    <a href="kontakt.html" class="btn btn-ruby">Tisch Reservieren</a>
   </div>
 </section>
 
@@ -287,7 +281,7 @@ a{color:var(--gold);text-decoration:none;transition:color .3s}a:hover{color:var(
     </div>
     <div class="footer-bottom">
       <div class="footer-copy">Browar Rodzinny Wyszak &copy; 2017 &mdash; Projekt: <a href="http://www.stoczniagrafiki.pl" target="_blank" rel="noopener">Stocznia Grafiki</a></div>
-      <nav class="footer-nav"><a href="menu.html">Speisekarte</a><a href="piwa-rzemieslnicze.html">Handwerkliches Bier</a><a href="imprezy-firmowe.html">Firmenveranstaltungen</a><a href="kontakt.html">Kontakt</a><a href="index.html" hreflang="pl-PL">PL</a><a href="en-home.html" hreflang="en-GB">EN</a><a href="de-home.html" hreflang="de-DE">DE</a></nav>
+      <nav class="footer-nav"><a href="menu.html">Speisekarte</a><a href="piwa-rzemieslnicze.html">Handwerkliches Bier</a><a href="imprezy-firmowe.html">Firmenveranstaltungen</a><a href="kontakt.html">Kontakt</a><a href="index.html" hreflang="pl-PL">&#127477;&#127473;</a><a href="en-home.html" hreflang="en-GB">&#127468;&#127463;</a><a href="de-home.html" hreflang="de-DE">&#127465;&#127466;</a></nav>
     </div>
   </div>
 </footer>
