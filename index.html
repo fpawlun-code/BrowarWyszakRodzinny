@@ -35,8 +35,8 @@ dataLayer.push({"pagePostType":"frontpage","pagePostType2":"single-page","pagePo
   --glass:rgba(255,245,216,.06);--glass-border:rgba(200,148,62,.15);
   --font-serif:'Libre Baskerville',Georgia,serif;--font-sans:'Montserrat',system-ui,sans-serif;
 }
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--cream);font-family:var(--font-sans);font-weight:400;line-height:1.7;overflow-x:hidden}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--bg);color:var(--cream);font-family:var(--font-sans);font-weight:400;line-height:1.7;overflow-x:hidden;min-width:100vw;width:100%}
 img{max-width:100%;height:auto;display:block}
 a{color:var(--gold);text-decoration:none;transition:color .3s}
 a:hover{color:var(--gold-light)}
@@ -123,8 +123,8 @@ a:hover{color:var(--gold-light)}
 @keyframes sparkle{0%{opacity:0;transform:scale(0)}50%{opacity:.6;transform:scale(1)}100%{opacity:0;transform:scale(0)}}
 
 /* Foam Divider */
-.foam-divider{position:relative;width:100%;overflow:hidden;line-height:0;margin-top:-1px}
-.foam-divider svg{display:block;width:100%;height:auto}
+.foam-divider{position:relative;width:100%;max-width:100%;overflow:hidden;line-height:0;margin-top:-1px}
+.foam-divider svg{display:block;width:100%;max-width:100%;height:auto}
 .foam-divider-top{margin-bottom:-1px;margin-top:0}
 
 /* ===== SECTIONS ===== */
@@ -521,7 +521,7 @@ a:hover{color:var(--gold-light)}
         <a href="piwa-rzemieslnicze.html">Piwa Rzemieślnicze</a>
         <a href="imprezy-firmowe.html">Imprezy Firmowe</a>
         <a href="kontakt.html">Kontakt</a>
-        <a href="index.html" hreflang="pl-PL">PL</a>
+        <a href="index.html" hreflang="pl-PL"><img src="wp-content/uploads/2017/09/flag-pl.png" alt="PL" width="20" height="14" style="vertical-align:middle"></a>
         <a href="en-home.html" hreflang="en-GB"><img src="wp-content/uploads/2017/09/flag-gb.png" alt="EN" width="20" height="14" style="vertical-align:middle"></a>
         <a href="de-home.html" hreflang="de-DE"><img src="wp-content/uploads/2017/09/flag-de.png" alt="DE" width="20" height="14" style="vertical-align:middle"></a>
       </nav>
