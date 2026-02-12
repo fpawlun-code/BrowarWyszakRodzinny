@@ -680,13 +680,15 @@ document.querySelectorAll('.smooth-scroll').forEach(function(link){
     var start=window.pageYOffset;
     var end=target.getBoundingClientRect().top+start;
     var distance=end-start;
-    var duration=2000;
-    var startTime=performance.now();
-    function step(time){
-      var progress=Math.min((time-startTime)/duration,1);
-      var ease=progress<.5?2*progress*progress:(1-Math.pow(-2*progress+2,2)/2);
+    var duration=1800;
+    document.documentElement.style.scrollBehavior='auto';
+    var t0=performance.now();
+    function step(){
+      var p=Math.min((performance.now()-t0)/duration,1);
+      var ease=p<.5?2*p*p:(1-Math.pow(-2*p+2,2)/2);
       window.scrollTo(0,start+distance*ease);
-      if(progress<1)requestAnimationFrame(step);
+      if(p<1){requestAnimationFrame(step)}
+      else{document.documentElement.style.scrollBehavior=''}
     }
     requestAnimationFrame(step);
   });
