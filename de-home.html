@@ -50,7 +50,7 @@ a{color:var(--gold);text-decoration:none;transition:color .3s}a:hover{color:var(
 .nav-link::after{content:'';position:absolute;bottom:4px;left:12px;right:12px;height:2px;background:var(--gold);transform:scaleX(0);transition:transform .3s ease;transform-origin:center}
 .nav-link:hover{color:var(--gold)}.nav-link:hover::after{transform:scaleX(1)}
 .nav-link--phone{color:var(--gold);font-weight:700}
-.nav-lang{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--glass);border:1px solid var(--glass-border);transition:all .3s ease;padding:0;font-size:11px;font-weight:700;letter-spacing:.05em;color:var(--cream)}.nav-lang svg{width:20px;height:20px}.nav-lang:hover{background:var(--gold);border-color:var(--gold);transform:translateY(-2px);color:var(--bg)}
+.nav-lang{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--glass);border:1px solid var(--glass-border);transition:all .3s ease;padding:0;.nav-lang svg{width:20px;height:14px;border-radius:2px}.nav-lang:hover{background:var(--gold);border-color:var(--gold);transform:translateY(-2px)
 .logo{flex-shrink:0}.logo img{height:100px;width:auto;transition:height .3s}.scrolled .logo img{height:60px}
 .nav-mobile-langs{display:none;align-items:center;gap:6px}
 .hamburger{display:none;flex-direction:column;gap:6px;background:none;border:none;cursor:pointer;padding:8px;z-index:1001}
@@ -132,15 +132,18 @@ a{color:var(--gold);text-decoration:none;transition:color .3s}a:hover{color:var(
   <nav class="nav-wrap">
     <div class="nav-mobile-langs">
       <a href="index.html" class="nav-lang" title="Polski">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.1"/>
-          <text x="12" y="16" text-anchor="middle" font-size="9" font-weight="700" fill="currentColor">PL</text>
+        <svg viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
+          <rect width="60" height="15" fill="#FFF"/>
+          <rect y="15" width="60" height="15" fill="#DC143C"/>
         </svg>
       </a>
       <a href="en-home.html" class="nav-lang" title="English">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.1"/>
-          <text x="12" y="16" text-anchor="middle" font-size="9" font-weight="700" fill="currentColor">EN</text>
+        <svg viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
+          <rect fill="#012169" width="60" height="30"/>
+          <path d="M0,0 L60,30 M60,0 L0,30" stroke="#FFF" stroke-width="6"/>
+          <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/>
+          <path d="M30,0 V30 M0,15 H60" stroke="#FFF" stroke-width="10"/>
+          <path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/>
         </svg>
       </a>
     </div>
@@ -154,15 +157,18 @@ a{color:var(--gold);text-decoration:none;transition:color .3s}a:hover{color:var(
       <a href="de-kontakt.html" class="nav-link">Kontakt</a>
       <a href="tel:+48914883481" class="nav-link nav-link--phone">(91) 488 34 81</a>
       <a href="index.html" class="nav-lang" title="Polski">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.1"/>
-          <text x="12" y="16" text-anchor="middle" font-size="9" font-weight="700" fill="currentColor">PL</text>
+        <svg viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
+          <rect width="60" height="15" fill="#FFF"/>
+          <rect y="15" width="60" height="15" fill="#DC143C"/>
         </svg>
       </a>
       <a href="en-home.html" class="nav-lang" title="English">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.1"/>
-          <text x="12" y="16" text-anchor="middle" font-size="9" font-weight="700" fill="currentColor">EN</text>
+        <svg viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
+          <rect fill="#012169" width="60" height="30"/>
+          <path d="M0,0 L60,30 M60,0 L0,30" stroke="#FFF" stroke-width="6"/>
+          <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/>
+          <path d="M30,0 V30 M0,15 H60" stroke="#FFF" stroke-width="10"/>
+          <path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/>
         </svg>
       </a>
       <div class="social-icons">
@@ -194,16 +200,19 @@ a{color:var(--gold);text-decoration:none;transition:color .3s}a:hover{color:var(
   </div>
   <div class="mobile-nav-langs">
     <a href="index.html" class="nav-lang" title="Polski">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.1"/>
-        <text x="12" y="16" text-anchor="middle" font-size="9" font-weight="700" fill="currentColor">PL</text>
-      </svg>
+      <svg viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
+          <rect width="60" height="15" fill="#FFF"/>
+          <rect y="15" width="60" height="15" fill="#DC143C"/>
+        </svg>
     </a>
     <a href="en-home.html" class="nav-lang" title="English">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.1"/>
-        <text x="12" y="16" text-anchor="middle" font-size="9" font-weight="700" fill="currentColor">EN</text>
-      </svg>
+      <svg viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
+          <rect fill="#012169" width="60" height="30"/>
+          <path d="M0,0 L60,30 M60,0 L0,30" stroke="#FFF" stroke-width="6"/>
+          <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/>
+          <path d="M30,0 V30 M0,15 H60" stroke="#FFF" stroke-width="10"/>
+          <path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/>
+        </svg>
     </a>
   </div>
 </div>
