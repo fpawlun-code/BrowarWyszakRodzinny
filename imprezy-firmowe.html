@@ -315,53 +315,59 @@ a:hover{color:var(--gold-light)}
     <div class="corp-form-card" data-reveal="scale">
       <h2>ZORGANIZUJ WYDARZENIE</h2>
       <hr class="corp-form-sep">
-      <form id="corpForm" novalidate>
+      <form action="https://formsubmit.co/fpawlun@gmail.com" method="POST" id="corpForm">
+        <!-- FormSubmit hidden fields -->
+        <input type="hidden" name="_subject" value="Rezerwacja firmowa - Browar Wyszak">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://browarwyszak.vercel.app/imprezy-firmowe.html?success=true">
+        <input type="text" name="_honey" style="display:none">
+
         <div class="form-fields-grid">
           <div class="form-group">
             <label class="form-label">Firma / Organizacja</label>
-            <input type="text" name="company" class="form-input" placeholder="Nazwa firmy">
+            <input type="text" name="Firma" class="form-input" placeholder="Nazwa firmy">
           </div>
           <div class="form-group">
             <label class="form-label">Osoba kontaktowa</label>
-            <input type="text" name="contact-name" class="form-input" placeholder="Imię i nazwisko" required>
+            <input type="text" name="Osoba_kontaktowa" class="form-input" placeholder="Imię i nazwisko" required>
           </div>
           <div class="form-group">
             <label class="form-label">Adres Email</label>
-            <input type="email" name="email" class="form-input" placeholder="email@firma.pl" required>
+            <input type="email" name="Email" class="form-input" placeholder="email@firma.pl" required>
           </div>
           <div class="form-group">
             <label class="form-label">Telefon</label>
-            <input type="tel" name="phone" class="form-input" placeholder="+48 ..." required>
+            <input type="tel" name="Telefon" class="form-input" placeholder="+48 ..." required>
           </div>
           <div class="form-group">
             <label class="form-label">Rodzaj wydarzenia</label>
-            <select name="event-type" class="form-input form-select">
+            <select name="Rodzaj_wydarzenia" class="form-input form-select">
               <option value="" disabled selected>Wybierz typ</option>
-              <option value="firmowa">Impreza firmowa</option>
-              <option value="integracja">Integracja zespołu</option>
-              <option value="konferencja">Konferencja / szkolenie</option>
-              <option value="bankiet">Bankiet / kolacja</option>
-              <option value="wigilia">Wigilia firmowa</option>
-              <option value="inne">Inne</option>
+              <option value="Impreza firmowa">Impreza firmowa</option>
+              <option value="Integracja zespołu">Integracja zespołu</option>
+              <option value="Konferencja / szkolenie">Konferencja / szkolenie</option>
+              <option value="Bankiet / kolacja">Bankiet / kolacja</option>
+              <option value="Wigilia firmowa">Wigilia firmowa</option>
+              <option value="Inne">Inne</option>
             </select>
           </div>
           <div class="form-group">
             <label class="form-label">Liczba osób</label>
-            <input type="number" name="guests" class="form-input" min="10" max="150" placeholder="np. 30">
+            <input type="number" name="Liczba_osob" class="form-input" min="10" max="150" placeholder="np. 30">
           </div>
           <div class="form-group">
             <label class="form-label">Preferowana data</label>
-            <input type="date" name="event-date" id="eventDate" class="form-input">
+            <input type="date" name="Data_wydarzenia" id="eventDate" class="form-input">
           </div>
           <div class="form-group">
             <label class="form-label">Godzina rozpoczęcia</label>
-            <select name="event-time" id="eventTime" class="form-input form-select">
+            <select name="Godzina" id="eventTime" class="form-input form-select">
               <option value="" disabled selected>Wybierz godzinę</option>
             </select>
           </div>
           <div class="form-group form-group-full">
             <label class="form-label">Dodatkowe informacje</label>
-            <textarea name="message" class="form-textarea" rows="4" placeholder="Catering, sprzęt AV, dekoracje, specjalne wymagania..."></textarea>
+            <textarea name="Dodatkowe_informacje" class="form-textarea" rows="4" placeholder="Catering, sprzęt AV, dekoracje, specjalne wymagania..."></textarea>
           </div>
         </div>
         <button type="submit" class="form-submit">Rezerwuj</button>
@@ -541,19 +547,14 @@ a:hover{color:var(--gold-light)}
     populateTimeSlots(today.getDay());
   }
 
-  // Corporate form submit
-  const corpForm = document.getElementById('corpForm');
-  if (corpForm) {
-    corpForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const data = new FormData(corpForm);
-      const body = Array.from(data.entries()).map(([k,v]) => `${k}: ${v}`).join('\n');
-      const subject = encodeURIComponent('Rezerwacja firmowa - ' + (data.get('company') || 'Zapytanie'));
-      const mailBody = encodeURIComponent(body);
-      window.location.href = `mailto:fpawlun@gmail.com?subject=${subject}&body=${mailBody}`;
-      corpForm.style.display = 'none';
-      document.getElementById('formSuccess').style.display = 'block';
-    });
+  // Show success message if redirected back with success param
+  if (window.location.search.includes('success=true')) {
+    const form = document.getElementById('corpForm');
+    const successMsg = document.getElementById('formSuccess');
+    if (form && successMsg) {
+      form.style.display = 'none';
+      successMsg.style.display = 'block';
+    }
   }
 
   // Dynamic language switcher
