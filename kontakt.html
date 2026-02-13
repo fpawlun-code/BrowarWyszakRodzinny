@@ -542,25 +542,30 @@ a:hover{color:var(--gold-light)}
     function generateTimeSlots(dayOfWeek) {
       timeSelect.innerHTML = '<option value="">Wybierz godzinę</option>';
 
-      let startHour, endHour;
+      let startHour, endHour, endMinute;
 
-      // Mon-Thu: 15:00-23:00, Fri-Sat: 13:00-01:00 (next day), Sun: 13:00-21:00
+      // Mon-Thu: 15:00-22:00, Fri-Sat: 13:00-22:30, Sun: 13:00-20:00
       if (dayOfWeek >= 1 && dayOfWeek <= 4) { // Mon-Thu
         startHour = 15;
-        endHour = 23;
+        endHour = 22;
+        endMinute = 0;
       } else if (dayOfWeek === 5 || dayOfWeek === 6) { // Fri-Sat
         startHour = 13;
-        endHour = 25; // 01:00 next day = 25:00
+        endHour = 22;
+        endMinute = 30;
       } else { // Sunday
         startHour = 13;
-        endHour = 21;
+        endHour = 20;
+        endMinute = 0;
       }
 
       // Generate slots every 30 minutes
-      for (let h = startHour; h < endHour; h++) {
+      for (let h = startHour; h <= endHour; h++) {
         for (let m of [0, 30]) {
-          const displayHour = h > 23 ? h - 24 : h;
-          const timeStr = `${String(displayHour).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
+          // Stop if we've reached the end time
+          if (h === endHour && m > endMinute) break;
+
+          const timeStr = `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
           const option = document.createElement('option');
           option.value = timeStr;
           option.textContent = timeStr;
