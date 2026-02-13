@@ -319,7 +319,7 @@ a:hover{color:var(--gold-light)}
 
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_subject" value="Rezerwacja firmowa - Browar Wyszak">
+        <input type="hidden" name="_subject" id="emailSubject" value="Rezerwacja - Browar Wyszak">
         <input type="text" name="_honey" style="display:none">
 
         <div class="form-fields-grid">
@@ -547,14 +547,16 @@ a:hover{color:var(--gold-light)}
     populateTimeSlots(today.getDay());
   }
 
-  // Form submission handling (Basin redirects back)
-  if (window.location.search.includes('success')) {
-    const form = document.getElementById('corpForm');
-    const successMsg = document.getElementById('formSuccess');
-    if (form && successMsg) {
-      form.style.display = 'none';
-      successMsg.style.display = 'block';
-    }
+  // Corporate form - update subject with contact name
+  const corpForm = document.getElementById('corpForm');
+  if (corpForm) {
+    corpForm.addEventListener('submit', function(e) {
+      const contactName = corpForm.querySelector('[name="Osoba_kontaktowa"]').value;
+      const subjectField = document.getElementById('emailSubject');
+      if (contactName && subjectField) {
+        subjectField.value = `Rezerwacja - ${contactName}`;
+      }
+    });
   }
 
   // Dynamic language switcher
