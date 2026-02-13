@@ -577,10 +577,20 @@ a:hover{color:var(--gold-light)}
       submitData.append('message', emailBody);
 
       try {
-        const response = await fetch('https://formsubmit.co/fpawlun@gmail.com', {
+        const response = await fetch('/api/send-reservation', {
           method: 'POST',
-          body: submitData,
-          headers: { 'Accept': 'application/json' }
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            Firma: formData.get('Firma'),
+            Osoba_kontaktowa: formData.get('Osoba_kontaktowa'),
+            Email: formData.get('Email'),
+            Telefon: formData.get('Telefon'),
+            Rodzaj_wydarzenia: formData.get('Rodzaj_wydarzenia'),
+            Liczba_osob: formData.get('Liczba_osob'),
+            Data_wydarzenia: formData.get('Data_wydarzenia'),
+            Godzina: formData.get('Godzina'),
+            Dodatkowe_informacje: formData.get('Dodatkowe_informacje')
+          })
         });
 
         if (response.ok) {
