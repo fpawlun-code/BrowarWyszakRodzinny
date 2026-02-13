@@ -315,13 +315,8 @@ a:hover{color:var(--gold-light)}
     <div class="corp-form-card" data-reveal="scale">
       <h2>ZORGANIZUJ WYDARZENIE</h2>
       <hr class="corp-form-sep">
-      <form action="https://formsubmit.co/fpawlun@gmail.com" method="POST" id="corpForm">
+      <form id="corpForm">
 
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_subject" id="emailSubject" value="Rezerwacja - Browar Wyszak">
-        <input type="hidden" name="_next" value="https://browar-wyszak-rodzinny.vercel.app/imprezy-firmowe.html?success=true">
-        <input type="text" name="_honey" style="display:none">
 
         <div class="form-fields-grid">
           <div class="form-group">
@@ -548,26 +543,58 @@ a:hover{color:var(--gold-light)}
     populateTimeSlots(today.getDay());
   }
 
-  // Corporate form - update subject with contact name
+  // Corporate form - AJAX submit (no redirect)
   const corpForm = document.getElementById('corpForm');
   if (corpForm) {
-    corpForm.addEventListener('submit', function(e) {
-      const contactName = corpForm.querySelector('[name="Osoba_kontaktowa"]').value;
-      const subjectField = document.getElementById('emailSubject');
-      if (contactName && subjectField) {
-        subjectField.value = `Rezerwacja - ${contactName}`;
+    corpForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const submitBtn = corpForm.querySelector('.form-submit');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Wysyłanie...';
+
+      // Build email data
+      const formData = new FormData(corpForm);
+      const contactName = formData.get('Osoba_kontaktowa') || 'Brak imienia';
+
+      // Build email body with Polish labels
+      let emailBody = 'Nowa rezerwacja firmowa - Browar Wyszak\n\n';
+      emailBody += `Firma/Organizacja: ${formData.get('Firma') || 'Nie podano'}\n`;
+      emailBody += `Osoba kontaktowa: ${formData.get('Osoba_kontaktowa')}\n`;
+      emailBody += `Email: ${formData.get('Email')}\n`;
+      emailBody += `Telefon: ${formData.get('Telefon')}\n`;
+      emailBody += `Rodzaj wydarzenia: ${formData.get('Rodzaj_wydarzenia') || 'Nie wybrano'}\n`;
+      emailBody += `Liczba osób: ${formData.get('Liczba_osob') || 'Nie podano'}\n`;
+      emailBody += `Data wydarzenia: ${formData.get('Data_wydarzenia') || 'Nie podano'}\n`;
+      emailBody += `Godzina: ${formData.get('Godzina') || 'Nie podano'}\n\n`;
+      emailBody += `Dodatkowe informacje:\n${formData.get('Dodatkowe_informacje') || 'Brak'}`;
+
+      // Prepare FormSubmit data
+      const submitData = new FormData();
+      submitData.append('_captcha', 'false');
+      submitData.append('_template', 'box');
+      submitData.append('_subject', `Rezerwacja - ${contactName}`);
+      submitData.append('message', emailBody);
+
+      try {
+        const response = await fetch('https://formsubmit.co/fpawlun@gmail.com', {
+          method: 'POST',
+          body: submitData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          corpForm.style.display = 'none';
+          document.getElementById('formSuccess').style.display = 'block';
+        } else {
+          throw new Error('Failed to send');
+        }
+      } catch (error) {
+        alert('Wystąpił błąd. Prosimy zadzwonić: 91 488 34 81');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Rezerwuj';
       }
     });
-  }
-
-  // Show success message after redirect
-  if (window.location.search.includes('success=true')) {
-    const form = document.getElementById('corpForm');
-    const successMsg = document.getElementById('formSuccess');
-    if (form && successMsg) {
-      form.style.display = 'none';
-      successMsg.style.display = 'block';
-    }
   }
 
   // Dynamic language switcher
