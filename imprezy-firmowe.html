@@ -120,13 +120,30 @@ a:hover{color:var(--gold-light)}
 .section-sep{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 24px;border:none}
 .section-text{max-width:700px;margin:0 auto;font-size:.95rem;color:var(--cream-dim);text-align:center;line-height:1.9}
 
-/* ===== ICON BOXES ===== */
-.icon-boxes{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1000px;margin:0 auto}
-.icon-box{text-align:center;padding:40px 24px;background:var(--glass);border:1px solid var(--glass-border);border-radius:12px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:all .4s ease}
-.icon-box:hover{transform:translateY(-6px);box-shadow:0 15px 40px rgba(200,148,62,.12);border-color:var(--gold)}
-.icon-box-svg{width:60px;height:60px;margin:0 auto 20px}
-.icon-box h3{font-family:var(--font-serif);font-size:1.1rem;letter-spacing:.06em;color:var(--cream);margin-bottom:8px}
-.icon-box p{font-size:.9rem;color:var(--cream-dim);line-height:1.7}
+/* ===== MINI ICON BOXES (inline in description) ===== */
+.mini-icons{display:flex;justify-content:center;gap:32px;margin-top:36px;flex-wrap:wrap}
+.mini-icon{display:flex;align-items:center;gap:10px;padding:10px 18px;background:var(--glass);border:1px solid var(--glass-border);border-radius:8px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.mini-icon svg{width:28px;height:28px;flex-shrink:0}
+.mini-icon-text h4{font-family:var(--font-serif);font-size:.8rem;letter-spacing:.04em;color:var(--cream);line-height:1.2}
+.mini-icon-text p{font-size:.72rem;color:var(--cream-dim);line-height:1.4}
+
+/* ===== CORPORATE FORM ===== */
+.corp-form-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:16px;padding:48px 40px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);max-width:720px;margin:0 auto}
+.corp-form-card h2{font-family:var(--font-serif);font-size:clamp(1.4rem,2.5vw,1.8rem);letter-spacing:.095em;color:var(--cream);text-align:center;margin-bottom:8px}
+.corp-form-sep{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 32px;border:none}
+.form-fields-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.form-group{margin-bottom:0}
+.form-group-full{grid-column:1/-1}
+.form-label{display:block;font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.form-input,.form-select,.form-textarea{width:100%;background:rgba(13,10,8,.6);border:1px solid var(--glass-border);border-radius:6px;padding:14px 18px;font-family:var(--font-sans);font-size:.9rem;color:var(--cream);transition:border-color .3s,box-shadow .3s;outline:none;-webkit-appearance:none;appearance:none}
+.form-input::placeholder,.form-textarea::placeholder{color:rgba(254,245,216,.3)}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--gold);box-shadow:0 0 20px rgba(200,148,62,.1)}
+.form-select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c8943e' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+.form-select option{background:var(--bg);color:var(--cream)}
+.form-textarea{min-height:120px;resize:vertical}
+.form-submit{width:100%;padding:16px;font-family:var(--font-sans);font-size:14px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:var(--ruby);color:var(--cream);border:2px solid var(--ruby);border-radius:6px;cursor:pointer;transition:all .3s ease;margin-top:8px}
+.form-submit:hover{background:#a12010;border-color:#a12010;transform:translateY(-2px);box-shadow:0 8px 30px rgba(139,26,10,.3)}
+.form-success{display:none;text-align:center;padding:32px;color:var(--gold);font-family:var(--font-serif);font-size:1.1rem;letter-spacing:.04em}
 
 /* ===== PHOTO GRID ===== */
 .photo-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:4px}
@@ -167,7 +184,9 @@ a:hover{color:var(--gold-light)}
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:1024px){
-  .icon-boxes{grid-template-columns:1fr;max-width:400px}
+  .mini-icons{gap:20px}
+  .corp-form-card{padding:40px 28px}
+  .form-fields-grid{gap:20px}
   .photo-grid{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:repeat(2,1fr)}
 }
@@ -182,6 +201,9 @@ a:hover{color:var(--gold-light)}
   .container{padding:0 20px}
   .section{padding:70px 0}
   .btn{width:100%;max-width:260px;justify-content:center;padding:12px 24px;font-size:12px}
+  .mini-icons{flex-direction:column;align-items:center;gap:12px}
+  .corp-form-card{padding:32px 20px}
+  .form-fields-grid{grid-template-columns:1fr}
   .reservation-content{padding:40px 24px;margin:0 16px}
   .footer-grid{grid-template-columns:1fr;text-align:center}
   .footer-hours li{justify-content:center}
@@ -262,6 +284,20 @@ a:hover{color:var(--gold-light)}
       <h2 class="section-title">ZORGANIZUJ WYDARZENIE</h2>
       <hr class="section-sep">
       <p class="section-text">Imprezy firmowe, wydarzenia rodzinne, spotkania w dużym gronie przy pysznych potrawach oraz wspaniałym piwie. Zorganizujemy je dla Ciebie w Wyszaku! Szczegółowe informacje pod numerami: 91 488 34 81, 662 233 678. Zapraszamy!</p>
+      <div class="mini-icons">
+        <div class="mini-icon">
+          <svg width="28" height="28" viewBox="0 0 60 60" fill="none"><path d="M30 12C22.3 12 15.4 15.4 10.6 20.8L7 17.2C12.8 10.8 20.9 7 30 7C39.1 7 47.2 10.8 53 17.2L49.4 20.8C44.6 15.4 37.7 12 30 12Z" fill="var(--gold)" opacity=".45"/><path d="M30 22C25.1 22 20.7 24.1 17.6 27.5L14 23.9C18.1 19.5 23.7 17 30 17C36.3 17 41.9 19.5 46 23.9L42.4 27.5C39.3 24.1 34.9 22 30 22Z" fill="var(--gold)" opacity=".65"/><path d="M30 32C27.2 32 24.7 33.2 22.9 35.1L19.3 31.5C22.1 28.5 25.8 27 30 27C34.2 27 37.9 28.5 40.7 31.5L37.1 35.1C35.3 33.2 32.8 32 30 32Z" fill="var(--gold)" opacity=".85"/><circle cx="30" cy="42" r="4" fill="var(--gold)"/></svg>
+          <div class="mini-icon-text"><h4>Darmowe Wifi</h4><p>Na terenie restauracji</p></div>
+        </div>
+        <div class="mini-icon">
+          <svg width="28" height="28" viewBox="0 0 60 60" fill="none"><path d="M15 10L18 28H42L45 10" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round" fill="none"/><path d="M18 28C18 28 19 38 30 38C41 38 42 28 42 28" stroke="var(--gold)" stroke-width="2.5" fill="none"/><line x1="30" y1="38" x2="30" y2="48" stroke="var(--gold)" stroke-width="2.5"/><line x1="22" y1="48" x2="38" y2="48" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round"/></svg>
+          <div class="mini-icon-text"><h4>Koktail Bar</h4><p>Otwarty dla gości</p></div>
+        </div>
+        <div class="mini-icon">
+          <svg width="28" height="28" viewBox="0 0 60 60" fill="none"><rect x="14" y="16" width="28" height="34" rx="3" stroke="var(--gold)" stroke-width="2.5" fill="none"/><path d="M42 24H48C50.2 24 52 25.8 52 28V34C52 36.2 50.2 38 48 38H42" stroke="var(--gold)" stroke-width="2.5" fill="none"/><line x1="14" y1="22" x2="42" y2="22" stroke="var(--gold)" stroke-width="2" opacity=".5"/><path d="M22 8C22 8 20 12 22 16" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round" fill="none" opacity=".5"/><path d="M28 6C28 6 26 10 28 14" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round" fill="none" opacity=".4"/><path d="M34 8C34 8 32 12 34 16" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round" fill="none" opacity=".5"/></svg>
+          <div class="mini-icon-text"><h4>Piwa Rzemieślnicze</h4><p>Nagradzane medalami</p></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -273,50 +309,66 @@ a:hover{color:var(--gold-light)}
   </svg>
 </div>
 
-<!-- ===== ICON BOXES ===== -->
-<section class="section section-alt" id="features">
+<!-- ===== FORMULARZ REZERWACJI DLA FIRM ===== -->
+<section class="section section-alt" id="corporate-form">
   <div class="container">
-    <div class="icon-boxes" data-reveal>
-      <div class="icon-box">
-        <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-box-svg">
-          <path d="M30 12C22.3 12 15.4 15.4 10.6 20.8L7 17.2C12.8 10.8 20.9 7 30 7C39.1 7 47.2 10.8 53 17.2L49.4 20.8C44.6 15.4 37.7 12 30 12Z" fill="var(--gold)" opacity=".45"/>
-          <path d="M30 22C25.1 22 20.7 24.1 17.6 27.5L14 23.9C18.1 19.5 23.7 17 30 17C36.3 17 41.9 19.5 46 23.9L42.4 27.5C39.3 24.1 34.9 22 30 22Z" fill="var(--gold)" opacity=".65"/>
-          <path d="M30 32C27.2 32 24.7 33.2 22.9 35.1L19.3 31.5C22.1 28.5 25.8 27 30 27C34.2 27 37.9 28.5 40.7 31.5L37.1 35.1C35.3 33.2 32.8 32 30 32Z" fill="var(--gold)" opacity=".85"/>
-          <circle cx="30" cy="42" r="4" fill="var(--gold)"/>
-        </svg>
-        <h3>Darmowe Wifi</h3>
-        <p>Na terenie restauracji</p>
-      </div>
-      <div class="icon-box">
-        <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-box-svg">
-          <path d="M15 10L18 28H42L45 10" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-          <path d="M18 28C18 28 19 38 30 38C41 38 42 28 42 28" stroke="var(--gold)" stroke-width="2.5" fill="none"/>
-          <line x1="30" y1="38" x2="30" y2="48" stroke="var(--gold)" stroke-width="2.5"/>
-          <line x1="22" y1="48" x2="38" y2="48" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round"/>
-          <circle cx="12" cy="14" r="3" fill="var(--gold)" opacity=".5"/>
-          <circle cx="48" cy="8" r="2" fill="var(--gold)" opacity=".4"/>
-          <path d="M10 18Q8 12 12 8" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".4"/>
-          <path d="M24 14L22 20" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" opacity=".3"/>
-          <path d="M36 12L34 18" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" opacity=".3"/>
-        </svg>
-        <h3>Koktail Bar</h3>
-        <p>Otwarty dla gości</p>
-      </div>
-      <div class="icon-box">
-        <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-box-svg">
-          <rect x="14" y="16" width="28" height="34" rx="3" stroke="var(--gold)" stroke-width="2.5" fill="none"/>
-          <path d="M42 24H48C50.2 24 52 25.8 52 28V34C52 36.2 50.2 38 48 38H42" stroke="var(--gold)" stroke-width="2.5" fill="none"/>
-          <line x1="14" y1="22" x2="42" y2="22" stroke="var(--gold)" stroke-width="2" opacity=".5"/>
-          <path d="M22 8C22 8 20 12 22 16" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round" fill="none" opacity=".5"/>
-          <path d="M28 6C28 6 26 10 28 14" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round" fill="none" opacity=".4"/>
-          <path d="M34 8C34 8 32 12 34 16" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round" fill="none" opacity=".5"/>
-          <circle cx="22" cy="32" r="2" fill="var(--gold)" opacity=".25"/>
-          <circle cx="30" cy="38" r="1.5" fill="var(--gold)" opacity=".2"/>
-          <circle cx="26" cy="42" r="1" fill="var(--gold)" opacity=".2"/>
-          <circle cx="34" cy="35" r="1.5" fill="var(--gold)" opacity=".25"/>
-        </svg>
-        <h3>Piwa Rzemieślnicze</h3>
-        <p>Nagradzane medalami</p>
+    <div class="corp-form-card" data-reveal="scale">
+      <img src="https://browarwyszak.pl/wp-content/uploads/2017/02/SZYSZKA.png" alt="" class="section-icon" width="60" height="55">
+      <h2>Rezerwacja dla Firm</h2>
+      <hr class="corp-form-sep">
+      <form id="corpForm" novalidate>
+        <div class="form-fields-grid">
+          <div class="form-group">
+            <label class="form-label">Firma / Organizacja</label>
+            <input type="text" name="company" class="form-input" placeholder="Nazwa firmy" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Osoba kontaktowa</label>
+            <input type="text" name="contact-name" class="form-input" placeholder="Imię i nazwisko" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Adres Email</label>
+            <input type="email" name="email" class="form-input" placeholder="email@firma.pl" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Telefon</label>
+            <input type="tel" name="phone" class="form-input" placeholder="+48 ..." required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Rodzaj wydarzenia</label>
+            <select name="event-type" class="form-input form-select" required>
+              <option value="" disabled selected>Wybierz typ</option>
+              <option value="firmowa">Impreza firmowa</option>
+              <option value="integracja">Integracja zespołu</option>
+              <option value="konferencja">Konferencja / szkolenie</option>
+              <option value="bankiet">Bankiet / kolacja</option>
+              <option value="wigilia">Wigilia firmowa</option>
+              <option value="inne">Inne</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Liczba osób</label>
+            <input type="number" name="guests" class="form-input" min="10" max="150" placeholder="np. 30">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Preferowana data</label>
+            <input type="date" name="event-date" id="eventDate" class="form-input" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Godzina rozpoczęcia</label>
+            <select name="event-time" id="eventTime" class="form-input form-select" required>
+              <option value="" disabled selected>Wybierz godzinę</option>
+            </select>
+          </div>
+          <div class="form-group form-group-full">
+            <label class="form-label">Dodatkowe informacje</label>
+            <textarea name="message" class="form-textarea" rows="4" placeholder="Catering, sprzęt AV, dekoracje, specjalne wymagania..."></textarea>
+          </div>
+        </div>
+        <button type="submit" class="form-submit">Wyślij zapytanie</button>
+      </form>
+      <div class="form-success" id="formSuccess">
+        Dziękujemy! Skontaktujemy się w ciągu 24 godzin.
       </div>
     </div>
   </div>
@@ -459,6 +511,51 @@ a:hover{color:var(--gold-light)}
       });
     }
   });
+
+  // Corporate form - date & time logic
+  const eventDate = document.getElementById('eventDate');
+  const eventTime = document.getElementById('eventTime');
+  if (eventDate) {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    eventDate.min = `${yyyy}-${mm}-${dd}`;
+
+    function populateTimeSlots(dayOfWeek) {
+      eventTime.innerHTML = '<option value="" disabled selected>Wybierz godzinę</option>';
+      let startH, endH;
+      if (dayOfWeek >= 1 && dayOfWeek <= 4) { startH = 15; endH = 22; }
+      else if (dayOfWeek === 5 || dayOfWeek === 6) { startH = 13; endH = 23; }
+      else { startH = 13; endH = 20; }
+      for (let h = startH; h <= endH; h++) {
+        for (let m = 0; m < 60; m += 30) {
+          const val = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`;
+          eventTime.innerHTML += `<option value="${val}">${val}</option>`;
+        }
+      }
+    }
+    eventDate.addEventListener('change', function() {
+      const d = new Date(this.value + 'T00:00:00');
+      populateTimeSlots(d.getDay());
+    });
+    populateTimeSlots(today.getDay());
+  }
+
+  // Corporate form submit
+  const corpForm = document.getElementById('corpForm');
+  if (corpForm) {
+    corpForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const data = new FormData(corpForm);
+      const body = Array.from(data.entries()).map(([k,v]) => `${k}: ${v}`).join('\n');
+      const subject = encodeURIComponent('Rezerwacja firmowa - ' + (data.get('company') || 'Zapytanie'));
+      const mailBody = encodeURIComponent(body);
+      window.location.href = `mailto:info@browarwyszak.pl?subject=${subject}&body=${mailBody}`;
+      corpForm.style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    });
+  }
 
   // Dynamic language switcher
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
