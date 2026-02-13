@@ -315,12 +315,7 @@ a:hover{color:var(--gold-light)}
     <div class="corp-form-card" data-reveal="scale">
       <h2>ZORGANIZUJ WYDARZENIE</h2>
       <hr class="corp-form-sep">
-      <form action="https://formsubmit.co/fpawlun@gmail.com" method="POST" id="corpForm">
-        <!-- FormSubmit hidden fields -->
-        <input type="hidden" name="_subject" value="Rezerwacja firmowa - Browar Wyszak">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://browarwyszak.vercel.app/imprezy-firmowe.html?success=true">
-        <input type="text" name="_honey" style="display:none">
+      <form id="corpForm">
 
         <div class="form-fields-grid">
           <div class="form-group">
@@ -547,14 +542,39 @@ a:hover{color:var(--gold-light)}
     populateTimeSlots(today.getDay());
   }
 
-  // Show success message if redirected back with success param
-  if (window.location.search.includes('success=true')) {
-    const form = document.getElementById('corpForm');
-    const successMsg = document.getElementById('formSuccess');
-    if (form && successMsg) {
-      form.style.display = 'none';
-      successMsg.style.display = 'block';
-    }
+  // Corporate form - Web3Forms submit
+  const corpForm = document.getElementById('corpForm');
+  if (corpForm) {
+    corpForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const formData = new FormData(corpForm);
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+
+      const submitBtn = corpForm.querySelector('.form-submit');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Wysyłanie...';
+
+      try {
+        const response = await fetch('/api/send-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: json
+        });
+        const result = await response.json();
+
+        if (result.success) {
+          corpForm.style.display = 'none';
+          document.getElementById('formSuccess').style.display = 'block';
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch (error) {
+        alert('Wystąpił błąd. Prosimy zadzwonić: 91 488 34 81');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Rezerwuj';
+      }
+    });
   }
 
   // Dynamic language switcher
