@@ -301,41 +301,44 @@ a:hover{color:var(--gold-light)}
       <div class="contact-form-card" data-reveal="left">
         <h2><span style="letter-spacing:.095em">REZERWUJ STOLIK</span></h2>
         <hr class="contact-form-sep">
-        <form action="/kontakt/#wpcf7-f821-p122-o1" method="post" novalidate="novalidate">
+        <form id="reservationForm" novalidate="novalidate">
           <div class="form-fields-grid">
             <div class="form-group">
               <label class="form-label">Imi&#281; i Nazwisko</label>
-              <input type="text" name="your-name" class="form-input" aria-invalid="false">
+              <input type="text" name="name" class="form-input" required aria-invalid="false">
             </div>
             <div class="form-group">
               <label class="form-label">Adres Email</label>
-              <input type="email" name="your-email" class="form-input" aria-required="true" aria-invalid="false">
+              <input type="email" name="email" class="form-input" required aria-invalid="false">
             </div>
             <div class="form-group">
               <label class="form-label">Telefon</label>
-              <input type="text" name="your-phone" class="form-input" aria-invalid="false">
+              <input type="tel" name="phone" class="form-input" required aria-invalid="false">
             </div>
             <div class="form-group">
               <label class="form-label">Data Rezerwacji</label>
-              <input type="date" name="reservation-date" id="reservationDate" class="form-input" required aria-invalid="false">
+              <input type="date" name="date" id="reservationDate" class="form-input" required aria-invalid="false">
             </div>
             <div class="form-group">
               <label class="form-label">Godzina</label>
-              <select name="reservation-time" id="reservationTime" class="form-input" required aria-invalid="false">
+              <select name="time" id="reservationTime" class="form-input" required aria-invalid="false">
                 <option value="">Wybierz godzin&#281;</option>
               </select>
             </div>
             <div class="form-group">
               <label class="form-label">Liczba Os&oacute;b</label>
-              <input type="number" name="guest-count" class="form-input" min="1" max="20" placeholder="Ilo&#347;&#263; go&#347;ci" aria-invalid="false">
+              <input type="number" name="guests" class="form-input" min="1" max="400" placeholder="Ilo&#347;&#263; go&#347;ci" aria-invalid="false">
             </div>
             <div class="form-group form-group-full">
               <label class="form-label">Wiadomo&#347;&#263;</label>
-              <textarea name="your-message" class="form-textarea" rows="4" placeholder="Dodatkowe informacje (opcjonalnie)" aria-invalid="false"></textarea>
+              <textarea name="message" class="form-textarea" rows="4" placeholder="Dodatkowe informacje (opcjonalnie)" aria-invalid="false"></textarea>
             </div>
           </div>
           <button type="submit" class="form-submit">Rezerwuj</button>
         </form>
+        <div class="form-success" id="formSuccess" style="display:none;text-align:center;padding:32px;color:var(--gold);font-family:var(--font-serif);font-size:1.1rem;letter-spacing:.04em">
+          Dziękujemy! Skontaktujemy się w ciągu 24 godzin.
+        </div>
       </div>
 
       <!-- RIGHT: Odwiedz Nas -->
@@ -587,6 +590,51 @@ a:hover{color:var(--gold-light)}
       const dayOfWeek = today.getDay();
       generateTimeSlots(dayOfWeek);
     }
+  }
+
+  // Form submission handler
+  const reservationForm = document.getElementById('reservationForm');
+  if (reservationForm) {
+    reservationForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const submitBtn = reservationForm.querySelector('.form-submit');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Wysyłanie...';
+
+      const formData = new FormData(reservationForm);
+
+      try {
+        const response = await fetch('/api/send-reservation', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            Osoba_kontaktowa: formData.get('name'),
+            Email: formData.get('email'),
+            Telefon: formData.get('phone'),
+            Data_wydarzenia: formData.get('date'),
+            Godzina: formData.get('time'),
+            Liczba_osob: formData.get('guests'),
+            Dodatkowe_informacje: formData.get('message'),
+            Firma: '',
+            Rodzaj_wydarzenia: 'Rezerwacja stolika'
+          })
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          reservationForm.style.display = 'none';
+          document.getElementById('formSuccess').style.display = 'block';
+        } else {
+          throw new Error('Failed to send');
+        }
+      } catch (error) {
+        alert('Wystąpił błąd. Prosimy zadzwonić: 91 488 34 81');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Rezerwuj';
+      }
+    });
   }
 })();
 </script>
