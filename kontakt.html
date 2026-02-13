@@ -487,6 +487,21 @@ a:hover{color:var(--gold-light)}
       particlesContainer.appendChild(p);
     }
   }
+
+  // Dynamic language switcher
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  const pageMap = {
+    'index.html': { en: 'en-home.html', de: 'de-home.html' },
+    'menu.html': { en: 'en-menu.html', de: 'de-menu.html' },
+    'kontakt.html': { en: 'en-kontakt.html', de: 'de-kontakt.html' },
+    'piwa-rzemieslnicze.html': { en: 'en-piwa-rzemieslnicze.html', de: 'de-piwa-rzemieslnicze.html' },
+    'imprezy-firmowe.html': { en: 'en-imprezy-firmowe.html', de: 'de-imprezy-firmowe.html' }
+  };
+  const langLinks = pageMap[currentPage];
+  if (langLinks) {
+    document.querySelectorAll('a[hreflang="en-GB"], a[title="English"]').forEach(a => a.href = langLinks.en);
+    document.querySelectorAll('a[hreflang="de-DE"], a[title="Deutsch"]').forEach(a => a.href = langLinks.de);
+  }
 })();
 </script>
 
