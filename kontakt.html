@@ -312,8 +312,22 @@ a:hover{color:var(--gold-light)}
             <input type="text" name="your-phone" class="form-input" aria-invalid="false">
           </div>
           <div class="form-group">
+            <label class="form-label">Data Rezerwacji</label>
+            <input type="date" name="reservation-date" id="reservationDate" class="form-input" required aria-invalid="false">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Godzina</label>
+            <select name="reservation-time" id="reservationTime" class="form-input" required aria-invalid="false">
+              <option value="">Wybierz godzin&#281;</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Liczba Os&oacute;b</label>
+            <input type="number" name="guest-count" class="form-input" min="1" max="20" placeholder="Ilo&#347;&#263; go&#347;ci" aria-invalid="false">
+          </div>
+          <div class="form-group">
             <label class="form-label">Wiadomo&#347;&#263;</label>
-            <textarea name="your-message" class="form-textarea" rows="6" aria-invalid="false"></textarea>
+            <textarea name="your-message" class="form-textarea" rows="4" placeholder="Dodatkowe informacje (opcjonalnie)" aria-invalid="false"></textarea>
           </div>
           <button type="submit" class="form-submit">Rezerwuj</button>
         </form>
@@ -507,6 +521,62 @@ a:hover{color:var(--gold-light)}
   if (langLinks) {
     document.querySelectorAll('a[hreflang="en-GB"], a[title="English"]').forEach(a => a.href = langLinks.en);
     document.querySelectorAll('a[hreflang="de-DE"], a[title="Deutsch"]').forEach(a => a.href = langLinks.de);
+  }
+
+  // Reservation date & time logic
+  const dateInput = document.getElementById('reservationDate');
+  const timeSelect = document.getElementById('reservationTime');
+
+  if (dateInput && timeSelect) {
+    // Set minimum date to today
+    const today = new Date();
+    const minDate = today.toISOString().split('T')[0];
+    dateInput.setAttribute('min', minDate);
+
+    // Generate time slots based on day of week
+    function generateTimeSlots(dayOfWeek) {
+      timeSelect.innerHTML = '<option value="">Wybierz godzinę</option>';
+
+      let startHour, endHour;
+
+      // Mon-Thu: 15:00-23:00, Fri-Sat: 13:00-01:00 (next day), Sun: 13:00-21:00
+      if (dayOfWeek >= 1 && dayOfWeek <= 4) { // Mon-Thu
+        startHour = 15;
+        endHour = 23;
+      } else if (dayOfWeek === 5 || dayOfWeek === 6) { // Fri-Sat
+        startHour = 13;
+        endHour = 25; // 01:00 next day = 25:00
+      } else { // Sunday
+        startHour = 13;
+        endHour = 21;
+      }
+
+      // Generate slots every 30 minutes
+      for (let h = startHour; h < endHour; h++) {
+        for (let m of [0, 30]) {
+          const displayHour = h > 23 ? h - 24 : h;
+          const timeStr = `${String(displayHour).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
+          const option = document.createElement('option');
+          option.value = timeStr;
+          option.textContent = timeStr;
+          timeSelect.appendChild(option);
+        }
+      }
+    }
+
+    // Update time slots when date changes
+    dateInput.addEventListener('change', function() {
+      const selectedDate = new Date(this.value + 'T00:00:00');
+      const dayOfWeek = selectedDate.getDay();
+      generateTimeSlots(dayOfWeek);
+    });
+
+    // Initialize with today's slots if no date selected
+    if (!dateInput.value) {
+      dateInput.value = minDate;
+      const dayOfWeek = today.getDay();
+      generateTimeSlots(dayOfWeek);
+    }
   }
 })();
 </script>
