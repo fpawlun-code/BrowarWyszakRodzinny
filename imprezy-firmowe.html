@@ -550,7 +550,7 @@ a:hover{color:var(--gold-light)}
       const body = Array.from(data.entries()).map(([k,v]) => `${k}: ${v}`).join('\n');
       const subject = encodeURIComponent('Rezerwacja firmowa - ' + (data.get('company') || 'Zapytanie'));
       const mailBody = encodeURIComponent(body);
-      window.location.href = `mailto:info@browarwyszak.pl?subject=${subject}&body=${mailBody}`;
+      window.location.href = `mailto:fpawlun@gmail.com?subject=${subject}&body=${mailBody}`;
       corpForm.style.display = 'none';
       document.getElementById('formSuccess').style.display = 'block';
     });
