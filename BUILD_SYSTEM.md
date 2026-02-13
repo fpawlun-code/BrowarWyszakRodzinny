@@ -150,6 +150,53 @@ const langMap = {
 
 **Rozwiązanie:** To normalne przy pierwszym buildzie. Kolejne buildy będą miały zero zmian jeśli nie edytowałeś templates.
 
+### ⚠️ KRYTYCZNE: Vercel uruchamia `npm run build` podczas deployment!
+
+**Problem:** Dodałeś nowy element HTML (np. floating sidebar) bezpośrednio do HTML-i, ale **PO deployment na Vercel znika**.
+
+**Przyczyna:**
+- Vercel automatycznie uruchamia `npm run build` (jeśli wykryje `package.json`)
+- `build.js` **nadpisuje** header/footer w HTML-ach templateami z `src/templates/`
+- Jeśli nowy element jest **POZA zakresem template**, build go **usuwa**!
+
+**Zakres template (co jest zamieniane przez build.js):**
+```
+<!-- ===== HEADER ===== -->
+<header>...</header>
+<!-- Mobile Nav -->
+<div class="mobile-nav">...</div>
+<!-- Floating sidebar tu będzie zachowany ✅ -->
+
+<!-- ===== HERO ===== -->  ← Tu build przestaje zamieniać
+```
+
+**Regex w build.js:**
+```js
+const headerRegex = /<!-- ===== HEADER ===== -->[\s\S]*?<\/div>\s*(?=\n<!-- ===== )/;
+```
+Zamienia od `<!-- ===== HEADER =====` do ostatniego `</div>` przed następnym `<!-- ===== SECTION`.
+
+**✅ Rozwiązanie:**
+1. **ZAWSZE** dodawaj nowe elementy **DO TEMPLATES** (`src/templates/header-*.html`)
+2. Dodaj na końcu template (po `</div>` mobile-nav, ale przed końcem zakresu)
+3. Uruchom `npm run build` lokalnie
+4. Commit + push
+
+**Przykład poprawnego dodania:**
+```html
+<!-- src/templates/header-pl.html -->
+...
+  </div>  <!-- koniec mobile-nav-langs -->
+</div>    <!-- koniec mobile-nav -->
+
+<!-- Nowy element TU ✅ - będzie zachowany po Vercel build -->
+<div class="mobile-floating-sidebar">
+  ...
+</div>
+```
+
+**❌ NIE dodawaj bezpośrednio do HTML-i** - Vercel build to usunie!
+
 ---
 
-**Ostatnia aktualizacja:** 2026-02-13
+**Ostatnia aktualizacja:** 2026-02-14 (dodano sekcję o Vercel build issue)
