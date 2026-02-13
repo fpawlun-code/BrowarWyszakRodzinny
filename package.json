@@ -1,0 +1,15 @@
+{
+  "name": "browar-wyszak-rodzinny",
+  "version": "1.0.0",
+  "description": "Browar Wyszak website - vanilla HTML with build system",
+  "scripts": {
+    "build": "node build.js",
+    "build:watch": "nodemon --watch src/templates -e html --exec npm run build"
+  },
+  "keywords": ["brewery", "restaurant", "static-site"],
+  "author": "pawlun.dev",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
