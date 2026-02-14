@@ -72,6 +72,9 @@ a:hover{color:var(--gold-light)}
 .logo img{height:100px;width:auto;transition:height .3s}
 .scrolled .logo img{height:60px}
 
+/* Mobile header elements (hidden on desktop) */
+.nav-mobile-left,.nav-mobile-right{display:none}
+
 /* Mobile Floating Sidebar (flagi + social, tylko mobile) */
 .mobile-floating-sidebar{display:none}
 .mobile-floating-langs,.mobile-floating-social{display:flex;flex-direction:column;gap:8px}
@@ -239,14 +242,15 @@ a:hover{color:var(--gold-light)}
 }
 @media(max-width:768px){
   .nav-left,.nav-right{display:none}
-  .nav-wrap{position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px}
-  .nav-mobile-left,.nav-mobile-right{display:flex;gap:8px;align-items:center}
+  .nav-wrap{position:relative;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0 8px}
+  .nav-mobile-left,.nav-mobile-right{display:flex;gap:6px;align-items:center}
   .nav-mobile-left{flex:0 0 auto}
-  .nav-mobile-right{flex:0 0 auto}
-  .logo{position:absolute;left:50%;transform:translateX(-50%);z-index:10}
-  .hamburger{display:flex;flex:0 0 auto;margin-right:4px}
+  .nav-mobile-right{flex:0 0 auto;gap:4px}
+  .nav-mobile-right .social-icon{width:28px;height:28px}
+  .logo{position:absolute;left:50%;transform:translateX(-50%);z-index:10;max-width:45%}
+  .hamburger{display:flex;flex:0 0 auto;margin-left:4px}
   .mobile-floating-sidebar{display:none}
-  .logo img{height:70px}
+  .logo img{height:60px}
   .scrolled .logo img{height:50px}
   .container{padding:0 20px}
   .hero-content{padding:0 20px}
