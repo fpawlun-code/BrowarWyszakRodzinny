@@ -74,6 +74,7 @@ a:hover{color:var(--gold-light)}
 
 /* Mobile header elements (hidden on desktop) */
 .nav-mobile-left,.nav-mobile-right{display:none}
+.nav-mobile-left + .logo{display:none}
 
 /* Mobile Floating Sidebar (flagi + social, tylko mobile) */
 .mobile-floating-sidebar{display:none}
@@ -242,15 +243,17 @@ a:hover{color:var(--gold-light)}
 }
 @media(max-width:768px){
   .nav-left,.nav-right{display:none}
-  .nav-wrap{position:relative;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0 8px}
+  .nav-mobile-left + .logo{display:block}
+  .nav-wrap{position:relative;display:flex;align-items:center;gap:8px;padding:0 8px}
   .nav-mobile-left,.nav-mobile-right{display:flex;gap:6px;align-items:center}
   .nav-mobile-left{flex:0 0 auto}
-  .nav-mobile-right{flex:0 0 auto;gap:4px}
-  .nav-mobile-right .social-icon{width:28px;height:28px}
-  .logo{position:absolute;left:50%;transform:translateX(-50%);z-index:10;max-width:45%}
-  .hamburger{display:flex;flex:0 0 auto;margin-left:4px}
+  .nav-mobile-right{flex:0 0 auto;gap:4px;margin-left:auto;margin-right:4px}
+  .nav-mobile-right .social-icon{width:32px;height:32px}
+  .logo{position:absolute;left:50%;transform:translateX(-50%);z-index:5;max-width:45%;pointer-events:none}
+  .logo img{pointer-events:all}
+  .hamburger{display:flex;flex:0 0 auto}
   .mobile-floating-sidebar{display:none}
-  .logo img{height:60px}
+  .logo img{height:70px}
   .scrolled .logo img{height:50px}
   .container{padding:0 20px}
   .hero-content{padding:0 20px}
