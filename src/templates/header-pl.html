@@ -1,9 +1,14 @@
 <style>
+.site-header .nav-wrap{position:relative}
 .site-header .logo-mobile{display:none}
-.site-header .logo-desktop{display:block}
+.site-header .logo-desktop{display:block;position:absolute;left:50%;transform:translateX(-50%);z-index:5}
 @media (max-width: 768px){
-  .site-header .logo-mobile{display:block}
+  .site-header .nav-left,.site-header .nav-right{display:none}
+  .site-header .nav-mobile-left{display:flex;position:relative;z-index:6;flex:0 0 auto;gap:6px;align-items:center}
+  .site-header .logo-mobile{display:block;position:absolute;left:50%;transform:translateX(-50%);z-index:5;max-width:45%}
   .site-header .logo-desktop{display:none}
+  .site-header .hamburger{display:flex;position:relative;z-index:6;margin-left:auto;margin-right:0;flex:0 0 auto}
+  .site-header .nav-wrap{justify-content:flex-start;gap:12px}
 }
 </style>
 
@@ -30,7 +35,8 @@
     </div>
     <a href="index.html" class="logo logo-mobile">
       <img src="browarwyszak-e1501835022493.png" alt="Browar Wyszak" width="180" height="50">
-    </a><div class="nav-left">
+    </a>
+    <div class="nav-left">
       <a href="piwa-rzemieslnicze.html" class="nav-link">Piwo Rzemieślnicze</a>
       <a href="menu.html" class="nav-link">Menu</a>
     </div>
@@ -71,7 +77,8 @@
   <a href="menu.html">Menu</a>
   <a href="imprezy-firmowe.html">Imprezy Firmowe</a>
   <a href="kontakt.html">Kontakt</a>
-  <a href="tel:+48914883481">(91) 488 34 81</a><div class="mobile-nav-langs">
+  <a href="tel:+48914883481">(91) 488 34 81</a>
+  <div class="mobile-nav-langs">
     <a href="en-home.html" class="nav-lang" title="English">
       <svg viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
         <rect fill="#012169" width="60" height="30"/>
