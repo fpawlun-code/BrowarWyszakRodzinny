@@ -85,7 +85,7 @@ a:hover{color:var(--gold-light)}
 /* Mobile Overlay */
 .mobile-nav{position:fixed;inset:0;background:rgba(13,10,8,.97);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;pointer-events:none;transition:opacity .4s ease;z-index:999}
 .mobile-nav.open{opacity:1;pointer-events:all}
-.mobile-nav a{font-family:var(--font-serif);font-size:22px;color:var(--cream);letter-spacing:.08em;transition:color .3s}
+.mobile-nav a{font-family:var(--font-serif);font-size:22px;color:var(--cream);letter-spacing:.08em;transition:color .3s;max-width:90vw;text-align:center;line-height:1.25;overflow-wrap:anywhere;word-break:break-word}
 .mobile-nav a:hover{color:var(--gold)}
 .mobile-nav-langs{display:flex;gap:16px;margin-top:24px}
 
@@ -130,7 +130,7 @@ a:hover{color:var(--gold-light)}
 .section-icon{width:60px;margin:0 auto 20px;filter:drop-shadow(0 0 20px rgba(200,148,62,.4))}
 .section-title{font-family:var(--font-serif);font-size:clamp(1.6rem,3vw,2.4rem);letter-spacing:.08em;color:var(--cream);margin-bottom:16px}
 .section-sep{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 24px;border:none}
-.section-text{max-width:700px;margin:0 auto;font-size:.95rem;color:var(--cream-dim);text-align:center;line-height:1.9}
+.section-text{max-width:700px;margin:0 auto;font-size:.95rem;color:var(--cream-dim);text-align:center;line-height:1.9;overflow-wrap:anywhere;word-break:break-word}
 
 /* ===== AWARDS IMAGE ===== */
 .awards-img{max-width:799px;margin:40px auto 0;transition:all .5s ease;filter:drop-shadow(0 0 0 transparent)}
@@ -161,7 +161,7 @@ a:hover{color:var(--gold-light)}
 .footer-grid{display:grid;grid-template-columns:1fr 1.2fr 1fr 1fr;gap:40px;margin-bottom:60px}
 .footer-logo{display:flex;flex-direction:column;align-items:center;text-align:center}.footer-logo img{height:60px;width:auto;margin-bottom:16px;filter:brightness(.9)}
 .footer-heading{font-family:var(--font-serif);font-size:1rem;color:var(--gold);letter-spacing:.06em;margin-bottom:16px}
-.footer-text{font-size:.85rem;color:var(--cream-dim);line-height:1.8}
+.footer-text{font-size:.85rem;color:var(--cream-dim);line-height:1.8;overflow-wrap:anywhere;word-break:break-word}
 .footer-text a{color:var(--cream-dim);transition:color .3s}
 .footer-text a:hover{color:var(--gold)}
 .footer-hours{list-style:none}
