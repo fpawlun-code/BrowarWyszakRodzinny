@@ -60,8 +60,8 @@ a{color:var(--gold);text-decoration:none;transition:color .3s}a:hover{color:var(
 .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}.hamburger.active span:nth-child(2){opacity:0}.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px)}
 .mobile-nav{position:fixed;inset:0;padding:110px 22px 26px;background:radial-gradient(circle at 15% 0%,rgba(200,148,62,.14),transparent 45%),radial-gradient(circle at 85% 100%,rgba(139,26,10,.2),transparent 45%),rgba(9,6,5,.95);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:12px;opacity:0;pointer-events:none;transition:opacity .35s ease;z-index:1300;overflow-y:auto}
 .mobile-nav.open{opacity:1;pointer-events:all}
-.mobile-nav a{font-family:var(--font-sans);font-size:16px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--cream);padding:14px 16px;border:1px solid var(--glass-border);border-radius:12px;background:linear-gradient(180deg,rgba(255,245,216,.06),rgba(255,245,216,.02));text-align:center;transition:all .25s ease}.mobile-nav a:hover{color:var(--gold);border-color:rgba(200,148,62,.45);background:linear-gradient(180deg,rgba(200,148,62,.16),rgba(200,148,62,.08));transform:translateY(-1px)}
-.mobile-nav a[href^="tel:"]{font-size:20px;letter-spacing:.12em;border-color:rgba(200,148,62,.45);margin-top:6px}.mobile-nav-langs{display:flex;justify-content:center;gap:14px;margin-top:8px;padding-top:6px}.mobile-nav-langs .nav-lang{width:44px;height:30px}.mobile-nav-langs .nav-lang svg{width:30px;height:20px}
+.mobile-nav a{font-family:var(--font-sans);font-size:16px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--cream);padding:14px 16px;border:1px solid var(--glass-border);border-radius:12px;background:linear-gradient(180deg,rgba(255,245,216,.06),rgba(255,245,216,.02));text-align:center;transition:all .25s ease}.mobile-nav a:hover,.mobile-nav a:focus-visible{color:var(--gold);border-color:rgba(200,148,62,.45);background:linear-gradient(180deg,rgba(200,148,62,.16),rgba(200,148,62,.08));transform:translateY(-1px);outline:none}.mobile-nav a:active{transform:translateY(0);filter:brightness(1.08)}
+.mobile-nav a[href^="tel:"]{font-size:20px;letter-spacing:.12em;border-color:rgba(200,148,62,.45);margin-top:6px}.mobile-nav-langs{display:none!important}.mobile-nav-close{position:fixed;top:26px;right:22px;width:44px;height:44px;border-radius:10px;border:1px solid rgba(200,148,62,.35);background:rgba(13,10,8,.5);color:var(--cream);font-size:30px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s ease;z-index:1310}.mobile-nav-close:hover,.mobile-nav-close:focus-visible{color:var(--gold);border-color:rgba(200,148,62,.6);background:rgba(13,10,8,.8);outline:none}
 .hero{position:relative;height:100vh;min-height:600px;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .hero-slides{position:absolute;inset:0}
 .hero-slide{position:absolute;inset:0;opacity:0;animation:heroFade 27s infinite;background-size:cover;background-position:center}
@@ -202,21 +202,6 @@ a{color:var(--gold);text-decoration:none;transition:color .3s}a:hover{color:var(
   <a href="en-imprezy-firmowe.html">Event Hosting</a>
   <a href="en-kontakt.html">Contact</a>
   <a href="tel:+48914883481">(91) 488 34 81</a>
-  <div class="mobile-nav-langs">
-    <a href="index.html" class="nav-lang" title="Polski">
-      <svg viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
-          <rect width="60" height="15" fill="#FFF"/>
-          <rect y="15" width="60" height="15" fill="#DC143C"/>
-        </svg>
-    </a>
-    <a href="de-home.html" class="nav-lang" title="Deutsch">
-      <svg viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
-          <rect width="60" height="10" fill="#000"/>
-          <rect y="10" width="60" height="10" fill="#D00"/>
-          <rect y="20" width="60" height="10" fill="#FFCE00"/>
-        </svg>
-    </a>
-  </div>
 </div>
 
 <section class="hero" id="hero">
@@ -409,9 +394,16 @@ a{color:var(--gold);text-decoration:none;transition:color .3s}a:hover{color:var(
 (function(){
   const header=document.getElementById('header');let ticking=false;
   window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(()=>{header.classList.toggle('scrolled',window.scrollY>60);ticking=false});ticking=true}});
-  const hamburger=document.getElementById('hamburger'),mobileNav=document.getElementById('mobileNav');
-  hamburger.addEventListener('click',()=>{hamburger.classList.toggle('active');mobileNav.classList.toggle('open');document.body.style.overflow=mobileNav.classList.contains('open')?'hidden':''});
-  mobileNav.querySelectorAll('a').forEach(a=>{a.addEventListener('click',()=>{hamburger.classList.remove('active');mobileNav.classList.remove('open');document.body.style.overflow=''})});
+  const hamburger=document.getElementById('hamburger'),mobileNav=document.getElementById('mobileNav');let savedScrollY=0;
+  const lockBodyScroll=()=>{savedScrollY=window.scrollY||window.pageYOffset;document.body.style.position='fixed';document.body.style.top=`-${savedScrollY}px`;document.body.style.left='0';document.body.style.right='0';document.body.style.width='100%';document.body.style.overflow='hidden';document.documentElement.style.overflow='hidden'};
+  const unlockBodyScroll=()=>{document.body.style.position='';document.body.style.top='';document.body.style.left='';document.body.style.right='';document.body.style.width='';document.body.style.overflow='';document.documentElement.style.overflow='';window.scrollTo(0,savedScrollY)};
+  const openMobileNav=()=>{hamburger.classList.add('active');mobileNav.classList.add('open');lockBodyScroll()};
+  const closeMobileNav=()=>{hamburger.classList.remove('active');mobileNav.classList.remove('open');unlockBodyScroll()};
+  if(mobileNav&&!mobileNav.querySelector('.mobile-nav-close')){const closeBtn=document.createElement('button');closeBtn.type='button';closeBtn.className='mobile-nav-close';closeBtn.setAttribute('aria-label','Close menu');closeBtn.textContent='×';closeBtn.addEventListener('click',closeMobileNav);mobileNav.prepend(closeBtn)}
+  hamburger.addEventListener('click',()=>{mobileNav.classList.contains('open')?closeMobileNav():openMobileNav()});
+  mobileNav.querySelectorAll('a').forEach(a=>{a.addEventListener('click',closeMobileNav)});
+  mobileNav.addEventListener('click',e=>{if(e.target===mobileNav)closeMobileNav()});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&mobileNav.classList.contains('open'))closeMobileNav()});
   const reveals=document.querySelectorAll('[data-reveal]');
   const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('revealed');observer.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -40px 0px'});
   reveals.forEach(el=>observer.observe(el));
@@ -426,5 +418,6 @@ a{color:var(--gold);text-decoration:none;transition:color .3s}a:hover{color:var(
 <script src="https://www.google.com/recaptcha/api.js?render=6Les7WcpAAAAAHq00_-kw3MDG6w0Df0FYESmBX7w" async defer></script>
 </body>
 </html>
+
 
 

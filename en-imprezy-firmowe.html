@@ -87,11 +87,12 @@ a:hover{color:var(--gold-light)}
 .mobile-nav{position:fixed;inset:0;padding:110px 22px 26px;background:radial-gradient(circle at 15% 0%,rgba(200,148,62,.14),transparent 45%),radial-gradient(circle at 85% 100%,rgba(139,26,10,.2),transparent 45%),rgba(9,6,5,.95);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:12px;opacity:0;pointer-events:none;transition:opacity .35s ease;z-index:1300;overflow-y:auto}
 .mobile-nav.open{opacity:1;pointer-events:all}
 .mobile-nav a{font-family:var(--font-sans);font-size:16px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--cream);padding:14px 16px;border:1px solid var(--glass-border);border-radius:12px;background:linear-gradient(180deg,rgba(255,245,216,.06),rgba(255,245,216,.02));text-align:center;transition:all .25s ease}
-.mobile-nav a:hover{color:var(--gold);border-color:rgba(200,148,62,.45);background:linear-gradient(180deg,rgba(200,148,62,.16),rgba(200,148,62,.08));transform:translateY(-1px)}
+.mobile-nav a:hover,.mobile-nav a:focus-visible{color:var(--gold);border-color:rgba(200,148,62,.45);background:linear-gradient(180deg,rgba(200,148,62,.16),rgba(200,148,62,.08));transform:translateY(-1px);outline:none}
+.mobile-nav a:active{transform:translateY(0);filter:brightness(1.08)}
 .mobile-nav a[href^="tel:"]{font-size:20px;letter-spacing:.12em;border-color:rgba(200,148,62,.45);margin-top:6px}
-.mobile-nav-langs{display:flex;justify-content:center;gap:14px;margin-top:8px;padding-top:6px}
-.mobile-nav-langs .nav-lang{width:44px;height:30px}
-.mobile-nav-langs .nav-lang svg{width:30px;height:20px}
+.mobile-nav-langs{display:none!important}
+.mobile-nav-close{position:fixed;top:26px;right:22px;width:44px;height:44px;border-radius:10px;border:1px solid rgba(200,148,62,.35);background:rgba(13,10,8,.5);color:var(--cream);font-size:30px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s ease;z-index:1310}
+.mobile-nav-close:hover,.mobile-nav-close:focus-visible{color:var(--gold);border-color:rgba(200,148,62,.6);background:rgba(13,10,8,.8);outline:none}
 
 /* ===== PAGE HERO ===== */
 .page-hero{position:relative;height:60vh;min-height:400px;overflow:hidden;display:flex;align-items:center;justify-content:center}
@@ -317,21 +318,6 @@ a:hover{color:var(--gold-light)}
   <a href="en-imprezy-firmowe.html">Event Hosting</a>
   <a href="en-kontakt.html">Contact</a>
   <a href="tel:+48914883481">(91) 488 34 81</a>
-  <div class="mobile-nav-langs">
-    <a href="index.html" class="nav-lang" title="Polski">
-      <svg viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
-        <rect width="60" height="15" fill="#fff"/>
-        <rect y="15" width="60" height="15" fill="#DC143C"/>
-      </svg>
-    </a>
-    <a href="de-home.html" class="nav-lang" title="Deutsch">
-      <svg viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
-        <rect width="60" height="10" fill="#000"/>
-        <rect y="10" width="60" height="10" fill="#D00"/>
-        <rect y="20" width="60" height="10" fill="#FFCE00"/>
-      </svg>
-    </a>
-  </div>
 </div>
 
 <!-- ===== PAGE HERO ===== -->
@@ -600,20 +586,76 @@ a:hover{color:var(--gold-light)}
     }
   });
 
-  // Hamburger
+    // Hamburger
   const hamburger = document.getElementById('hamburger');
   const mobileNav = document.getElementById('mobileNav');
+  let savedScrollY = 0;
+
+  function lockBodyScroll() {
+    savedScrollY = window.scrollY || window.pageYOffset;
+    document.body.style.position = 'fixed';
+    document.body.style.top = -px;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+  }
+
+  function unlockBodyScroll() {
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+    document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
+    window.scrollTo(0, savedScrollY);
+  }
+
+  function openMobileNav() {
+    hamburger.classList.add('active');
+    mobileNav.classList.add('open');
+    lockBodyScroll();
+  }
+
+  function closeMobileNav() {
+    hamburger.classList.remove('active');
+    mobileNav.classList.remove('open');
+    unlockBodyScroll();
+  }
+
+  if (mobileNav && !mobileNav.querySelector('.mobile-nav-close')) {
+    const closeBtn = document.createElement('button');
+    closeBtn.type = 'button';
+    closeBtn.className = 'mobile-nav-close';
+    closeBtn.setAttribute('aria-label', 'Zamknij menu');
+    closeBtn.textContent = '×';
+    closeBtn.addEventListener('click', closeMobileNav);
+    mobileNav.prepend(closeBtn);
+  }
+
   hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    mobileNav.classList.toggle('open');
-    document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+    if (mobileNav.classList.contains('open')) {
+      closeMobileNav();
+    } else {
+      openMobileNav();
+    }
   });
+
   mobileNav.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      hamburger.classList.remove('active');
-      mobileNav.classList.remove('open');
-      document.body.style.overflow = '';
-    });
+    a.addEventListener('click', closeMobileNav);
+  });
+
+  mobileNav.addEventListener('click', (e) => {
+    if (e.target === mobileNav) closeMobileNav();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
+      closeMobileNav();
+    }
+  });
   });
 
   // Scroll reveal
@@ -733,6 +775,7 @@ a:hover{color:var(--gold-light)}
 
 </body>
 </html>
+
 
 
 
