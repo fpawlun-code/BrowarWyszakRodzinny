@@ -27,16 +27,6 @@ dataLayer.push({"pagePostType":"page","pagePostType2":"single-page","pagePostAut
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* ===== Header Template Compatibility Fix ===== */
-.site-header .nav-mobile-left,.site-header .nav-mobile-right{display:none}
-.site-header .logo-mobile{display:none}
-.site-header .logo-desktop{display:block}
-@media(max-width:768px){
-  .site-header .nav-mobile-left,.site-header .nav-mobile-right{display:flex;align-items:center;gap:6px}
-  .site-header .logo-mobile{display:block}
-  .site-header .logo-desktop{display:none}
-}
-
 /* ===== RESET & BASE ===== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -101,7 +91,7 @@ a:hover{color:var(--gold-light)}
 .mobile-nav-langs{display:flex;gap:16px;margin-top:24px}
 
 /* ===== PAGE HERO ===== */
-.page-hero{position:relative;height:55vh;min-height:350px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:url('IMG_7181-e1506542594533.jpg') center/cover no-repeat}
+.page-hero{position:relative;height:55vh;min-height:350px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:url('https://browarwyszak.pl/wp-content/uploads/2017/09/IMG_7181-e1506542594533.jpg') center/cover no-repeat}
 .page-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(13,10,8,.3) 0%,rgba(13,10,8,.55) 60%,rgba(13,10,8,.95) 100%);z-index:1}
 
 /* Foam Divider */
@@ -207,6 +197,15 @@ a:hover{color:var(--gold-light)}
 </style>
 </head>
 <body>
+
+<style>
+.site-header .logo-mobile{display:none}
+.site-header .logo-desktop{display:block}
+@media (max-width: 768px){
+  .site-header .logo-mobile{display:block}
+  .site-header .logo-desktop{display:none}
+}
+</style>
 
 <!-- ===== HEADER ===== -->
 <header class="site-header" id="header">
@@ -314,13 +313,13 @@ a:hover{color:var(--gold-light)}
   <div class="container">
     <div class="badges-grid">
       <div class="badge-card" data-reveal="left">
-        <img src="trip-advisor.png" alt="Trip Advisor" width="100" height="136" loading="lazy">
+        <img src="https://browarwyszak.pl/wp-content/uploads/2017/04/trip-advisor.png" alt="Trip Advisor" width="100" height="136" loading="lazy">
         <h3>TRIP ADVISOR</h3>
         <hr class="section-sep">
         <p>Thanks to reviews written by our guests, Wyszak Family Brewery is proudly maintaining its top-ranking position on Trip Advisor.</p>
       </div>
       <div class="badge-card" data-reveal="right">
-        <img src="dziedzictwo-90x120.png" alt="Culinary Heritage" width="90" height="120" loading="lazy">
+        <img src="https://browarwyszak.pl/wp-content/uploads/2017/04/dziedzictwo-90x120.png" alt="Culinary Heritage" width="90" height="120" loading="lazy">
         <h3>CULINARY HERITAGE</h3>
         <hr class="section-sep">
         <p>Since 2015 Wyszak Family Brewery is a member of the Regional Culinary Heritage Europe Network &ndash; West Pomerania.</p>
@@ -361,7 +360,7 @@ a:hover{color:var(--gold-light)}
   <div class="container">
     <div class="footer-grid">
       <div class="footer-logo">
-        <img src="browarwyszak_footer.png" alt="Wyszak Brewery" loading="lazy">
+        <img src="https://browarwyszak.pl/wp-content/uploads/2017/09/browarwyszak_footer.png" alt="Wyszak Brewery" loading="lazy">
         <div class="footer-social social-icons">
           <a href="https://www.facebook.com/BrowarRestauracyjnySzczecin/" target="_blank" rel="noopener noreferrer" class="social-icon social-icon--facebook" title="Facebook" aria-label="Facebook">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -408,6 +407,7 @@ a:hover{color:var(--gold-light)}
     </div>
   </div>
 </footer>
+
 
 
 

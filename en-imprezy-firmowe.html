@@ -27,16 +27,6 @@ dataLayer.push({"pagePostType":"page","pagePostType2":"single-page","pagePostAut
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* ===== Header Template Compatibility Fix ===== */
-.site-header .nav-mobile-left,.site-header .nav-mobile-right{display:none}
-.site-header .logo-mobile{display:none}
-.site-header .logo-desktop{display:block}
-@media(max-width:768px){
-  .site-header .nav-mobile-left,.site-header .nav-mobile-right{display:flex;align-items:center;gap:6px}
-  .site-header .logo-mobile{display:block}
-  .site-header .logo-desktop{display:none}
-}
-
 /* ===== RESET & BASE ===== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -146,7 +136,7 @@ a:hover{color:var(--gold-light)}
 
 /* ===== RESERVATIONS ===== */
 .reservation{position:relative;padding:120px 0;overflow:hidden}
-.reservation-bg{position:absolute;inset:0;background:url('WYDARZENIA-imprezy.jpg') center/cover no-repeat;z-index:0}
+.reservation-bg{position:absolute;inset:0;background:url('https://browarwyszak.pl/wp-content/uploads/2017/10/wyszak_2.jpg') center/cover no-repeat;z-index:0}
 .reservation-overlay{position:absolute;inset:0;background:rgba(13,10,8,.82);z-index:1}
 .reservation-content{position:relative;z-index:2;text-align:center;max-width:600px;margin:0 auto;padding:60px 40px;background:var(--glass);border:1px solid var(--glass-border);border-radius:16px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
 .reservation .btn-ruby{font-size:15px;padding:18px 48px;margin-top:8px}
@@ -225,6 +215,15 @@ a:hover{color:var(--gold-light)}
 </style>
 </head>
 <body>
+
+<style>
+.site-header .logo-mobile{display:none}
+.site-header .logo-desktop{display:block}
+@media (max-width: 768px){
+  .site-header .logo-mobile{display:block}
+  .site-header .logo-desktop{display:none}
+}
+</style>
 
 <!-- ===== HEADER ===== -->
 <header class="site-header" id="header">
@@ -381,10 +380,10 @@ a:hover{color:var(--gold-light)}
   <div class="container">
     <div class="photo-grid">
       <div class="photo-grid-item" data-reveal="left">
-        <img src="Browar-Rodzinny-Wyszak-wnetrze-16.jpg" alt="Wyszak Family Brewery - events" loading="lazy" width="1920" height="1280">
+        <img src="https://browarwyszak.pl/wp-content/uploads/2017/09/18921213_661145604080523_4898010099296286925_o.jpg" alt="Wyszak Family Brewery - events" loading="lazy" width="1920" height="1280">
       </div>
       <div class="photo-grid-item" data-reveal="right">
-        <img src="Browar-Rodzinny-Wyszak-wnetrze-11.jpg" alt="Wyszak Family Brewery - interior" loading="lazy" width="1309" height="873">
+        <img src="https://browarwyszak.pl/wp-content/uploads/2017/09/16487627_602136909981393_6327210285840438360_o.jpg" alt="Wyszak Family Brewery - interior" loading="lazy" width="1309" height="873">
       </div>
     </div>
   </div>
@@ -401,7 +400,7 @@ a:hover{color:var(--gold-light)}
   <div class="reservation-bg"></div>
   <div class="reservation-overlay"></div>
   <div class="reservation-content" data-reveal="scale">
-    <img src="SZYSZKA.png" alt="" class="section-icon" width="60" height="55">
+    <img src="https://browarwyszak.pl/wp-content/uploads/2017/02/SZYSZKA.png" alt="" class="section-icon" width="60" height="55">
     <h2 class="section-title">RESERVATIONS</h2>
     <hr class="section-sep">
     <p class="section-text" style="margin-bottom:32px">Wyszak Brewery is a unique place with a cosy, family ambiance. A place filled with joy, unforgettable experiences, and guests from all corners of Poland and the world. To ensure a table for all our visitors, we encourage you to make a reservation using the button below &ndash; especially if you are planning a gathering with a larger group.</p>
@@ -420,7 +419,7 @@ a:hover{color:var(--gold-light)}
   <div class="container">
     <div class="footer-grid">
       <div class="footer-logo">
-        <img src="browarwyszak_footer.png" alt="Wyszak Brewery" loading="lazy">
+        <img src="https://browarwyszak.pl/wp-content/uploads/2017/09/browarwyszak_footer.png" alt="Wyszak Brewery" loading="lazy">
         <div class="footer-social social-icons">
           <a href="https://www.facebook.com/BrowarRestauracyjnySzczecin/" target="_blank" rel="noopener noreferrer" class="social-icon social-icon--facebook" title="Facebook" aria-label="Facebook">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -467,6 +466,7 @@ a:hover{color:var(--gold-light)}
     </div>
   </div>
 </footer>
+
 
 
 

@@ -27,16 +27,6 @@ dataLayer.push({"pagePostType":"frontpage","pagePostType2":"single-page","pagePo
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* ===== Header Template Compatibility Fix ===== */
-.site-header .nav-mobile-left,.site-header .nav-mobile-right{display:none}
-.site-header .logo-mobile{display:none}
-.site-header .logo-desktop{display:block}
-@media(max-width:768px){
-  .site-header .nav-mobile-left,.site-header .nav-mobile-right{display:flex;align-items:center;gap:6px}
-  .site-header .logo-mobile{display:block}
-  .site-header .logo-desktop{display:none}
-}
-
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--bg:#0d0a08;--bg-alt:#1a0f0a;--gold:#c8943e;--gold-light:#d4a85a;--ruby:#8b1a0a;--cream:#fef5d8;--cream-dim:rgba(254,245,216,.7);--glass:rgba(255,245,216,.06);--glass-border:rgba(200,148,62,.15);--font-serif:'Libre Baskerville',Georgia,serif;--font-sans:'Montserrat',system-ui,sans-serif}
 html{scroll-behavior:smooth;overflow-x:hidden}
@@ -114,7 +104,7 @@ a{color:var(--gold);text-decoration:none;transition:color .3s}a:hover{color:var(
 .team-photo:hover{box-shadow:0 0 40px rgba(200,148,62,.4);transform:scale(1.05)}.team-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
 .team-name{font-family:var(--font-serif);font-size:.95rem;color:var(--cream);margin-bottom:4px}.team-role{font-size:.75rem;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;font-weight:500}
 .reservation{position:relative;padding:120px 0;overflow:hidden}
-.reservation-bg{position:absolute;inset:0;background:url('browar-wyszak-wnetrze.webp') center/cover no-repeat;z-index:0}
+.reservation-bg{position:absolute;inset:0;background:url('https://browarwyszak.pl/wp-content/uploads/2025/04/browar-wyszak-wnetrze.webp') center/cover no-repeat;z-index:0}
 .reservation-overlay{position:absolute;inset:0;background:rgba(13,10,8,.82);z-index:1}
 .reservation-content{position:relative;z-index:2;text-align:center;max-width:600px;margin:0 auto;padding:60px 40px;background:var(--glass);border:1px solid var(--glass-border);border-radius:16px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
 .reservation .btn-ruby{font-size:15px;padding:18px 48px;margin-top:8px}
@@ -180,7 +170,7 @@ a{color:var(--gold);text-decoration:none;transition:color .3s}a:hover{color:var(
       <a href="de-piwa-rzemieslnicze.html" class="nav-link">Handwerkliches Bier</a>
       <a href="de-menu.html" class="nav-link">Speisekarte</a>
     </div>
-    <a href="de-home.html" class="logo"><img src="browarwyszak-e1501835022493.png" alt="Familienbrauerei Wyszak" width="180" height="50"></a>
+    <a href="de-home.html" class="logo"><img src="https://browarwyszak.pl/wp-content/uploads/2017/08/browarwyszak-e1501835022493.png" alt="Familienbrauerei Wyszak" width="180" height="50"></a>
     <div class="nav-right">
       <a href="de-imprezy-firmowe.html" class="nav-link">Firmenveranstaltungen</a>
       <a href="de-kontakt.html" class="nav-link">Kontakt</a>
@@ -248,9 +238,9 @@ a{color:var(--gold);text-decoration:none;transition:color .3s}a:hover{color:var(
 
 <section class="hero" id="hero">
   <div class="hero-slides">
-    <div class="hero-slide" style="background-image:url('budynek-browar-wyszak.webp')"></div>
-    <div class="hero-slide" style="background-image:url('browar-wyszak-tanki.webp')"></div>
-    <div class="hero-slide" style="background-image:url('browar-wyszak-wnetrze.webp')"></div>
+    <div class="hero-slide" style="background-image:url('https://browarwyszak.pl/wp-content/uploads/2025/04/budynek-browar-wyszak.webp')"></div>
+    <div class="hero-slide" style="background-image:url('https://browarwyszak.pl/wp-content/uploads/2025/04/browar-wyszak-tanki.webp')"></div>
+    <div class="hero-slide" style="background-image:url('https://browarwyszak.pl/wp-content/uploads/2025/04/browar-wyszak-wnetrze.webp')"></div>
   </div>
   <div class="hero-overlay"></div>
   <div class="bubbles" id="bubbles"></div>
@@ -273,20 +263,20 @@ a{color:var(--gold);text-decoration:none;transition:color .3s}a:hover{color:var(
 <section class="section" id="about">
   <div class="container">
     <div class="section-heading" data-reveal>
-      <img src="SZYSZKA.png" alt="Hopfenzapfen" class="section-icon" width="60" height="55">
+      <img src="https://browarwyszak.pl/wp-content/uploads/2017/02/SZYSZKA.png" alt="Hopfenzapfen" class="section-icon" width="60" height="55">
       <h2 class="section-title">BESONDERER ORT</h2><hr class="section-sep">
     </div>
     <p class="section-text" data-reveal>Die Wyszak Brauerei befindet sich in den Kellerräumen des Altstadtrathauses, das ein Teil der internationalen Europäischen Route der Backsteingotik und heutzutage ein wichtiger Punkt auf der touristischen Karte von Stettin ist. In unserer Brauerei wird Bier, das Sie in den alten Kellerräumen des Rathauses genießen können, mit der handwerklichen Methode von den Brauern gebraut. Im Lokal befinden sich ein Sudhaus mit einer Ausschlagmenge von 5,5 hl und 9 Gärtanks mit einem Volumen von je 10 hl.</p>
-    <div data-reveal="scale"><img src="wyszak-nagrody_Obszar-roboczy-1.png" alt="Auszeichnungen der Wyszak Brauerei" class="awards-img" width="766" height="265"></div>
+    <div data-reveal="scale"><img src="https://browarwyszak.pl/wp-content/uploads/2019/06/wyszak-nagrody_Obszar-roboczy-1.png" alt="Auszeichnungen der Wyszak Brauerei" class="awards-img" width="766" height="265"></div>
     <div class="gallery-grid" style="margin-top:60px;max-width:1000px;margin-left:auto;margin-right:auto">
-      <div class="gallery-item" data-reveal="scale" style="transition-delay:.05s"><img src="Browar-Rodzinny-Wyszak-wnetrze-5-of-10.jpg" alt="Haupthalle" loading="lazy" width="481" height="428"></div>
-      <div class="gallery-item" data-reveal="scale" style="transition-delay:.1s"><img src="Browar-Rodzinny-Wyszak-wnetrze-9-of-10.jpg" alt="Zapfhähne" loading="lazy" width="481" height="428"></div>
-      <div class="gallery-item" data-reveal="scale" style="transition-delay:.15s"><img src="Browar-Rodzinny-Wyszak-wnetrze-3-of-10.jpg" alt="Brautanks" loading="lazy" width="481" height="428"></div>
-      <div class="gallery-item" data-reveal="scale" style="transition-delay:.2s"><img src="Browar-Rodzinny-Wyszak-wnetrze-2-of-10.jpg" alt="Tanks Nahaufnahme" loading="lazy" width="481" height="428"></div>
-      <div class="gallery-item" data-reveal="scale" style="transition-delay:.25s"><img src="Browar-Rodzinny-Wyszak-wnetrze-11.jpg" alt="Tanks Frontansicht" loading="lazy" width="481" height="428"></div>
-      <div class="gallery-item" data-reveal="scale" style="transition-delay:.3s"><img src="Browar-Rodzinny-Wyszak-wnetrze-12.jpg" alt="Tanks von der Bar" loading="lazy" width="481" height="428"></div>
-      <div class="gallery-item" data-reveal="scale" style="transition-delay:.35s"><img src="Browar-Rodzinny-Wyszak-wnerze-13.jpg" alt="Innenraum Bar" loading="lazy" width="481" height="428"></div>
-      <div class="gallery-item" data-reveal="scale" style="transition-delay:.4s"><img src="Browar-Rodzinny-Wyszak-wnetrze-16.jpg" alt="Brauerei Innenraum" loading="lazy" width="481" height="428"></div>
+      <div class="gallery-item" data-reveal="scale" style="transition-delay:.05s"><img src="https://browarwyszak.pl/wp-content/uploads/2017/04/Browar-Rodzinny-Wyszak-wnetrze-5-of-10.jpg" alt="Haupthalle" loading="lazy" width="481" height="428"></div>
+      <div class="gallery-item" data-reveal="scale" style="transition-delay:.1s"><img src="https://browarwyszak.pl/wp-content/uploads/2017/04/Browar-Rodzinny-Wyszak-wnetrze-9-of-10.jpg" alt="Zapfhähne" loading="lazy" width="481" height="428"></div>
+      <div class="gallery-item" data-reveal="scale" style="transition-delay:.15s"><img src="https://browarwyszak.pl/wp-content/uploads/2017/04/Browar-Rodzinny-Wyszak-wnetrze-3-of-10.jpg" alt="Brautanks" loading="lazy" width="481" height="428"></div>
+      <div class="gallery-item" data-reveal="scale" style="transition-delay:.2s"><img src="https://browarwyszak.pl/wp-content/uploads/2017/04/Browar-Rodzinny-Wyszak-wnetrze-2-of-10.jpg" alt="Tanks Nahaufnahme" loading="lazy" width="481" height="428"></div>
+      <div class="gallery-item" data-reveal="scale" style="transition-delay:.25s"><img src="https://browarwyszak.pl/wp-content/uploads/2017/04/Browar-Rodzinny-Wyszak-wnetrze-11.jpg" alt="Tanks Frontansicht" loading="lazy" width="481" height="428"></div>
+      <div class="gallery-item" data-reveal="scale" style="transition-delay:.3s"><img src="https://browarwyszak.pl/wp-content/uploads/2017/04/Browar-Rodzinny-Wyszak-wnetrze-12.jpg" alt="Tanks von der Bar" loading="lazy" width="481" height="428"></div>
+      <div class="gallery-item" data-reveal="scale" style="transition-delay:.35s"><img src="https://browarwyszak.pl/wp-content/uploads/2017/04/Browar-Rodzinny-Wyszak-wnerze-13.jpg" alt="Innenraum Bar" loading="lazy" width="481" height="428"></div>
+      <div class="gallery-item" data-reveal="scale" style="transition-delay:.4s"><img src="https://browarwyszak.pl/wp-content/uploads/2017/05/Browar-Rodzinny-Wyszak-wnetrze-16.jpg" alt="Brauerei Innenraum" loading="lazy" width="481" height="428"></div>
     </div>
   </div>
 </section>
@@ -294,21 +284,21 @@ a{color:var(--gold);text-decoration:none;transition:color .3s}a:hover{color:var(
 <section class="section" id="oferta">
   <div class="container">
     <div class="section-heading" data-reveal>
-      <img src="SZYSZKA.png" alt="" class="section-icon" width="60" height="55">
+      <img src="https://browarwyszak.pl/wp-content/uploads/2017/02/SZYSZKA.png" alt="" class="section-icon" width="60" height="55">
       <h2 class="section-title">UNSER ANGEBOT</h2><hr class="section-sep">
       <p class="section-text">Die Wyszak Brauerei bietet Ihnen nicht nur hervorragendes Bier, sondern auch moderne Speisen an, die auf regionalen Produkten basieren. Unsere Köche sind leidenschaftliche Fachleute, die die traditionelle Küche mit den neuesten Trends aus der Gastronomie-Welt perfekt verbinden können. In unserem Lokal können auch Firmenveranstaltungen und Feierlichkeiten zu verschiedenen Anlässen organisiert werden. Wir laden Sie herzlich ein, sich mit den Einzelheiten unseres Angebotes vertraut zu machen.</p>
     </div>
     <div class="oferta-grid">
       <a href="de-menu.html" class="oferta-card" data-reveal style="transition-delay:.1s">
-        <div class="oferta-card-img"><img src="menu-wyroz2.jpg" alt="Speisekarte" loading="lazy" width="481" height="428"></div>
+        <div class="oferta-card-img"><img src="https://browarwyszak.pl/wp-content/uploads/2017/04/menu-wyroz2.jpg" alt="Speisekarte" loading="lazy" width="481" height="428"></div>
         <div class="oferta-card-body"><h3 class="oferta-card-title">SPEISEKARTE</h3><span class="btn btn-ruby">Entdecken</span></div>
       </a>
       <a href="de-piwa-rzemieslnicze.html" class="oferta-card" data-reveal style="transition-delay:.2s">
-        <div class="oferta-card-img"><img src="PIC_BROWAR-1.jpg" alt="Handwerkliches Bier" loading="lazy" width="481" height="428"></div>
+        <div class="oferta-card-img"><img src="https://browarwyszak.pl/wp-content/uploads/2017/08/PIC_BROWAR-1.jpg" alt="Handwerkliches Bier" loading="lazy" width="481" height="428"></div>
         <div class="oferta-card-body"><h3 class="oferta-card-title">HANDWERKLICHES BIER</h3><span class="btn btn-ruby">Entdecken</span></div>
       </a>
       <a href="de-imprezy-firmowe.html" class="oferta-card" data-reveal style="transition-delay:.3s">
-        <div class="oferta-card-img"><img src="WYDARZENIA-imprezy.jpg" alt="Firmenveranstaltungen" loading="lazy" width="481" height="428"></div>
+        <div class="oferta-card-img"><img src="https://browarwyszak.pl/wp-content/uploads/2017/08/WYDARZENIA-imprezy.jpg" alt="Firmenveranstaltungen" loading="lazy" width="481" height="428"></div>
         <div class="oferta-card-body"><h3 class="oferta-card-title">FIRMENVERANSTALTUNGEN</h3><span class="btn btn-ruby">Entdecken</span></div>
       </a>
     </div>
@@ -318,16 +308,16 @@ a{color:var(--gold);text-decoration:none;transition:color .3s}a:hover{color:var(
 <section class="section section-alt" id="team">
   <div class="container">
     <div class="section-heading" data-reveal>
-      <img src="SZYSZKA.png" alt="" class="section-icon" width="60" height="55">
+      <img src="https://browarwyszak.pl/wp-content/uploads/2017/02/SZYSZKA.png" alt="" class="section-icon" width="60" height="55">
       <h2 class="section-title">UNSER TEAM</h2><hr class="section-sep">
       <p class="section-text">Wir sind ein eingespieltes und erfahrenes Team, das die Liebe zum Bier und die Leidenschaft für gute Küche vereint. Unsere Brauer sind Profis, die mehrmals mit Medaillen ausgezeichnet wurden, und der Küchenchef sorgt für höchste Qualität der Rohstoffe und der servierten Speisen, wodurch unser Restaurant in das Europäische Netzwerk des Regionalen Kulinarischen Erbes von Westpommern aufgenommen wurde.</p>
     </div>
     <div class="team-grid" data-reveal>
-      <div class="team-member"><div class="team-photo"><img src="Joanna-Rozycka-1.jpg" alt="Joanna Różycka" loading="lazy" width="373" height="473"></div><div class="team-name">Joanna Różycka</div><div class="team-role">Inhaber</div></div>
-      <div class="team-member"><div class="team-photo"><img src="Sebastian-Zglobis.jpg" alt="Sebastian Zgłobiś" loading="lazy" width="280" height="355"></div><div class="team-name">Sebastian Zgłobiś</div><div class="team-role">Küchenchef</div></div>
-      <div class="team-member"><div class="team-photo"><img src="Artur-Halko-1.jpg" alt="Artur Halko" loading="lazy" width="373" height="473"></div><div class="team-name">Artur Halko</div><div class="team-role">Stellv. Küchenchef</div></div>
-      <div class="team-member"><div class="team-photo"><img src="Michaê-Jagêa.jpg" alt="Michał Jagła" loading="lazy" width="280" height="355"></div><div class="team-name">Michał Jagła</div><div class="team-role">Inhaber</div></div>
-      <div class="team-member"><div class="team-photo"><img src="Tomasz-de-Wehr.jpg" alt="Tomasz de Weyher" loading="lazy" width="280" height="355"></div><div class="team-name">Tomasz de Weyher</div><div class="team-role">Brauermeister</div></div>
+      <div class="team-member"><div class="team-photo"><img src="https://browarwyszak.pl/wp-content/uploads/2017/04/Joanna-Rozycka-1.jpg" alt="Joanna Różycka" loading="lazy" width="373" height="473"></div><div class="team-name">Joanna Różycka</div><div class="team-role">Inhaber</div></div>
+      <div class="team-member"><div class="team-photo"><img src="https://browarwyszak.pl/wp-content/uploads/2017/04/Sebastian-Zglobis.jpg" alt="Sebastian Zgłobiś" loading="lazy" width="280" height="355"></div><div class="team-name">Sebastian Zgłobiś</div><div class="team-role">Küchenchef</div></div>
+      <div class="team-member"><div class="team-photo"><img src="https://browarwyszak.pl/wp-content/uploads/2017/10/Artur-Halko-1.jpg" alt="Artur Halko" loading="lazy" width="373" height="473"></div><div class="team-name">Artur Halko</div><div class="team-role">Stellv. Küchenchef</div></div>
+      <div class="team-member"><div class="team-photo"><img src="https://browarwyszak.pl/wp-content/uploads/2017/04/Michał-Jagła.jpg" alt="Michał Jagła" loading="lazy" width="280" height="355"></div><div class="team-name">Michał Jagła</div><div class="team-role">Inhaber</div></div>
+      <div class="team-member"><div class="team-photo"><img src="https://browarwyszak.pl/wp-content/uploads/2017/04/Tomasz-de-Wehr.jpg" alt="Tomasz de Weyher" loading="lazy" width="280" height="355"></div><div class="team-name">Tomasz de Weyher</div><div class="team-role">Brauermeister</div></div>
     </div>
   </div>
 </section>
@@ -336,7 +326,7 @@ a{color:var(--gold);text-decoration:none;transition:color .3s}a:hover{color:var(
   <div class="foam-divider foam-divider-top" style="position:absolute;top:0;left:0;right:0;z-index:3"><svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block;width:100%;height:60px;transform:rotate(180deg)"><path d="M0,40 C180,70 360,10 540,45 C720,80 900,15 1080,50 C1260,85 1380,30 1440,55 L1440,80 L0,80Z" fill="var(--bg-alt)"/></svg></div>
   <div class="reservation-bg"></div><div class="reservation-overlay"></div>
   <div class="reservation-content" data-reveal="scale">
-    <img src="SZYSZKA.png" alt="" class="section-icon" width="60" height="55">
+    <img src="https://browarwyszak.pl/wp-content/uploads/2017/02/SZYSZKA.png" alt="" class="section-icon" width="60" height="55">
     <h2 class="section-title">RESERVIERUNGEN</h2><hr class="section-sep">
     <p class="section-text" style="margin-bottom:12px">Die Wyszak Brauerei ist ein besonderer Ort mit einer einzigartigen familiären Atmosphäre. Ein Ort voll von Freude, unvergesslichen Eindrücken und Gästen aus verschiedenen Ecken Polens und der Welt.</p>
     <p class="section-text" style="margin-bottom:32px">Damit alle unsere Besucher freie Plätze für sich finden können, ermuntern wir Sie, eine Reservierung vorzunehmen. Dies gilt insbesondere dann, wenn Sie ein Treffen im größeren Kreis planen.</p>
@@ -348,12 +338,12 @@ a{color:var(--gold);text-decoration:none;transition:color .3s}a:hover{color:var(
   <div class="container">
     <div class="badges-grid">
       <div class="badge-card" data-reveal="left">
-        <img src="trip-advisor.png" alt="Trip Advisor" width="100" height="136" loading="lazy">
+        <img src="https://browarwyszak.pl/wp-content/uploads/2017/04/trip-advisor.png" alt="Trip Advisor" width="100" height="136" loading="lazy">
         <h3>TRIP ADVISOR</h3><hr class="section-sep">
         <p>Durch Bewertungen unserer Gäste platziert sich die Familienbrauerei Wyszak im <a href="https://pl.tripadvisor.com/Restaurant_Review-g274736-d3243954-Reviews-Wyszak_Family_Brewery-Szczecin_Western_Pomerania_Province_Western_Poland.html" target="_blank" rel="noopener">Trip Advisor</a> Ranking stets an der absoluten Spitze.</p>
       </div>
       <div class="badge-card" data-reveal="right">
-        <img src="dziedzictwo-90x120.png" alt="Kulinarisches Erbe" width="90" height="120" loading="lazy">
+        <img src="https://browarwyszak.pl/wp-content/uploads/2017/04/dziedzictwo-90x120.png" alt="Kulinarisches Erbe" width="90" height="120" loading="lazy">
         <h3>KULINARISCHES ERBE</h3><hr class="section-sep">
         <p>Seit 2015 gehört das Wyszak Restaurant zum Europäischen Netzwerk des Regionalen Kulinarischen Erbes von Westpommern.</p>
       </div>
@@ -361,7 +351,7 @@ a{color:var(--gold);text-decoration:none;transition:color .3s}a:hover{color:var(
   </div>
 </section>
 
-<section class="pfr-section"><div class="container"><img src="plansza-informacyjna-PFR-poziom.jpg" alt="PFR Informationstafel" loading="lazy" width="1790" height="261"></div></section>
+<section class="pfr-section"><div class="container"><img src="https://browarwyszak.pl/wp-content/uploads/2021/10/plansza-informacyjna-PFR-poziom.jpg" alt="PFR Informationstafel" loading="lazy" width="1790" height="261"></div></section>
 
 <footer class="site-footer">
   <!-- Foam divider -->
@@ -373,7 +363,7 @@ a{color:var(--gold);text-decoration:none;transition:color .3s}a:hover{color:var(
   <div class="container">
     <div class="footer-grid">
       <div class="footer-logo">
-        <img src="browarwyszak_footer.png" alt="Wyszak Brauerei" loading="lazy">
+        <img src="https://browarwyszak.pl/wp-content/uploads/2017/09/browarwyszak_footer.png" alt="Wyszak Brauerei" loading="lazy">
         <div class="footer-social social-icons">
           <a href="https://www.facebook.com/BrowarRestauracyjnySzczecin/" target="_blank" rel="noopener noreferrer" class="social-icon social-icon--facebook" title="Facebook" aria-label="Facebook">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -420,6 +410,7 @@ a{color:var(--gold);text-decoration:none;transition:color .3s}a:hover{color:var(
     </div>
   </div>
 </footer>
+
 
 
 
