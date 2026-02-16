@@ -27,6 +27,16 @@ dataLayer.push({"pagePostType":"page","pagePostType2":"single-page","pagePostAut
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+/* ===== Header Template Compatibility Fix ===== */
+.site-header .nav-mobile-left,.site-header .nav-mobile-right{display:none}
+.site-header .logo-mobile{display:none}
+.site-header .logo-desktop{display:block}
+@media(max-width:768px){
+  .site-header .nav-mobile-left,.site-header .nav-mobile-right{display:flex;align-items:center;gap:6px}
+  .site-header .logo-mobile{display:block}
+  .site-header .logo-desktop{display:none}
+}
+
 /* ===== RESET & BASE ===== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -252,8 +262,8 @@ a:hover{color:var(--gold-light)}
         </svg>
       </a>
     </div>
-    <a href="/" class="logo">
-      <img src="https://browarwyszak.pl/wp-content/uploads/2017/08/browarwyszak-e1501835022493.png" alt="Browar Wyszak" width="180" height="50">
+    <a href="index.html" class="logo logo-mobile">
+      <img src="browarwyszak-e1501835022493.png" alt="Browar Wyszak" width="180" height="50">
     </a>
     <div class="nav-mobile-right">
       <a href="https://www.facebook.com/BrowarRestauracyjnySzczecin/" target="_blank" rel="noopener noreferrer" class="social-icon social-icon--facebook" title="Facebook" aria-label="Facebook">
@@ -267,8 +277,8 @@ a:hover{color:var(--gold-light)}
       <a href="piwa-rzemieslnicze.html" class="nav-link">Piwo Rzemieślnicze</a>
       <a href="menu.html" class="nav-link">Menu</a>
     </div>
-    <a href="/" class="logo">
-      <img src="https://browarwyszak.pl/wp-content/uploads/2017/08/browarwyszak-e1501835022493.png" alt="Browar Wyszak" width="180" height="50">
+    <a href="index.html" class="logo logo-desktop">
+      <img src="browarwyszak-e1501835022493.png" alt="Browar Wyszak" width="180" height="50">
     </a>
     <div class="nav-right">
       <a href="imprezy-firmowe.html" class="nav-link">Imprezy Firmowe</a>
@@ -345,7 +355,7 @@ a:hover{color:var(--gold-light)}
 <section class="section" id="klasyczne">
   <div class="container">
     <div class="section-heading" data-reveal>
-      <img src="https://browarwyszak.pl/wp-content/uploads/2017/02/SZYSZKA.png" alt="Szyszka chmielu" class="section-icon" width="60" height="55">
+      <img src="SZYSZKA.png" alt="Szyszka chmielu" class="section-icon" width="60" height="55">
       <h2 class="section-title">KLASYCZNE PIWA WYSZAKA</h2>
       <hr class="section-sep">
       <p class="section-text">Warzone zgodnie z najlepszą tradycją piwowarską.</p>
@@ -353,7 +363,7 @@ a:hover{color:var(--gold-light)}
       <p class="section-text">Nasze piwo zostało nagrodzone medalami:</p>
     </div>
     <div data-reveal="scale">
-      <img src="https://browarwyszak.pl/wp-content/uploads/2018/01/browar-wyszak-medale.png" alt="Medale Browaru Wyszak" class="awards-img" width="799" height="101">
+      <img src="browar-wyszak-medale.png" alt="Medale Browaru Wyszak" class="awards-img" width="799" height="101">
     </div>
   </div>
 </section>
@@ -374,11 +384,11 @@ a:hover{color:var(--gold-light)}
         <h3 class="beer-card-name">PILS</h3>
         <hr class="beer-card-sep">
         <div class="beer-card-img">
-          <img src="https://browarwyszak.pl/wp-content/uploads/2017/11/wyszak-pils.jpg" alt="Wyszak Pils" loading="lazy" width="600" height="600">
+          <img src="wyszak-pils.jpg" alt="Wyszak Pils" loading="lazy" width="600" height="600">
         </div>
         <p class="beer-card-desc">Piwo dolnej fermentacji i jasnozłotej barwie. W aromacie lekko zbożowe oraz kwiatowo-korzenne dzięki zastosowaniu słodu pilzneńskiego oraz szlachetnych odmian niemieckich chmieli. W smaku rześkie i goryczkowe.</p>
         <p class="beer-card-specs">Ekstrakt: 12,5&deg; BLG, Alkohol: 4,6% obj.</p>
-        <img src="https://browarwyszak.pl/wp-content/uploads/2018/01/KPR_IBEERIAN.png" alt="Medal Pils" class="beer-card-medal" width="174" height="78" loading="lazy">
+        <img src="KPR_IBEERIAN.png" alt="Medal Pils" class="beer-card-medal" width="174" height="78" loading="lazy">
       </div>
 
       <!-- PSZENICZNE -->
@@ -386,11 +396,11 @@ a:hover{color:var(--gold-light)}
         <h3 class="beer-card-name">PSZENICZNE</h3>
         <hr class="beer-card-sep">
         <div class="beer-card-img">
-          <img src="https://browarwyszak.pl/wp-content/uploads/2017/11/wyszak-pszeniczne-1.jpg" alt="Wyszak Pszeniczne" loading="lazy" width="600" height="600">
+          <img src="wyszak-pszeniczne-1.jpg" alt="Wyszak Pszeniczne" loading="lazy" width="600" height="600">
         </div>
         <p class="beer-card-desc">Piwo górnej fermentacji, słomkowe w barwie i naturalnie mętne. W aromacie przenikające się banany i goździki dzięki zastosowaniu specjalnego szczepu drożdży. W smaku delikatnie chlebowe oraz zbożowe od słodu pszenicznego. Lekkie, owocowe i orzeźwiające.</p>
         <p class="beer-card-specs">Ekstrakt: 12,5&deg; BLG, Alkohol: 4,8% obj.</p>
-        <img src="https://browarwyszak.pl/wp-content/uploads/2018/01/pszenica.png" alt="Medal Pszeniczne" class="beer-card-medal" width="268" height="78" loading="lazy">
+        <img src="pszenica.png" alt="Medal Pszeniczne" class="beer-card-medal" width="268" height="78" loading="lazy">
       </div>
 
       <!-- AMBER ALE -->
@@ -398,11 +408,11 @@ a:hover{color:var(--gold-light)}
         <h3 class="beer-card-name">AMBER ALE</h3>
         <hr class="beer-card-sep">
         <div class="beer-card-img">
-          <img src="https://browarwyszak.pl/wp-content/uploads/2017/11/wyszak-amber.jpg" alt="Wyszak Amber Ale" loading="lazy" width="600" height="600">
+          <img src="wyszak-amber.jpg" alt="Wyszak Amber Ale" loading="lazy" width="600" height="600">
         </div>
         <p class="beer-card-desc">Piwo górnej fermentacji o bursztynowej barwie. W aromacie mieszanka słodkich owoców tropikalnych i cytrusów dzięki zastosowaniu najlepszych odmian amerykańskich chmieli. W smaku słodowo - goryczkowe z karmelowym akcentem. Treściwe, aromatyczne oraz pełne w odbiorze.</p>
         <p class="beer-card-specs">Ekstrakt: 14&deg; BLG, Alkohol: 5,2% obj.</p>
-        <img src="https://browarwyszak.pl/wp-content/uploads/2018/01/siler.png" alt="Medal Amber Ale" class="beer-card-medal" width="78" height="76" loading="lazy">
+        <img src="siler.png" alt="Medal Amber Ale" class="beer-card-medal" width="78" height="76" loading="lazy">
       </div>
     </div>
   </div>
@@ -419,14 +429,14 @@ a:hover{color:var(--gold-light)}
 <section class="section" id="tradycyjnie">
   <div class="container">
     <div class="section-heading" data-reveal>
-      <img src="https://browarwyszak.pl/wp-content/uploads/2017/02/SZYSZKA.png" alt="Szyszka chmielu" class="section-icon" width="60" height="55">
+      <img src="SZYSZKA.png" alt="Szyszka chmielu" class="section-icon" width="60" height="55">
       <h2 class="section-title">WARZYMY TRADYCYJNIE</h2>
       <hr class="section-sep">
       <p class="section-text">Poznaj proces tworzenia piwa Wyszak.</p>
     </div>
   </div>
   <div data-reveal="scale">
-    <img src="https://browarwyszak.pl/wp-content/uploads/2018/01/browar-wyszak-proces-warzenia.png" alt="Proces warzenia piwa Wyszak" class="process-img" loading="lazy" width="1931" height="1091">
+    <img src="browar-wyszak-proces-warzenia.png" alt="Proces warzenia piwa Wyszak" class="process-img" loading="lazy" width="1931" height="1091">
   </div>
 </section>
 
@@ -441,7 +451,7 @@ a:hover{color:var(--gold-light)}
 <section class="section section-alt" id="sezonowe">
   <div class="container">
     <div class="section-heading" data-reveal>
-      <img src="https://browarwyszak.pl/wp-content/uploads/2017/02/SZYSZKA.png" alt="Szyszka chmielu" class="section-icon" width="60" height="55">
+      <img src="SZYSZKA.png" alt="Szyszka chmielu" class="section-icon" width="60" height="55">
       <h2 class="section-title">ARCHIWUM PIW SEZONOWYCH</h2>
       <hr class="section-sep">
       <p class="section-text">Warzymy piwo sezonowo.</p>
@@ -454,33 +464,33 @@ a:hover{color:var(--gold-light)}
         <h3 class="beer-card-name">RAUCHBOCK</h3>
         <hr class="beer-card-sep">
         <div class="beer-card-img">
-          <img src="https://browarwyszak.pl/wp-content/uploads/2017/08/kozlak.jpg" alt="Rauchbock" loading="lazy" width="600" height="600">
+          <img src="kozlak.jpg" alt="Rauchbock" loading="lazy" width="600" height="600">
         </div>
         <p class="beer-card-desc">Piwo dolnej fermentacji o brązowej barwie z dodatkiem słodu wędzonego bukiem. Aromat mocno słodowy, lekko opiekany z wędzonym, dymnym akcentem. Smak słodowo &#8211; zbożowy, skórki ciemnego chleba oraz charakterystycznej wędzonki. Gładkie i treściwe piwo okraszone dymem bukowym, kojarzące się z ogniskiem i grillem.</p>
         <p class="beer-card-specs">Ekstrakt: 16,5&deg; BLG, Alkohol: 6,0% obj.</p>
-        <img src="https://browarwyszak.pl/wp-content/uploads/2018/01/KPR-Rauchbock.png" alt="Medal Rauchbock" class="beer-card-medal" width="79" height="78" loading="lazy">
+        <img src="KPR-Rauchbock.png" alt="Medal Rauchbock" class="beer-card-medal" width="79" height="78" loading="lazy">
       </div>
 
       <div class="beer-card" data-reveal style="transition-delay:.2s">
         <h3 class="beer-card-name">PUMPKIN ALE</h3>
         <hr class="beer-card-sep">
         <div class="beer-card-img">
-          <img src="https://browarwyszak.pl/wp-content/uploads/2017/11/wyszak-pumpkin-ale.jpg" alt="Pumpkin Ale" loading="lazy" width="600" height="600">
+          <img src="wyszak-pumpkin-ale.jpg" alt="Pumpkin Ale" loading="lazy" width="600" height="600">
         </div>
         <p class="beer-card-desc">Piwo górnej fermentacji z dodatkiem dyni o złoto-pomarańczowej barwie. W aromacie bogata mieszanka przypraw: cynamonu, imbiru, kardamonu, kurkumy, goździków,gałki muszkatołowej i wanilii. Smak słodowo-przyprawowy o delikatnej goryczce.</p>
         <p class="beer-card-specs">Ekstrakt: 14&deg; BLG, Alkohol: 5,4%</p>
-        <img src="https://browarwyszak.pl/wp-content/uploads/2018/01/KPR-Pumpkin-Ale.png" alt="Medal Pumpkin Ale" class="beer-card-medal" width="79" height="78" loading="lazy">
+        <img src="KPR-Pumpkin-Ale.png" alt="Medal Pumpkin Ale" class="beer-card-medal" width="79" height="78" loading="lazy">
       </div>
 
       <div class="beer-card" data-reveal style="transition-delay:.3s">
         <h3 class="beer-card-name">OKTOBERFEST</h3>
         <hr class="beer-card-sep">
         <div class="beer-card-img">
-          <img src="https://browarwyszak.pl/wp-content/uploads/2017/08/oktoberfest.jpg" alt="Oktoberfest" loading="lazy" width="600" height="600">
+          <img src="oktoberfest.jpg" alt="Oktoberfest" loading="lazy" width="600" height="600">
         </div>
         <p class="beer-card-desc">Oktoberfest &#8211; Piwo dolnej fermentacji i ciemnozłotej barwie. W aromacie mocno słodowe od niemieckich słodów : wiedeńskiego i monachijskiego. Smak szlachetnie słodki z lekko opiekanymi nutami. Delikatne w odbiorze, słodowe z umiarkowanym wytrawnym finiszem.</p>
         <p class="beer-card-specs">Ekstrakt: 14&deg; BLG, Alkohol. 4,6% obj.</p>
-        <img src="https://browarwyszak.pl/wp-content/uploads/2018/01/KPR-oktoberfest.png" alt="Medal Oktoberfest" class="beer-card-medal" width="79" height="78" loading="lazy">
+        <img src="KPR-oktoberfest.png" alt="Medal Oktoberfest" class="beer-card-medal" width="79" height="78" loading="lazy">
       </div>
     </div>
 
@@ -490,7 +500,7 @@ a:hover{color:var(--gold-light)}
         <h3 class="beer-card-name">VERMONT IPA</h3>
         <hr class="beer-card-sep">
         <div class="beer-card-img">
-          <img src="https://browarwyszak.pl/wp-content/uploads/2017/10/vermont.jpg" alt="Vermont IPA" loading="lazy" width="600" height="600">
+          <img src="vermont.jpg" alt="Vermont IPA" loading="lazy" width="600" height="600">
         </div>
         <p class="beer-card-desc">Piwo górnej fermentacji o jasnej barwie z dodatkiem tłoczonego soku z pomarańczy. Aromat dojrzałych owoców tropikalnych pochodzący od amerykańskich chmieli.Smak owocowo &#8211; słodowy z delikatną goryczką. Bardzo treściwe i gładkie piwo z owocowym akcentem.</p>
         <p class="beer-card-specs">Ekstrakt: 14&deg; BLG, Alkohol: 5,6% obj.</p>
@@ -500,7 +510,7 @@ a:hover{color:var(--gold-light)}
         <h3 class="beer-card-name">CHERRY ALE</h3>
         <hr class="beer-card-sep">
         <div class="beer-card-img">
-          <img src="https://browarwyszak.pl/wp-content/uploads/2017/08/cherry.jpg" alt="Cherry Ale" loading="lazy" width="600" height="600">
+          <img src="cherry.jpg" alt="Cherry Ale" loading="lazy" width="600" height="600">
         </div>
         <p class="beer-card-desc">Piwo górnej fermentacji o bursztynowo &#8211; amarantowej barwie z dodatkiem wiśni, płatków owsianych oraz laktozy. Aromat słodowo &#8211; wiśniowy lekko owsiany. Smak słodko &#8211; kwaśny, wyraźnie wiśniowy wzbogacony aksamitnością płatków owsianych i laktozy.</p>
         <p class="beer-card-specs">Ekstrakt: 14&deg; BLG, Alkohol: 4,8% obj.</p>
@@ -510,7 +520,7 @@ a:hover{color:var(--gold-light)}
         <h3 class="beer-card-name">WATERMELON</h3>
         <hr class="beer-card-sep">
         <div class="beer-card-img">
-          <img src="https://browarwyszak.pl/wp-content/uploads/2017/08/watermelon.jpg" alt="Watermelon" loading="lazy" width="600" height="600">
+          <img src="watermelon.jpg" alt="Watermelon" loading="lazy" width="600" height="600">
         </div>
         <p class="beer-card-desc">Piwo górnej fermentacji o bursztynowej barwie z dodatkiem świeżego arbuza. W aromacie nuty słodkiego, dojrzałego arbuza oraz cytrusowo &#8211; chmielowe. W smaku słodowo-goryczkowe z arbuzowym akcentem. Orzeźwiające, aromatyczne piwo doskonałe na upalne dni.</p>
         <p class="beer-card-specs">Ekstrakt: 12,5&deg;BLG, Alkohol 5,2% obj.</p>
@@ -523,7 +533,7 @@ a:hover{color:var(--gold-light)}
         <h3 class="beer-card-name">EARL GREY</h3>
         <hr class="beer-card-sep">
         <div class="beer-card-img">
-          <img src="https://browarwyszak.pl/wp-content/uploads/2017/08/earl-grey.jpg" alt="Earl Grey" loading="lazy" width="600" height="600">
+          <img src="earl-grey.jpg" alt="Earl Grey" loading="lazy" width="600" height="600">
         </div>
         <p class="beer-card-desc">Piwo dolnej fermentacji o brązowej barwie z dodatkiem skórki pomarańczy bergamotki. Aromat herbaty Earl Grey, słodowy lekko chlebowy. Intensywny smak słodu monachijskiego z wyczuwalną nutą herbacianą. Złożone słodowo &#8211; chlebowe piwo wzbogacone świeżością herbaty Earl Grey.</p>
         <p class="beer-card-specs">Ekstrakt: 12,5&deg; BLG, Alkohol: 4,5%</p>
@@ -533,7 +543,7 @@ a:hover{color:var(--gold-light)}
         <h3 class="beer-card-name">COFFEE STOUT</h3>
         <hr class="beer-card-sep">
         <div class="beer-card-img">
-          <img src="https://browarwyszak.pl/wp-content/uploads/2017/08/coffe.jpg" alt="Coffee Stout" loading="lazy" width="600" height="600">
+          <img src="coffe.jpg" alt="Coffee Stout" loading="lazy" width="600" height="600">
         </div>
         <p class="beer-card-desc">Piwo górnej fermentacji o ciemnobrązowej barwie z dodatkiem świeżo mielonej kawy.W aromacie wyraźne nuty kawy, czekolady oraz palonego jęczmienia. W smaku kawowe z akcentem gorzkiej czekolady i kakao. Bardzo delikatne w odczuciu z palonym temperamentem.</p>
         <p class="beer-card-specs">Ekstrakt: 12,5&deg; BLG, Alkohol: 4,5% obj.</p>
@@ -543,7 +553,7 @@ a:hover{color:var(--gold-light)}
         <h3 class="beer-card-name">PORTER</h3>
         <hr class="beer-card-sep">
         <div class="beer-card-img">
-          <img src="https://browarwyszak.pl/wp-content/uploads/2017/08/porter.jpg" alt="Porter" loading="lazy" width="600" height="600">
+          <img src="porter.jpg" alt="Porter" loading="lazy" width="600" height="600">
         </div>
         <p class="beer-card-desc">Piwo dolnej fermentacji, o ciemnobrązowej barwie, leżakowane z dodatkiem płatków dębowych. W aromacie słodowe, z wyraźnymi nutami gorzkiej czekolady, kawy, toffi i wanilii. W smaku słodowe, karmelowe, czekoladowez subtelną palonością. Treściwe i gładkie o złożonej słodowości. Dodatek płatków dębowych nadaje piwu szlachetnego charakteru.</p>
         <p class="beer-card-specs">Ekstrakt: 18&deg; BLG, Alkohol: 6,5% obj.</p>
@@ -556,7 +566,7 @@ a:hover{color:var(--gold-light)}
         <h3 class="beer-card-name">CIEMNY LAGER</h3>
         <hr class="beer-card-sep">
         <div class="beer-card-img">
-          <img src="https://browarwyszak.pl/wp-content/uploads/2019/02/browar-rodzinny-wyszak-ciemny-lager.png" alt="Ciemny Lager" loading="lazy" width="600" height="600">
+          <img src="browar-rodzinny-wyszak-ciemny-lager.png" alt="Ciemny Lager" loading="lazy" width="600" height="600">
         </div>
         <p class="beer-card-desc">Piwo dolnej fermentacji o jasnobrązowej barwie. W aromacie wyczuwalne nuty zbożowe, toffi oraz karmelu. W smaku słodowe z aksamitną goryczką, karmelowe i lekko orzechowe. Łagodne i lekkie piwo o bogatym słodowym charakterze.</p>
         <p class="beer-card-specs">Ekstrakt: 12,5&deg; BLG, Alkohol: 4,5%</p>
@@ -566,7 +576,7 @@ a:hover{color:var(--gold-light)}
         <h3 class="beer-card-name">SESSION BLACK IPA</h3>
         <hr class="beer-card-sep">
         <div class="beer-card-img">
-          <img src="https://browarwyszak.pl/wp-content/uploads/2019/02/browar-rodzinny-wyszak-ipa.png" alt="Session Black IPA" loading="lazy" width="600" height="600">
+          <img src="browar-rodzinny-wyszak-ipa.png" alt="Session Black IPA" loading="lazy" width="600" height="600">
         </div>
         <p class="beer-card-desc">To wyjątkowe piwo górnej fermentacji o ciemnobrązowej barwie. Chmielone na zimno. W aromacie cytrusowo &#8211; chmielowe z nutą gorzkiej czekolady. Jego smak jest wytrawny, goryczkowy i lekko kawowy. To piwo orzeźwiające, wytrawne i aromatyczne.</p>
         <p class="beer-card-specs">Ekstrakt: 10&deg; BLG, Alkohol: 3,5% obj.</p>
@@ -576,7 +586,7 @@ a:hover{color:var(--gold-light)}
         <h3 class="beer-card-name">AMERICAN PALE ALE</h3>
         <hr class="beer-card-sep">
         <div class="beer-card-img">
-          <img src="https://browarwyszak.pl/wp-content/uploads/2019/02/browar-rodzinny-wyszak-apa.png" alt="American Pale Ale" loading="lazy" width="600" height="600">
+          <img src="browar-rodzinny-wyszak-apa.png" alt="American Pale Ale" loading="lazy" width="600" height="600">
         </div>
         <p class="beer-card-desc">Piwo górnej fermentacji o ciemnożółtej barwie. W aromacie cytrusowe, żywiczne oraz słodowe. W smaku chmielowe z wyraźną goryczką przełamującą słodowo &#8211; zbożową podstawę, lekko chlebowe. Odświeżające piwo z chmielowo &#8211; słodowym temperamentem.</p>
         <p class="beer-card-specs">Ekstrakt: 14&deg; BLG, Alkohol: 5,5% obj.</p>
@@ -597,7 +607,7 @@ a:hover{color:var(--gold-light)}
 <section class="section menu-cta-section" id="menu-cta">
   <div class="container">
     <div class="section-heading" data-reveal>
-      <img src="https://browarwyszak.pl/wp-content/uploads/2017/02/SZYSZKA.png" alt="Szyszka chmielu" class="section-icon" width="60" height="55">
+      <img src="SZYSZKA.png" alt="Szyszka chmielu" class="section-icon" width="60" height="55">
       <h2 class="section-title">MENU BROWAR WYSZAK</h2>
       <hr class="section-sep">
       <p class="section-text">Doskonałym dodatkiem do piw będą przystawki, oparte na produktach dostarczanych przez najlepszych producentów regionalnych. Są wśród nich: sery zagrodowe, wędliny regionalne, świeże ryby, ale też i produkty stanowiące podstawę do potraw sezonowych.</p>
@@ -619,7 +629,7 @@ a:hover{color:var(--gold-light)}
   <div class="container">
     <div class="footer-grid">
       <div class="footer-logo">
-        <img src="https://browarwyszak.pl/wp-content/uploads/2017/09/browarwyszak_footer.png" alt="Browar Wyszak" loading="lazy">
+        <img src="browarwyszak_footer.png" alt="Browar Wyszak" loading="lazy">
         <div class="footer-social social-icons">
           <a href="https://www.facebook.com/BrowarRestauracyjnySzczecin/" target="_blank" rel="noopener noreferrer" class="social-icon social-icon--facebook" title="Facebook" aria-label="Facebook">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -666,6 +676,7 @@ a:hover{color:var(--gold-light)}
     </div>
   </div>
 </footer>
+
 
 
 

@@ -27,6 +27,16 @@ dataLayer.push({"pagePostType":"page","pagePostType2":"single-page","pagePostAut
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+/* ===== Header Template Compatibility Fix ===== */
+.site-header .nav-mobile-left,.site-header .nav-mobile-right{display:none}
+.site-header .logo-mobile{display:none}
+.site-header .logo-desktop{display:block}
+@media(max-width:768px){
+  .site-header .nav-mobile-left,.site-header .nav-mobile-right{display:flex;align-items:center;gap:6px}
+  .site-header .logo-mobile{display:block}
+  .site-header .logo-desktop{display:none}
+}
+
 /* ===== RESET & BASE ===== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -249,8 +259,8 @@ a:hover{color:var(--gold-light)}
         </svg>
       </a>
     </div>
-    <a href="/" class="logo">
-      <img src="https://browarwyszak.pl/wp-content/uploads/2017/08/browarwyszak-e1501835022493.png" alt="Browar Wyszak" width="180" height="50">
+    <a href="en-home.html" class="logo logo-mobile">
+      <img src="browarwyszak-e1501835022493.png" alt="Browar Wyszak" width="180" height="50">
     </a>
     <div class="nav-mobile-right">
       <a href="https://www.facebook.com/BrowarRestauracyjnySzczecin/" target="_blank" rel="noopener noreferrer" class="social-icon social-icon--facebook" title="Facebook" aria-label="Facebook">
@@ -264,8 +274,8 @@ a:hover{color:var(--gold-light)}
       <a href="en-piwa-rzemieslnicze.html" class="nav-link">Artisan Beer</a>
       <a href="en-menu.html" class="nav-link">Menu</a>
     </div>
-    <a href="/" class="logo">
-      <img src="https://browarwyszak.pl/wp-content/uploads/2017/08/browarwyszak-e1501835022493.png" alt="Browar Wyszak" width="180" height="50">
+    <a href="en-home.html" class="logo logo-desktop">
+      <img src="browarwyszak-e1501835022493.png" alt="Browar Wyszak" width="180" height="50">
     </a>
     <div class="nav-right">
       <a href="en-imprezy-firmowe.html" class="nav-link">Event Hosting</a>
@@ -336,7 +346,7 @@ a:hover{color:var(--gold-light)}
 <section class="section" id="klasyczne">
   <div class="container">
     <div class="section-heading" data-reveal>
-      <img src="https://browarwyszak.pl/wp-content/uploads/2017/02/SZYSZKA.png" alt="Hop cone" class="section-icon" width="60" height="55">
+      <img src="SZYSZKA.png" alt="Hop cone" class="section-icon" width="60" height="55">
       <h2 class="section-title">WYSZAK'S CLASSICS</h2>
       <hr class="section-sep">
       <p class="section-text">Brewed in line with the best brewing tradition.</p>
@@ -344,7 +354,7 @@ a:hover{color:var(--gold-light)}
       <p class="section-text">Wyszak beer awards:</p>
     </div>
     <div data-reveal="scale">
-      <img src="https://browarwyszak.pl/wp-content/uploads/2018/01/browar-wyszak-medale.png" alt="Wyszak Brewery Awards" class="awards-img" width="799" height="101">
+      <img src="browar-wyszak-medale.png" alt="Wyszak Brewery Awards" class="awards-img" width="799" height="101">
     </div>
   </div>
 </section>
@@ -365,11 +375,11 @@ a:hover{color:var(--gold-light)}
         <h3 class="beer-card-name">PILS</h3>
         <hr class="beer-card-sep">
         <div class="beer-card-img">
-          <img src="https://browarwyszak.pl/wp-content/uploads/2017/11/wyszak-pils.jpg" alt="Wyszak Pils" loading="lazy" width="600" height="600">
+          <img src="wyszak-pils.jpg" alt="Wyszak Pils" loading="lazy" width="600" height="600">
         </div>
         <p class="beer-card-desc">Pale-gold low fermentation beer. Slightly malty and floral-spicy aroma comes from using Pilsner malt and noble varieties of German hops. Well balanced with crisp hops bitterness.</p>
         <p class="beer-card-specs">Extract: 12,5&deg; BLG, Alcohol: 4,6% vol.</p>
-        <img src="https://browarwyszak.pl/wp-content/uploads/2018/01/KPR_IBEERIAN.png" alt="Pils Medal" class="beer-card-medal" width="174" height="78" loading="lazy">
+        <img src="KPR_IBEERIAN.png" alt="Pils Medal" class="beer-card-medal" width="174" height="78" loading="lazy">
       </div>
 
       <!-- WHEAT -->
@@ -377,11 +387,11 @@ a:hover{color:var(--gold-light)}
         <h3 class="beer-card-name">WHEAT</h3>
         <hr class="beer-card-sep">
         <div class="beer-card-img">
-          <img src="https://browarwyszak.pl/wp-content/uploads/2017/11/wyszak-pszeniczne-1.jpg" alt="Wyszak Wheat" loading="lazy" width="600" height="600">
+          <img src="wyszak-pszeniczne-1.jpg" alt="Wyszak Wheat" loading="lazy" width="600" height="600">
         </div>
         <p class="beer-card-desc">Pale high fermentation beer, naturally opaque. Thanks to a special variety of yeast, rich in nice banana and clove notes. Delicious balance of bready maltiness coming from wheat malt. Light, fruity and refreshing.</p>
         <p class="beer-card-specs">Extract: 12,5&deg; BLG, Alcohol: 4,8% vol.</p>
-        <img src="https://browarwyszak.pl/wp-content/uploads/2018/01/pszenica.png" alt="Wheat Medal" class="beer-card-medal" width="268" height="78" loading="lazy">
+        <img src="pszenica.png" alt="Wheat Medal" class="beer-card-medal" width="268" height="78" loading="lazy">
       </div>
 
       <!-- AMBER ALE -->
@@ -389,11 +399,11 @@ a:hover{color:var(--gold-light)}
         <h3 class="beer-card-name">AMBER ALE</h3>
         <hr class="beer-card-sep">
         <div class="beer-card-img">
-          <img src="https://browarwyszak.pl/wp-content/uploads/2017/11/wyszak-amber.jpg" alt="Wyszak Amber Ale" loading="lazy" width="600" height="600">
+          <img src="wyszak-amber.jpg" alt="Wyszak Amber Ale" loading="lazy" width="600" height="600">
         </div>
         <p class="beer-card-desc">High fermentation amber-tinted beer. Thanks to the best variety of American hops, it has a ripe citrus and tropical fruit aroma. Sweet and bitter flavour with a hint of caramel. Rich malt character, giving a pleasant sense of fullness of taste and fragrance.</p>
         <p class="beer-card-specs">Extract: 14&deg; BLG, Alcohol: 5,2% vol.</p>
-        <img src="https://browarwyszak.pl/wp-content/uploads/2018/01/siler.png" alt="Amber Ale Medal" class="beer-card-medal" width="78" height="76" loading="lazy">
+        <img src="siler.png" alt="Amber Ale Medal" class="beer-card-medal" width="78" height="76" loading="lazy">
       </div>
     </div>
   </div>
@@ -410,14 +420,14 @@ a:hover{color:var(--gold-light)}
 <section class="section" id="tradycyjnie">
   <div class="container">
     <div class="section-heading" data-reveal>
-      <img src="https://browarwyszak.pl/wp-content/uploads/2017/02/SZYSZKA.png" alt="Hop cone" class="section-icon" width="60" height="55">
+      <img src="SZYSZKA.png" alt="Hop cone" class="section-icon" width="60" height="55">
       <h2 class="section-title">WE BREW TRADITIONALLY</h2>
       <hr class="section-sep">
       <p class="section-text">Get to know the brewing process of Wyszak beer.</p>
     </div>
   </div>
   <div data-reveal="scale">
-    <img src="https://browarwyszak.pl/wp-content/uploads/2018/01/browar-wyszak-proces-warzenia.png" alt="Wyszak beer brewing process" class="process-img" loading="lazy" width="1931" height="1091">
+    <img src="browar-wyszak-proces-warzenia.png" alt="Wyszak beer brewing process" class="process-img" loading="lazy" width="1931" height="1091">
   </div>
 </section>
 
@@ -432,7 +442,7 @@ a:hover{color:var(--gold-light)}
 <section class="section section-alt" id="sezonowe">
   <div class="container">
     <div class="section-heading" data-reveal>
-      <img src="https://browarwyszak.pl/wp-content/uploads/2017/02/SZYSZKA.png" alt="Hop cone" class="section-icon" width="60" height="55">
+      <img src="SZYSZKA.png" alt="Hop cone" class="section-icon" width="60" height="55">
       <h2 class="section-title">WYSZAK'S BEER ARCHIVE</h2>
       <hr class="section-sep">
       <p class="section-text">The beer is brewed seasonally.</p>
@@ -445,33 +455,33 @@ a:hover{color:var(--gold-light)}
         <h3 class="beer-card-name">RAUCHBOCK</h3>
         <hr class="beer-card-sep">
         <div class="beer-card-img">
-          <img src="https://browarwyszak.pl/wp-content/uploads/2017/08/kozlak.jpg" alt="Rauchbock" loading="lazy" width="600" height="600">
+          <img src="kozlak.jpg" alt="Rauchbock" loading="lazy" width="600" height="600">
         </div>
         <p class="beer-card-desc">Lager beer brown in colour with added malt roasted with the beech. Strongly malty aroma, slightly roasted with a smoke accent. Malty-corny flavour as well as dark bread crust pieces and characteristic smoked bacon. Smooth rich beer seasoned with the beech smoke, reminds a campfire and barbecue.</p>
         <p class="beer-card-specs">Extract: 16,5&deg; BLG, Alcohol: 6,0% vol.</p>
-        <img src="https://browarwyszak.pl/wp-content/uploads/2018/01/KPR-Rauchbock.png" alt="Rauchbock Medal" class="beer-card-medal" width="79" height="78" loading="lazy">
+        <img src="KPR-Rauchbock.png" alt="Rauchbock Medal" class="beer-card-medal" width="79" height="78" loading="lazy">
       </div>
 
       <div class="beer-card" data-reveal style="transition-delay:.2s">
         <h3 class="beer-card-name">PUMPKIN ALE</h3>
         <hr class="beer-card-sep">
         <div class="beer-card-img">
-          <img src="https://browarwyszak.pl/wp-content/uploads/2017/11/wyszak-pumpkin-ale.jpg" alt="Pumpkin Ale" loading="lazy" width="600" height="600">
+          <img src="wyszak-pumpkin-ale.jpg" alt="Pumpkin Ale" loading="lazy" width="600" height="600">
         </div>
         <p class="beer-card-desc">High fermentation beer brewed with pumpkin, golden-orange in colour. The aroma features a rich blend of spices: cinnamon, ginger, cardamom, turmeric, cloves, nutmeg and vanilla. Sweet-malty and spicy flavour with a gentle bitterness.</p>
         <p class="beer-card-specs">Extract: 14&deg; BLG, Alcohol: 5,4%</p>
-        <img src="https://browarwyszak.pl/wp-content/uploads/2018/01/KPR-Pumpkin-Ale.png" alt="Pumpkin Ale Medal" class="beer-card-medal" width="79" height="78" loading="lazy">
+        <img src="KPR-Pumpkin-Ale.png" alt="Pumpkin Ale Medal" class="beer-card-medal" width="79" height="78" loading="lazy">
       </div>
 
       <div class="beer-card" data-reveal style="transition-delay:.3s">
         <h3 class="beer-card-name">OKTOBERFEST</h3>
         <hr class="beer-card-sep">
         <div class="beer-card-img">
-          <img src="https://browarwyszak.pl/wp-content/uploads/2017/08/oktoberfest.jpg" alt="Oktoberfest" loading="lazy" width="600" height="600">
+          <img src="oktoberfest.jpg" alt="Oktoberfest" loading="lazy" width="600" height="600">
         </div>
         <p class="beer-card-desc">Lager beer dark gold in colour. With strong malty aroma from German malt: Viennese and Munich. Nobly sweet taste with slightly roasted hints. Delicate in perception, malty with moderately dry finish.</p>
         <p class="beer-card-specs">Extract: 14&deg; BLG, Alcohol: 4,6% vol.</p>
-        <img src="https://browarwyszak.pl/wp-content/uploads/2018/01/KPR-oktoberfest.png" alt="Oktoberfest Medal" class="beer-card-medal" width="79" height="78" loading="lazy">
+        <img src="KPR-oktoberfest.png" alt="Oktoberfest Medal" class="beer-card-medal" width="79" height="78" loading="lazy">
       </div>
     </div>
 
@@ -481,7 +491,7 @@ a:hover{color:var(--gold-light)}
         <h3 class="beer-card-name">VERMONT IPA</h3>
         <hr class="beer-card-sep">
         <div class="beer-card-img">
-          <img src="https://browarwyszak.pl/wp-content/uploads/2017/10/vermont.jpg" alt="Vermont IPA" loading="lazy" width="600" height="600">
+          <img src="vermont.jpg" alt="Vermont IPA" loading="lazy" width="600" height="600">
         </div>
         <p class="beer-card-desc">High fermentation beer, pale, with fresh squeezed orange juice. American hops give it a ripe tropical fruit aroma. Fruity and malty flavour, and bitterness that lingers just enough. Very rich and smooth beer with a fruity hint.</p>
         <p class="beer-card-specs">Extract: 14&deg; BLG, Alcohol: 5,6% vol.</p>
@@ -491,7 +501,7 @@ a:hover{color:var(--gold-light)}
         <h3 class="beer-card-name">CHERRY ALE</h3>
         <hr class="beer-card-sep">
         <div class="beer-card-img">
-          <img src="https://browarwyszak.pl/wp-content/uploads/2017/08/cherry.jpg" alt="Cherry Ale" loading="lazy" width="600" height="600">
+          <img src="cherry.jpg" alt="Cherry Ale" loading="lazy" width="600" height="600">
         </div>
         <p class="beer-card-desc">High fermentation beer, amber and amaranth tinted, brewed with an addition of cherries, oatmeal and lactose. Malty aroma combining cherries and oats. Sweet and sour flavour, with a distinct cherry note and velvety layer of oats and lactose.</p>
         <p class="beer-card-specs">Extract: 14&deg; BLG, Alcohol: 4,8% vol.</p>
@@ -501,7 +511,7 @@ a:hover{color:var(--gold-light)}
         <h3 class="beer-card-name">WATERMELON</h3>
         <hr class="beer-card-sep">
         <div class="beer-card-img">
-          <img src="https://browarwyszak.pl/wp-content/uploads/2017/08/watermelon.jpg" alt="Watermelon" loading="lazy" width="600" height="600">
+          <img src="watermelon.jpg" alt="Watermelon" loading="lazy" width="600" height="600">
         </div>
         <p class="beer-card-desc">Amber-tinted high fermentation beer brewed with fresh watermelon. The aroma hits with sweet and ripe watermelon and citrus-hops notes. It has a sweet-bitter flavour, with a hint of watermelon. Definitely refreshing, fragrant beer perfect for hot summer days.</p>
         <p class="beer-card-specs">Extract: 12,5&deg;BLG, Alcohol: 5,2% vol.</p>
@@ -514,7 +524,7 @@ a:hover{color:var(--gold-light)}
         <h3 class="beer-card-name">EARL GREY</h3>
         <hr class="beer-card-sep">
         <div class="beer-card-img">
-          <img src="https://browarwyszak.pl/wp-content/uploads/2017/08/earl-grey.jpg" alt="Earl Grey" loading="lazy" width="600" height="600">
+          <img src="earl-grey.jpg" alt="Earl Grey" loading="lazy" width="600" height="600">
         </div>
         <p class="beer-card-desc">Brown-coloured low fermentation beer with an addition of bergamot orange peel. It exudes the aroma of Earl Grey, malty and slightly bready. Intense flavour of Munich malt with interesting tea notes. Complex malty and bready beer with a refreshing touch of Earl Grey.</p>
         <p class="beer-card-specs">Extract: 12,5&deg; BLG, Alcohol: 4,5%</p>
@@ -524,7 +534,7 @@ a:hover{color:var(--gold-light)}
         <h3 class="beer-card-name">COFFEE STOUT</h3>
         <hr class="beer-card-sep">
         <div class="beer-card-img">
-          <img src="https://browarwyszak.pl/wp-content/uploads/2017/08/coffe.jpg" alt="Coffee Stout" loading="lazy" width="600" height="600">
+          <img src="coffe.jpg" alt="Coffee Stout" loading="lazy" width="600" height="600">
         </div>
         <p class="beer-card-desc">Dark brown high fermentation beer with an addition of freshly ground coffee. Intense coffee, chocolate and roast barley aroma. Rich coffee flavours with a hint of dark chocolate and cocoa. Very subtle on the palate with smooth roasted character.</p>
         <p class="beer-card-specs">Extract: 12,5&deg; BLG, Alcohol: 4,5% vol.</p>
@@ -534,7 +544,7 @@ a:hover{color:var(--gold-light)}
         <h3 class="beer-card-name">PORTER</h3>
         <hr class="beer-card-sep">
         <div class="beer-card-img">
-          <img src="https://browarwyszak.pl/wp-content/uploads/2017/08/porter.jpg" alt="Porter" loading="lazy" width="600" height="600">
+          <img src="porter.jpg" alt="Porter" loading="lazy" width="600" height="600">
         </div>
         <p class="beer-card-desc">Lager beer dark brown in colour matured with addition of oak flakes. Malty aroma, with distinct hint of dark chocolate, coffee, toffee and vanilla. Malty in flavour, caramel, chocolate with a subtle roast taste. Rich and smooth with complex maltiness. Added oak flakes give the beer a noble character.</p>
         <p class="beer-card-specs">Extract: 18&deg; BLG, Alcohol: 6,5% vol.</p>
@@ -547,7 +557,7 @@ a:hover{color:var(--gold-light)}
         <h3 class="beer-card-name">DARK LAGER</h3>
         <hr class="beer-card-sep">
         <div class="beer-card-img">
-          <img src="https://browarwyszak.pl/wp-content/uploads/2019/02/browar-rodzinny-wyszak-ciemny-lager.png" alt="Dark Lager" loading="lazy" width="600" height="600">
+          <img src="browar-rodzinny-wyszak-ciemny-lager.png" alt="Dark Lager" loading="lazy" width="600" height="600">
         </div>
         <p class="beer-card-desc">Lower-fermented beer with a light brown colour. Aroma with a hint of grain, toffee and caramel. The taste is malty with velvety bitterness, caramel and slightly nutty. A mild and light beer with a rich malty character.</p>
         <p class="beer-card-specs">Extract: 12,5&deg; BLG, Alcohol: 4,5%</p>
@@ -557,7 +567,7 @@ a:hover{color:var(--gold-light)}
         <h3 class="beer-card-name">SESSION BLACK IPA</h3>
         <hr class="beer-card-sep">
         <div class="beer-card-img">
-          <img src="https://browarwyszak.pl/wp-content/uploads/2019/02/browar-rodzinny-wyszak-ipa.png" alt="Session Black IPA" loading="lazy" width="600" height="600">
+          <img src="browar-rodzinny-wyszak-ipa.png" alt="Session Black IPA" loading="lazy" width="600" height="600">
         </div>
         <p class="beer-card-desc">Top-fermented, cold hopped dark-brown beer. Citrus-hop aroma with a hint of bitter chocolate. Dry flavour, slightly bitter with a hint of coffee. Refreshing, dry and aromatic.</p>
         <p class="beer-card-specs">Extract: 10&deg; BLG, Alcohol: 3,5% vol.</p>
@@ -567,7 +577,7 @@ a:hover{color:var(--gold-light)}
         <h3 class="beer-card-name">AMERICAN PALE ALE</h3>
         <hr class="beer-card-sep">
         <div class="beer-card-img">
-          <img src="https://browarwyszak.pl/wp-content/uploads/2019/02/browar-rodzinny-wyszak-apa.png" alt="American Pale Ale" loading="lazy" width="600" height="600">
+          <img src="browar-rodzinny-wyszak-apa.png" alt="American Pale Ale" loading="lazy" width="600" height="600">
         </div>
         <p class="beer-card-desc">High fermentation beer with a dark yellow colour. Citrus, resinous and malty aroma. Hoppy flavour with a pronounced bitterness that cuts through the malty-grainy base, slightly bready. A refreshing beer with a hop-malt character.</p>
         <p class="beer-card-specs">Extract: 14&deg; BLG, Alcohol: 5,5% vol.</p>
@@ -588,7 +598,7 @@ a:hover{color:var(--gold-light)}
 <section class="section menu-cta-section" id="menu-cta">
   <div class="container">
     <div class="section-heading" data-reveal>
-      <img src="https://browarwyszak.pl/wp-content/uploads/2017/02/SZYSZKA.png" alt="Hop cone" class="section-icon" width="60" height="55">
+      <img src="SZYSZKA.png" alt="Hop cone" class="section-icon" width="60" height="55">
       <h2 class="section-title">WYSZAK BREWERY MENU</h2>
       <hr class="section-sep">
       <p class="section-text">Our selection of appetizers pairs perfectly with our beers. Our menu is based on local produce sourced from the West-Pomeranian region. It includes farmstead cheese, regionally produced cold meats, fresh fish and seasonal vegetables and fruits.</p>
@@ -610,7 +620,7 @@ a:hover{color:var(--gold-light)}
   <div class="container">
     <div class="footer-grid">
       <div class="footer-logo">
-        <img src="https://browarwyszak.pl/wp-content/uploads/2017/09/browarwyszak_footer.png" alt="Wyszak Brewery" loading="lazy">
+        <img src="browarwyszak_footer.png" alt="Wyszak Brewery" loading="lazy">
         <div class="footer-social social-icons">
           <a href="https://www.facebook.com/BrowarRestauracyjnySzczecin/" target="_blank" rel="noopener noreferrer" class="social-icon social-icon--facebook" title="Facebook" aria-label="Facebook">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -657,6 +667,7 @@ a:hover{color:var(--gold-light)}
     </div>
   </div>
 </footer>
+
 
 
 
