@@ -450,7 +450,7 @@ a:hover{color:var(--gold-light)}
   function lockBodyScroll() {
     savedScrollY = window.scrollY || window.pageYOffset;
     document.body.style.position = 'fixed';
-    document.body.style.top = -px;
+    document.body.style.top = `-${savedScrollY}px`;
     document.body.style.left = '0';
     document.body.style.right = '0';
     document.body.style.width = '100%';
@@ -486,7 +486,7 @@ a:hover{color:var(--gold-light)}
     closeBtn.type = 'button';
     closeBtn.className = 'mobile-nav-close';
     closeBtn.setAttribute('aria-label', 'Zamknij menu');
-    closeBtn.textContent = '×';
+    closeBtn.textContent = '\u00D7';
     closeBtn.addEventListener('click', closeMobileNav);
     mobileNav.prepend(closeBtn);
   }
@@ -512,7 +512,7 @@ a:hover{color:var(--gold-light)}
       closeMobileNav();
     }
   });
-  });
+
 
   // Scroll reveal
   const reveals = document.querySelectorAll('[data-reveal]');
@@ -543,6 +543,7 @@ a:hover{color:var(--gold-light)}
 
 </body>
 </html>
+
 
 
 
