@@ -133,13 +133,15 @@ a:hover{color:var(--gold-light)}
 .section-text{max-width:700px;margin:0 auto;font-size:.95rem;color:var(--cream-dim);text-align:center;line-height:1.9}
 
 /* ===== CONTACT GRID ===== */
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.contact-grid{display:grid;grid-template-columns:1fr;gap:50px;align-items:start;max-width:900px;margin:0 auto}
 
 /* Contact Form */
 .contact-form-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:16px;padding:48px 40px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
 .contact-form-card h2{font-family:var(--font-serif);font-size:clamp(1.4rem,2.5vw,1.8rem);letter-spacing:.095em;color:var(--cream);text-align:center;margin-bottom:8px}
 .contact-form-sep{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 32px;border:none}
+.form-fields-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 .form-group{margin-bottom:24px}
+.form-group-full{grid-column:1/-1}
 .form-label{display:block;font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
 .form-input,.form-textarea{width:100%;background:rgba(13,10,8,.6);border:1px solid var(--glass-border);border-radius:6px;padding:14px 18px;font-family:var(--font-sans);font-size:.9rem;color:var(--cream);transition:border-color .3s,box-shadow .3s;outline:none}
 .form-input::placeholder,.form-textarea::placeholder{color:rgba(254,245,216,.3)}
@@ -222,8 +224,9 @@ a:hover{color:var(--gold-light)}
   .container{padding:0 20px}
   .section{padding:70px 0}
   .page-hero{height:50vh;min-height:350px}
-  .contact-form-card,.contact-info-card{padding:32px 24px}
+.contact-form-card,.contact-info-card{padding:32px 24px}
   .contact-grid{gap:40px}
+  .form-fields-grid{grid-template-columns:1fr}
   .map-section iframe{height:400px}
   .footer-grid{grid-template-columns:1fr;text-align:center}
   .footer-hours li{justify-content:center}
@@ -338,11 +341,6 @@ a:hover{color:var(--gold-light)}
   <div class="page-hero-bg" style="background-image:url('https://browarwyszak.pl/wp-content/uploads/2017/10/ratusz-2.jpg')"></div>
   <div class="page-hero-overlay"></div>
   <div class="bubbles" id="bubbles"></div>
-  <div class="page-hero-content">
-    <hr class="page-hero-deco">
-    <h1 class="page-hero-title">MEETING PLACE</h1>
-    <p class="page-hero-sub">We warmly welcome you to Wyszak Family Brewery. The restaurant is located in the cellar of the Old Town Hall on Sienny Square in Szczecin. Detailed information can be found below.</p>
-  </div>
 
   <!-- Foam divider at bottom of hero -->
   <div class="foam-divider" style="position:absolute;bottom:0;left:0;right:0;z-index:4">
@@ -353,8 +351,19 @@ a:hover{color:var(--gold-light)}
   </div>
 </section>
 
+<!-- ===== MEETING PLACE SECTION ===== -->
+<section class="section" id="meeting-place" style="padding-bottom:40px">
+  <div class="container">
+    <div class="section-heading" data-reveal>
+      <h2 class="section-title">MEETING PLACE</h2>
+      <hr class="section-sep">
+      <p class="section-text">We warmly welcome you to Wyszak Family Brewery. The restaurant is located in the cellar of the Old Town Hall on Sienny Square in Szczecin. Detailed information can be found below.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ===== CONTACT SECTION ===== -->
-<section class="section" id="contact">
+<section class="section" id="contact" style="padding-top:40px">
   <div class="container">
     <div class="contact-grid">
 
@@ -362,25 +371,44 @@ a:hover{color:var(--gold-light)}
       <div class="contact-form-card" data-reveal="left">
         <h2><span style="letter-spacing:.095em">BOOK A TABLE</span></h2>
         <hr class="contact-form-sep">
-        <form action="/kontakt/#wpcf7-f821-p122-o1" method="post" novalidate="novalidate">
-          <div class="form-group">
-            <label class="form-label">Full Name</label>
-            <input type="text" name="your-name" class="form-input" aria-invalid="false">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Email Address</label>
-            <input type="email" name="your-email" class="form-input" aria-required="true" aria-invalid="false">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Phone</label>
-            <input type="text" name="your-phone" class="form-input" aria-invalid="false">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Message</label>
-            <textarea name="your-message" class="form-textarea" rows="6" aria-invalid="false"></textarea>
+        <form id="reservationForm" novalidate="novalidate">
+          <div class="form-fields-grid">
+            <div class="form-group">
+              <label class="form-label">Full Name</label>
+              <input type="text" name="name" class="form-input" required aria-invalid="false">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Address</label>
+              <input type="email" name="email" class="form-input" required aria-invalid="false">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Phone</label>
+              <input type="tel" name="phone" class="form-input" required aria-invalid="false">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Reservation Date</label>
+              <input type="date" name="date" id="reservationDate" class="form-input" required aria-invalid="false">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Time</label>
+              <select name="time" id="reservationTime" class="form-input" required aria-invalid="false">
+                <option value="" disabled selected>Select time</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Guests</label>
+              <input type="number" name="guests" class="form-input" min="1" max="400" placeholder="Number of guests" aria-invalid="false">
+            </div>
+            <div class="form-group form-group-full">
+              <label class="form-label">Message</label>
+              <textarea name="message" class="form-textarea" rows="4" placeholder="Additional information (optional)" aria-invalid="false"></textarea>
+            </div>
           </div>
           <button type="submit" class="form-submit">Book</button>
         </form>
+        <div class="form-success" id="formSuccess" style="display:none;text-align:center;padding:32px;color:var(--gold);font-family:var(--font-serif);font-size:1.1rem;letter-spacing:.04em">
+          Thank you! We will contact you within 24 hours.
+        </div>
       </div>
 
       <!-- RIGHT: Visit Us -->
@@ -592,6 +620,102 @@ a:hover{color:var(--gold-light)}
   if (langLinks) {
     document.querySelectorAll('a[hreflang="pl-PL"], a[title="Polski"]').forEach(a => a.href = langLinks.pl);
     document.querySelectorAll('a[hreflang="de-DE"], a[title="Deutsch"]').forEach(a => a.href = langLinks.de);
+  }
+
+  // Reservation date & time logic
+  const dateInput = document.getElementById('reservationDate');
+  const timeSelect = document.getElementById('reservationTime');
+
+  if (dateInput && timeSelect) {
+    const today = new Date();
+    const minDate = today.toISOString().split('T')[0];
+    dateInput.setAttribute('min', minDate);
+
+    function generateTimeSlots(dayOfWeek) {
+      timeSelect.innerHTML = '<option value="">Select time</option>';
+
+      let startHour, endHour, endMinute;
+      if (dayOfWeek >= 1 && dayOfWeek <= 4) {
+        startHour = 15;
+        endHour = 22;
+        endMinute = 0;
+      } else if (dayOfWeek === 5 || dayOfWeek === 6) {
+        startHour = 13;
+        endHour = 22;
+        endMinute = 30;
+      } else {
+        startHour = 13;
+        endHour = 20;
+        endMinute = 0;
+      }
+
+      for (let h = startHour; h <= endHour; h++) {
+        for (let m of [0, 30]) {
+          if (h === endHour && m > endMinute) break;
+          const timeStr = `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
+          const option = document.createElement('option');
+          option.value = timeStr;
+          option.textContent = timeStr;
+          timeSelect.appendChild(option);
+        }
+      }
+    }
+
+    dateInput.addEventListener('change', function() {
+      const selectedDate = new Date(this.value + 'T00:00:00');
+      const dayOfWeek = selectedDate.getDay();
+      generateTimeSlots(dayOfWeek);
+    });
+
+    if (!dateInput.value) {
+      dateInput.value = minDate;
+      const dayOfWeek = today.getDay();
+      generateTimeSlots(dayOfWeek);
+    }
+  }
+
+  // Form submission handler
+  const reservationForm = document.getElementById('reservationForm');
+  if (reservationForm) {
+    reservationForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const submitBtn = reservationForm.querySelector('.form-submit');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      const formData = new FormData(reservationForm);
+
+      try {
+        const response = await fetch('/api/send-reservation', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            Osoba_kontaktowa: formData.get('name'),
+            Email: formData.get('email'),
+            Telefon: formData.get('phone'),
+            Data_wydarzenia: formData.get('date'),
+            Godzina: formData.get('time'),
+            Liczba_osob: formData.get('guests'),
+            Dodatkowe_informacje: formData.get('message'),
+            Firma: '',
+            Rodzaj_wydarzenia: 'Table reservation'
+          })
+        });
+
+        const result = await response.json();
+        if (result.success) {
+          reservationForm.style.display = 'none';
+          document.getElementById('formSuccess').style.display = 'block';
+        } else {
+          throw new Error('Failed to send');
+        }
+      } catch (error) {
+        alert('An error occurred. Please call: 91 488 34 81');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Book';
+      }
+    });
   }
 })();
 </script>
