@@ -84,11 +84,14 @@ a:hover{color:var(--gold-light)}
 .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px)}
 
 /* Mobile Overlay */
-.mobile-nav{position:fixed;inset:0;background:rgba(13,10,8,.97);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;pointer-events:none;transition:opacity .4s ease;z-index:999}
+.mobile-nav{position:fixed;inset:0;padding:110px 22px 26px;background:radial-gradient(circle at 15% 0%,rgba(200,148,62,.14),transparent 45%),radial-gradient(circle at 85% 100%,rgba(139,26,10,.2),transparent 45%),rgba(9,6,5,.95);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:12px;opacity:0;pointer-events:none;transition:opacity .35s ease;z-index:1300;overflow-y:auto}
 .mobile-nav.open{opacity:1;pointer-events:all}
-.mobile-nav a{font-family:var(--font-serif);font-size:24px;color:var(--cream);letter-spacing:.08em;transition:color .3s}
-.mobile-nav a:hover{color:var(--gold)}
-.mobile-nav-langs{display:flex;gap:16px;margin-top:24px}
+.mobile-nav a{font-family:var(--font-sans);font-size:16px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--cream);padding:14px 16px;border:1px solid var(--glass-border);border-radius:12px;background:linear-gradient(180deg,rgba(255,245,216,.06),rgba(255,245,216,.02));text-align:center;transition:all .25s ease}
+.mobile-nav a:hover{color:var(--gold);border-color:rgba(200,148,62,.45);background:linear-gradient(180deg,rgba(200,148,62,.16),rgba(200,148,62,.08));transform:translateY(-1px)}
+.mobile-nav a[href^="tel:"]{font-size:20px;letter-spacing:.12em;border-color:rgba(200,148,62,.45);margin-top:6px}
+.mobile-nav-langs{display:flex;justify-content:center;gap:14px;margin-top:8px;padding-top:6px}
+.mobile-nav-langs .nav-lang{width:44px;height:30px}
+.mobile-nav-langs .nav-lang svg{width:30px;height:20px}
 
 /* ===== PAGE HERO ===== */
 .page-hero{position:relative;height:60vh;min-height:400px;overflow:hidden;display:flex;align-items:center;justify-content:center}
@@ -730,5 +733,6 @@ a:hover{color:var(--gold-light)}
 
 </body>
 </html>
+
 
 
