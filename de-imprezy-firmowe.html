@@ -1330,8 +1330,6 @@ a:hover{color:var(--gold-light)}
       const submitBtn = corpForm.querySelector('.form-submit');
       submitBtn.disabled = true;
       submitBtn.textContent = locale.sending;
-      const lockedScrollX = window.scrollX;
-      const lockedScrollY = window.scrollY;
 
       const eventDateValue = formData.get('event_date') || '';
       const eventTimeValue = formData.get('event_time') || '';
@@ -1388,8 +1386,11 @@ a:hover{color:var(--gold-light)}
           throw new Error(result.message || fallback || `HTTP ${response.status}` || locale.alertError);
         }
         corpForm.style.display = 'none';
-        document.getElementById('formSuccess').style.display = 'block';
-        requestAnimationFrame(() => window.scrollTo(lockedScrollX, lockedScrollY));
+        const successEl = document.getElementById('formSuccess');
+        successEl.style.display = 'block';
+        requestAnimationFrame(() => {
+          successEl.scrollIntoView({ behavior: 'auto', block: 'center' });
+        });
       } catch (error) {
         alert(error?.message || locale.alertError);
         submitBtn.disabled = false;
