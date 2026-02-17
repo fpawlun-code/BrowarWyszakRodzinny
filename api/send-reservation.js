@@ -147,21 +147,16 @@ export default async function handler(req, res) {
       : [],
   };
 
-  if (!normalized.Osoba_kontaktowa || !normalized.Email || !normalized.Telefon) {
-    return res.status(400).json({ success: false, message: "Missing required contact fields" });
+  if (!normalized.Osoba_kontaktowa && !normalized.Email && !normalized.Telefon) {
+    return res.status(400).json({ success: false, message: "Provide at least one contact detail" });
   }
 
   if (normalized.needs_invoice && !normalized.company_nip) {
     return res.status(400).json({ success: false, message: "NIP is required when invoice is requested" });
   }
 
-  if (!normalized.event_date || !normalized.event_time) {
-    return res.status(400).json({ success: false, message: "Event date and time are required" });
-  }
-
-  if (Number.isFinite(normalized.guest_count) && normalized.guest_count < 14) {
-    return res.status(400).json({ success: false, message: "Corporate reservations require minimum 14 guests" });
-  }
+  // Event date/time and min guest rules are handled as soft/hard UX validation on frontend.
+  // Backend stays permissive to avoid dropping leads because of temporary UI/state issues.
 
   const autoWarnings = computeAutoWarnings(normalized);
   const combinedWarnings = [...normalized.warnings_generated, ...autoWarnings].filter(Boolean);
@@ -232,24 +227,46 @@ export default async function handler(req, res) {
   `;
 
   try {
-    const response = await fetch("https://api.resend.com/emails", {
+    if (!process.env.RESEND_API_KEY) {
+      return res.status(500).json({ success: false, message: "Server email key is missing (RESEND_API_KEY)" });
+    }
+
+    const fromAddress = process.env.RESEND_FROM || "Browar Wyszak <onboarding@resend.dev>";
+    const basePayload = {
+      from: fromAddress,
+      to: process.env.RESEND_TO || "fpawlun@gmail.com",
+      subject: `[${leadPriority}] Rezerwacja - ${normalized.Osoba_kontaktowa || "Zapytanie"}`,
+      html: emailHtml,
+    };
+
+    // First try with reply_to.
+    let response = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "Browar Wyszak <onboarding@resend.dev>",
-        to: "fpawlun@gmail.com",
-        reply_to: normalized.Email,
-        subject: `[${leadPriority}] Rezerwacja - ${normalized.Osoba_kontaktowa || "Zapytanie"}`,
-        html: emailHtml,
+        ...basePayload,
+        reply_to: normalized.Email || undefined,
       }),
     });
 
+    // Some providers reject invalid reply_to formatting; retry once without reply_to.
+    if (!response.ok) {
+      response = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(basePayload),
+      });
+    }
+
     if (!response.ok) {
       const errText = await response.text().catch(() => "");
-      throw new Error(`Resend API failed: ${errText}`);
+      throw new Error(`Resend API failed (${response.status}): ${errText}`);
     }
 
     return res.status(200).json({ success: true, leadPriority, warnings: combinedWarnings });

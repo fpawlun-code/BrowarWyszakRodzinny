@@ -1319,11 +1319,14 @@ a:hover{color:var(--gold-light)}
           body: JSON.stringify(payload)
         });
 
-        if (!response.ok) throw new Error('Failed to send');
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok) {
+          throw new Error(result.message || locale.alertError);
+        }
         corpForm.style.display = 'none';
         document.getElementById('formSuccess').style.display = 'block';
       } catch (error) {
-        alert(locale.alertError);
+        alert(error?.message || locale.alertError);
         submitBtn.disabled = false;
         submitBtn.textContent = locale.submitDefault;
       }
