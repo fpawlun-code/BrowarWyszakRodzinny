@@ -734,12 +734,19 @@ a:hover{color:var(--gold-light)}
 }
 .menu-option-grid .form-choice-item.with-qty{
   display:grid;
-  grid-template-columns:auto minmax(0,1fr) 78px;
-  align-items:center;
+  grid-template-columns:auto minmax(0,1fr);
+  grid-template-areas:
+    "check label"
+    "check qty";
+  align-items:start;
   column-gap:8px;
+  row-gap:6px;
 }
+.menu-option-grid .form-choice-item.with-qty input[type="checkbox"]{grid-area:check;margin-top:2px}
+.menu-option-grid .form-choice-item.with-qty label{grid-area:label}
+.menu-option-grid .form-choice-item.with-qty .appetizer-qty{grid-area:qty;justify-self:start}
 .appetizer-qty{
-  width:100%;
+  width:86px;
   min-height:32px;
   padding:6px 8px;
   border:1px solid var(--glass-border);
@@ -774,8 +781,8 @@ a:hover{color:var(--gold-light)}
   #corporate-form .menu-card-body{max-height:190px;padding:8px}
   #corporate-form .form-choice-item{padding:9px}
   #corporate-form .form-choice-item label{font-size:.79rem;line-height:1.32}
-  #corporate-form .menu-option-grid .form-choice-item.with-qty{grid-template-columns:auto minmax(0,1fr) 70px}
-  #corporate-form .appetizer-qty{min-height:30px;padding:5px 6px;font-size:.75rem}
+  #corporate-form .menu-option-grid .form-choice-item.with-qty{grid-template-columns:auto minmax(0,1fr)}
+  #corporate-form .appetizer-qty{width:100%;min-height:30px;padding:5px 6px;font-size:.75rem}
   #corporate-form .appetizer-note{font-size:.71rem}
   #corporate-form .bemary-info{padding:10px 11px;font-size:.76rem}
   #corporate-form .bemary-info h5{font-size:.82rem}
@@ -1480,6 +1487,7 @@ a:hover{color:var(--gold-light)}
 
 </body>
 </html>
+
 
 
 
