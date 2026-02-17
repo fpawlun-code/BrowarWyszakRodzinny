@@ -1376,9 +1376,14 @@ a:hover{color:var(--gold-light)}
           body: JSON.stringify(payload)
         });
 
-        const result = await response.json().catch(() => ({}));
+        const raw = await response.text().catch(() => '');
+        const result = (() => {
+          try { return raw ? JSON.parse(raw) : {}; }
+          catch (_) { return {}; }
+        })();
         if (!response.ok) {
-          throw new Error(result.message || locale.alertError);
+          const fallback = raw ? raw.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 220) : '';
+          throw new Error(result.message || fallback || `HTTP ${response.status}` || locale.alertError);
         }
         corpForm.style.display = 'none';
         document.getElementById('formSuccess').style.display = 'block';
