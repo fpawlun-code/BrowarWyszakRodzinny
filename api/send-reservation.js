@@ -178,7 +178,7 @@ export default async function handler(req, res) {
 
   const eventSection = buildHtmlSection("Parametry wydarzenia", [
     { label: "Rodzaj wydarzenia", value: normalized.Rodzaj_wydarzenia || "Nie podano" },
-    { label: "Liczba osob", value: normalized.guest_count ?? normalized.Liczba_osob || "Nie podano" },
+    { label: "Liczba osob", value: (normalized.guest_count ?? normalized.Liczba_osob) || "Nie podano" },
     { label: "Data", value: normalized.event_date || "Nie podano" },
     { label: "Godzina", value: normalized.event_time || "Nie podano" },
     { label: "Pytanie o dostepnosc", value: normalized.availability_question ? "Tak" : "Nie" },
