@@ -388,8 +388,12 @@ export default async function handler(req, res) {
     <div style="margin:0;padding:18px;background:#f4f1eb;font-family:Arial,sans-serif;color:#202020;line-height:1.45;">
       <div style="max-width:760px;margin:0 auto;background:#fff;border:1px solid #eadfce;border-radius:14px;overflow:hidden;">
         <div style="padding:16px 18px;background:linear-gradient(135deg,#8b1a0a,#2a0f0a);color:#fef5d8;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+            <img src="https://browarwyszak.pl/wp-content/uploads/2017/09/browarwyszak_footer.png" alt="Browar Wyszak" width="58" height="58" style="display:block;width:58px;height:58px;object-fit:contain;border-radius:6px;background:#fff;padding:4px;">
+            <div style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.9;">Browar Rodzinny Wyszak</div>
+          </div>
           <h2 style="margin:0;font-size:22px;line-height:1.3;">${escapeHtml(labels.title)}</h2>
-          <p style="margin:8px 0 0;font-size:13px;opacity:.95;">${escapeHtml(labels.lead)}: <strong>${escapeHtml(leadPriority)}</strong> | Locale: <strong>${escapeHtml(normalized.locale)}</strong></p>
+          <p style="margin:8px 0 0;font-size:13px;opacity:.95;">Nowe zapytanie z formularza imprez firmowych.</p>
         </div>
         <div style="padding:16px;">
       ${contactSection}
@@ -410,7 +414,7 @@ export default async function handler(req, res) {
     const basePayload = {
       from: fromAddress,
       to: process.env.RESEND_TO || "fpawlun@gmail.com",
-      subject: `[${leadPriority}] ${labels.subjectPrefix} - ${normalized.Osoba_kontaktowa || "Zapytanie"}`,
+      subject: `${labels.subjectPrefix} - ${normalized.Osoba_kontaktowa || "Zapytanie"}`,
       html: emailHtml,
     };
 
