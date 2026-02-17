@@ -39,6 +39,18 @@ function normalizeStringArray(value, maxItems = 20, maxLength = 100) {
     .slice(0, maxItems);
 }
 
+function buildReservationId() {
+  const now = new Date();
+  const yyyy = now.getFullYear();
+  const mm = String(now.getMonth() + 1).padStart(2, "0");
+  const dd = String(now.getDate()).padStart(2, "0");
+  const hh = String(now.getHours()).padStart(2, "0");
+  const min = String(now.getMinutes()).padStart(2, "0");
+  const sec = String(now.getSeconds()).padStart(2, "0");
+  const rand = Math.random().toString(36).slice(2, 6).toUpperCase();
+  return `BW-${yyyy}${mm}${dd}-${hh}${min}${sec}-${rand}`;
+}
+
 function computeAutoWarnings(normalized) {
   const warnings = [];
   const guestCount = normalized.guest_count;
@@ -292,6 +304,7 @@ export default async function handler(req, res) {
   const autoWarnings = computeAutoWarnings(normalized);
   const combinedWarnings = [...normalized.warnings_generated, ...autoWarnings].filter(Boolean);
   const leadPriority = computeLeadPriority(normalized);
+  const reservationId = buildReservationId();
   const labels = getLocalePack(normalized.locale);
   const soupsForEmail = normalized.menu_soup_choices.length
     ? normalized.menu_soup_choices
@@ -393,7 +406,7 @@ export default async function handler(req, res) {
             <div style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.9;">Browar Rodzinny Wyszak</div>
           </div>
           <h2 style="margin:0;font-size:22px;line-height:1.3;">${escapeHtml(labels.title)}</h2>
-          <p style="margin:8px 0 0;font-size:13px;opacity:.95;">Nowe zapytanie z formularza imprez firmowych.</p>
+          <p style="margin:8px 0 0;font-size:13px;opacity:.95;">Nowe zapytanie z formularza imprez firmowych. ID: <strong>${escapeHtml(reservationId)}</strong></p>
         </div>
         <div style="padding:16px;">
       ${contactSection}
@@ -414,7 +427,7 @@ export default async function handler(req, res) {
     const basePayload = {
       from: fromAddress,
       to: process.env.RESEND_TO || "fpawlun@gmail.com",
-      subject: `${labels.subjectPrefix} - ${normalized.Osoba_kontaktowa || "Zapytanie"}`,
+      subject: `${labels.subjectPrefix} [${reservationId}] - ${normalized.Osoba_kontaktowa || "Zapytanie"}`,
       html: emailHtml,
     };
 
