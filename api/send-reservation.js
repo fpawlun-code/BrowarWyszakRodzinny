@@ -303,30 +303,34 @@ export default async function handler(req, res) {
     ? normalized.menu_main_choices
     : [];
 
+  const localeCode = String(normalized.locale || "").toLowerCase();
+  const isEn = localeCode.startsWith("en");
+  const isDe = localeCode.startsWith("de");
+
   const clientTypeMap = {
-    company: normalized.locale.startsWith("en") ? "Company" : normalized.locale.startsWith("de") ? "Firma" : "Firma",
-    private group: normalized.locale.startsWith("en") ? "Private group" : normalized.locale.startsWith("de") ? "Private Gruppe" : "Grupa prywatna",
-    private_group: normalized.locale.startsWith("en") ? "Private group" : normalized.locale.startsWith("de") ? "Private Gruppe" : "Grupa prywatna",
+    company: isEn ? "Company" : isDe ? "Firma" : "Firma",
+    "private group": isEn ? "Private group" : isDe ? "Private Gruppe" : "Grupa prywatna",
+    private_group: isEn ? "Private group" : isDe ? "Private Gruppe" : "Grupa prywatna",
   };
   const menuModeMap = {
-    standard upto 35: normalized.locale.startsWith("en")
+    "standard upto 35": isEn
       ? "Group menu up to 35 guests"
-      : normalized.locale.startsWith("de")
+      : isDe
         ? "Gruppenmenu bis 35 Personen"
         : "Menu grupowe do 35 osob",
-    standard_upto_35: normalized.locale.startsWith("en")
+    standard_upto_35: isEn
       ? "Group menu up to 35 guests"
-      : normalized.locale.startsWith("de")
+      : isDe
         ? "Gruppenmenu bis 35 Personen"
         : "Menu grupowe do 35 osob",
-    buffet over 40: normalized.locale.startsWith("en")
+    "buffet over 40": isEn
       ? "Buffet / bemars (over 40 guests)"
-      : normalized.locale.startsWith("de")
+      : isDe
         ? "Buffet / Bemars (uber 40 Personen)"
         : "Bufet / bemary (powyzej 40 osob)",
-    buffet_over_40: normalized.locale.startsWith("en")
+    buffet_over_40: isEn
       ? "Buffet / bemars (over 40 guests)"
-      : normalized.locale.startsWith("de")
+      : isDe
         ? "Buffet / Bemars (uber 40 Personen)"
         : "Bufet / bemary (powyzej 40 osob)",
     undecided: labels.values.undecided,
