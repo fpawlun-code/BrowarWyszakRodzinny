@@ -44,7 +44,7 @@ a:hover{color:var(--gold-light)}
 .grecaptcha-badge{visibility:hidden!important}
 
 /* ===== SCROLL REVEAL ===== */
-[data-reveal]{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease}
+[data-reveal]{opacity:0;transform:translateY(40px);transition:opacity .5s ease,transform .5s ease}
 [data-reveal].revealed{opacity:1;transform:translateY(0)}
 [data-reveal="left"]{transform:translateX(-40px)}
 [data-reveal="left"].revealed{transform:translateX(0)}
@@ -157,15 +157,15 @@ a:hover{color:var(--gold-light)}
 /* ===== GALLERY ===== */
 .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
 .gallery-item{position:relative;overflow:hidden;aspect-ratio:1;cursor:pointer}
-.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
 .gallery-item:hover img{transform:scale(1.08)}
 
 /* ===== OFERTA CARDS ===== */
 .oferta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1000px;margin:0 auto}
-.oferta-card{position:relative;overflow:hidden;border-radius:12px;background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:all .4s ease}
+.oferta-card{position:relative;overflow:hidden;border-radius:12px;background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:all .3s ease}
 .oferta-card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(200,148,62,.15);border-color:var(--gold)}
 .oferta-card-img{height:220px;overflow:hidden}
-.oferta-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.oferta-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
 .oferta-card:hover .oferta-card-img img{transform:scale(1.08)}
 .oferta-card-body{padding:28px;text-align:center}
 .oferta-card-title{font-family:var(--font-serif);font-size:1.2rem;letter-spacing:.08em;color:var(--cream);margin-bottom:16px}
