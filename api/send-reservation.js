@@ -82,22 +82,153 @@ function computeLeadPriority(normalized) {
   return "LOW";
 }
 
-function buildHtmlSection(title, rows, striped = true) {
+function prettifyToken(value) {
+  return String(value || "")
+    .replace(/_/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function mapValue(value, map) {
+  const token = prettifyToken(value);
+  if (!token) return "";
+  return map[token] || token;
+}
+
+function getLocalePack(locale) {
+  const lang = String(locale || "pl").toLowerCase();
+  if (lang.startsWith("en")) {
+    return {
+      subjectPrefix: "Corporate booking",
+      title: "New corporate reservation - Browar Wyszak",
+      lead: "Lead priority",
+      sections: {
+        contact: "Contact details",
+        event: "Event details",
+        menu: "Menu selection",
+        warnings: "Operational notes",
+      },
+      labels: {
+        client: "Client type",
+        contactPerson: "Contact person",
+        email: "Email",
+        phone: "Phone",
+        guests: "Guest count",
+        date: "Date",
+        time: "Start time",
+        mode: "Menu mode",
+        mains: "Main courses",
+        soups: "Soups",
+        appetizers: "Appetizers",
+        dietary: "Dietary notes",
+        additional: "Additional info",
+        warnings: "Warnings",
+      },
+      values: {
+        notProvided: "Not provided",
+        none: "None",
+        undecided: "To be confirmed",
+        buffetInfo: "Buffet/bemar mode selected (>40 guests) - classic dish list selection is not required.",
+      },
+    };
+  }
+  if (lang.startsWith("de")) {
+    return {
+      subjectPrefix: "Firmenreservierung",
+      title: "Neue Firmenreservierung - Browar Wyszak",
+      lead: "Lead-Prioritat",
+      sections: {
+        contact: "Kontaktdaten",
+        event: "Veranstaltungsdaten",
+        menu: "Menuauswahl",
+        warnings: "Betriebshinweise",
+      },
+      labels: {
+        client: "Kundentyp",
+        contactPerson: "Ansprechpartner",
+        email: "E-Mail",
+        phone: "Telefon",
+        guests: "Anzahl Gaste",
+        date: "Datum",
+        time: "Uhrzeit",
+        mode: "Menu-Modus",
+        mains: "Hauptgerichte",
+        soups: "Suppen",
+        appetizers: "Vorspeisen",
+        dietary: "Ernahrungshinweise",
+        additional: "Zusatzliche Informationen",
+        warnings: "Warnungen",
+      },
+      values: {
+        notProvided: "Nicht angegeben",
+        none: "Keine",
+        undecided: "Noch offen",
+        buffetInfo: "Buffet-/Bemar-Modus gewahlt (>40 Personen) - Auswahl einzelner Gerichte aus der Karte ist nicht erforderlich.",
+      },
+    };
+  }
+  return {
+    subjectPrefix: "Rezerwacja firmowa",
+    title: "Nowa rezerwacja firmowa - Browar Wyszak",
+    lead: "Priorytet leada",
+    sections: {
+      contact: "Dane kontaktowe",
+      event: "Parametry wydarzenia",
+      menu: "Konfiguracja menu",
+      warnings: "Ostrzezenia operacyjne",
+    },
+    labels: {
+      client: "Typ klienta",
+      contactPerson: "Osoba kontaktowa",
+      email: "Email",
+      phone: "Telefon",
+      guests: "Liczba gosci",
+      date: "Data",
+      time: "Godzina",
+      mode: "Wariant menu",
+      mains: "Dania glowne",
+      soups: "Zupy",
+      appetizers: "Przystawki",
+      dietary: "Uwagi dietetyczne",
+      additional: "Dodatkowe informacje",
+      warnings: "Ostrzezenia",
+    },
+    values: {
+      notProvided: "Nie podano",
+      none: "Brak",
+      undecided: "Do ustalenia",
+      buffetInfo: "Wybrano wariant bufet/bemary (>40 osob) - wybor dań z karty nie jest wymagany.",
+    },
+  };
+}
+
+function renderList(items, emptyText) {
+  if (!items.length) {
+    return `<span style="color:#8a8a8a;">${escapeHtml(emptyText)}</span>`;
+  }
+  const lines = items
+    .map((item) => `<li style="margin:2px 0;">${escapeHtml(item)}</li>`)
+    .join("");
+  return `<ul style="margin:0;padding-left:18px;">${lines}</ul>`;
+}
+
+function renderSection(title, rows) {
   const body = rows
-    .map((row, index) => {
-      const rowBg = striped && index % 2 === 0 ? ' style="background:#f8f8f8;"' : "";
+    .map((row) => {
+      const renderedValue = row.html ? row.value : escapeHtml(row.value);
       return `
-      <tr${rowBg}>
-        <td style="padding:10px;border:1px solid #ddd;font-weight:600;width:38%;">${escapeHtml(row.label)}</td>
-        <td style="padding:10px;border:1px solid #ddd;">${escapeHtml(row.value)}</td>
+      <tr>
+        <td style="padding:10px 12px;border-top:1px solid #eee;width:34%;font-weight:600;color:#292929;vertical-align:top;">${escapeHtml(row.label)}</td>
+        <td style="padding:10px 12px;border-top:1px solid #eee;color:#1a1a1a;">${renderedValue}</td>
       </tr>`;
     })
     .join("");
 
   return `
-    <h3 style="margin:24px 0 10px;font-size:16px;color:#8b1a0a;">${escapeHtml(title)}</h3>
-    <table style="border-collapse:collapse;width:100%;max-width:720px;">${body}
-    </table>`;
+    <div style="margin:18px 0 0;border:1px solid #eadfce;border-radius:12px;overflow:hidden;background:#fff;">
+      <div style="padding:11px 14px;background:#faf5ee;border-bottom:1px solid #eadfce;font-weight:700;color:#7f2a12;letter-spacing:.02em;">${escapeHtml(title)}</div>
+      <table style="border-collapse:collapse;width:100%;">${body}</table>
+    </div>`;
 }
 
 export default async function handler(req, res) {
@@ -161,68 +292,108 @@ export default async function handler(req, res) {
   const autoWarnings = computeAutoWarnings(normalized);
   const combinedWarnings = [...normalized.warnings_generated, ...autoWarnings].filter(Boolean);
   const leadPriority = computeLeadPriority(normalized);
+  const labels = getLocalePack(normalized.locale);
   const soupsForEmail = normalized.menu_soup_choices.length
     ? normalized.menu_soup_choices
     : (normalized.menu_soup_choice ? [normalized.menu_soup_choice] : []);
   const appetizersForEmail = normalized.menu_appetizer_choices.length
     ? normalized.menu_appetizer_choices
     : (normalized.menu_appetizer_choice ? [normalized.menu_appetizer_choice] : []);
+  const mainForEmail = normalized.menu_main_choices.length
+    ? normalized.menu_main_choices
+    : [];
 
-  const contactSection = buildHtmlSection("Dane kontaktowe", [
-    { label: "Klient", value: normalized.client_type },
-    { label: "Firma/Organizacja", value: normalized.Firma || "Nie podano" },
-    { label: "Osoba kontaktowa", value: normalized.Osoba_kontaktowa },
-    { label: "Email", value: normalized.Email },
-    { label: "Telefon", value: normalized.Telefon },
-  ]);
+  const clientTypeMap = {
+    company: normalized.locale.startsWith("en") ? "Company" : normalized.locale.startsWith("de") ? "Firma" : "Firma",
+    private group: normalized.locale.startsWith("en") ? "Private group" : normalized.locale.startsWith("de") ? "Private Gruppe" : "Grupa prywatna",
+    private_group: normalized.locale.startsWith("en") ? "Private group" : normalized.locale.startsWith("de") ? "Private Gruppe" : "Grupa prywatna",
+  };
+  const menuModeMap = {
+    standard upto 35: normalized.locale.startsWith("en")
+      ? "Group menu up to 35 guests"
+      : normalized.locale.startsWith("de")
+        ? "Gruppenmenu bis 35 Personen"
+        : "Menu grupowe do 35 osob",
+    standard_upto_35: normalized.locale.startsWith("en")
+      ? "Group menu up to 35 guests"
+      : normalized.locale.startsWith("de")
+        ? "Gruppenmenu bis 35 Personen"
+        : "Menu grupowe do 35 osob",
+    buffet over 40: normalized.locale.startsWith("en")
+      ? "Buffet / bemars (over 40 guests)"
+      : normalized.locale.startsWith("de")
+        ? "Buffet / Bemars (uber 40 Personen)"
+        : "Bufet / bemary (powyzej 40 osob)",
+    buffet_over_40: normalized.locale.startsWith("en")
+      ? "Buffet / bemars (over 40 guests)"
+      : normalized.locale.startsWith("de")
+        ? "Buffet / Bemars (uber 40 Personen)"
+        : "Bufet / bemary (powyzej 40 osob)",
+    undecided: labels.values.undecided,
+  };
 
-  const eventSection = buildHtmlSection("Parametry wydarzenia", [
-    { label: "Rodzaj wydarzenia", value: normalized.Rodzaj_wydarzenia || "Nie podano" },
-    { label: "Liczba osob", value: (normalized.guest_count ?? normalized.Liczba_osob) || "Nie podano" },
-    { label: "Data", value: normalized.event_date || "Nie podano" },
-    { label: "Godzina", value: normalized.event_time || "Nie podano" },
-    { label: "Pytanie o dostepnosc", value: normalized.availability_question ? "Tak" : "Nie" },
-  ]);
-
-  const menuSection = buildHtmlSection("Konfiguracja menu", [
-    { label: "Tryb menu", value: normalized.menu_mode },
+  const contactSection = renderSection(labels.sections.contact, [
+    { label: labels.labels.client, value: mapValue(normalized.client_type, clientTypeMap) || labels.values.notProvided },
+    { label: labels.labels.contactPerson, value: normalized.Osoba_kontaktowa || labels.values.notProvided },
     {
-      label: "Dania glowne",
-      value: normalized.menu_main_choices.length ? normalized.menu_main_choices.join(", ") : "Nie wybrano",
+      label: labels.labels.email,
+      value: normalized.Email
+        ? `<a href="mailto:${escapeHtml(normalized.Email)}" style="color:#8b1a0a;text-decoration:none;">${escapeHtml(normalized.Email)}</a>`
+        : labels.values.notProvided,
+      html: true,
+    },
+    { label: labels.labels.phone, value: normalized.Telefon || labels.values.notProvided },
+  ]);
+
+  const eventSection = renderSection(labels.sections.event, [
+    { label: labels.labels.guests, value: String((normalized.guest_count ?? normalized.Liczba_osob) || labels.values.notProvided) },
+    { label: labels.labels.date, value: normalized.event_date || labels.values.notProvided },
+    { label: labels.labels.time, value: normalized.event_time || labels.values.notProvided },
+  ]);
+
+  const buffetSelected = normalized.menu_mode === "buffet_over_40";
+  const menuSection = renderSection(labels.sections.menu, [
+    { label: labels.labels.mode, value: mapValue(normalized.menu_mode, menuModeMap) || labels.values.notProvided },
+    {
+      label: labels.labels.mains,
+      value: buffetSelected ? labels.values.buffetInfo : renderList(mainForEmail.map(prettifyToken), labels.values.none),
+      html: true,
     },
     {
-      label: "Zupy",
-      value: soupsForEmail.length ? soupsForEmail.join(", ") : "Nie wybrano",
+      label: labels.labels.soups,
+      value: buffetSelected ? labels.values.buffetInfo : renderList(soupsForEmail.map(prettifyToken).filter((v) => v && v !== "undecided"), labels.values.none),
+      html: true,
     },
     {
-      label: "Przystawki",
-      value: appetizersForEmail.length ? appetizersForEmail.join(", ") : "Nie wybrano",
+      label: labels.labels.appetizers,
+      value: buffetSelected ? labels.values.buffetInfo : renderList(appetizersForEmail.map(prettifyToken).filter((v) => v && v !== "undecided"), labels.values.none),
+      html: true,
     },
-    { label: "Uwagi dietetyczne", value: normalized.dietary_notes || "Brak" },
+    { label: labels.labels.dietary, value: normalized.dietary_notes || labels.values.none },
+    { label: labels.labels.additional, value: normalized.additional_info || labels.values.none },
   ]);
 
-  const billingSection = buildHtmlSection("Rozliczenie i notatki", [
-    { label: "Faktura", value: normalized.needs_invoice ? "Tak" : "Nie" },
-    { label: "NIP", value: normalized.company_nip || "Nie podano" },
-    { label: "Dodatkowe informacje", value: normalized.additional_info || "Brak" },
-  ]);
-
-  const warningSection = buildHtmlSection(
-    "Ograniczenia i ostrzezenia",
+  const warningSection = renderSection(
+    labels.sections.warnings,
     combinedWarnings.length
-      ? combinedWarnings.map((entry, index) => ({ label: `Ostrzezenie ${index + 1}`, value: entry }))
-      : [{ label: "Status", value: "Brak ostrzezen automatycznych" }]
+      ? [{ label: labels.labels.warnings, value: renderList(combinedWarnings, labels.values.none), html: true }]
+      : [{ label: labels.labels.warnings, value: labels.values.none }]
   );
 
   const emailHtml = `
-    <div style="font-family:Arial,sans-serif;color:#222;line-height:1.45;">
-      <h2 style="margin:0 0 8px;">Nowa rezerwacja firmowa - Browar Wyszak</h2>
-      <p style="margin:0 0 18px;"><strong>Priorytet leada:</strong> ${escapeHtml(leadPriority)} | <strong>Locale:</strong> ${escapeHtml(normalized.locale)}</p>
+    <div style="margin:0;padding:18px;background:#f4f1eb;font-family:Arial,sans-serif;color:#202020;line-height:1.45;">
+      <div style="max-width:760px;margin:0 auto;background:#fff;border:1px solid #eadfce;border-radius:14px;overflow:hidden;">
+        <div style="padding:16px 18px;background:linear-gradient(135deg,#8b1a0a,#2a0f0a);color:#fef5d8;">
+          <h2 style="margin:0;font-size:22px;line-height:1.3;">${escapeHtml(labels.title)}</h2>
+          <p style="margin:8px 0 0;font-size:13px;opacity:.95;">${escapeHtml(labels.lead)}: <strong>${escapeHtml(leadPriority)}</strong> | Locale: <strong>${escapeHtml(normalized.locale)}</strong></p>
+        </div>
+        <div style="padding:16px;">
       ${contactSection}
       ${eventSection}
       ${menuSection}
       ${warningSection}
-      ${billingSection}
+        </div>
+      </div>
     </div>
   `;
 
@@ -235,7 +406,7 @@ export default async function handler(req, res) {
     const basePayload = {
       from: fromAddress,
       to: process.env.RESEND_TO || "fpawlun@gmail.com",
-      subject: `[${leadPriority}] Rezerwacja - ${normalized.Osoba_kontaktowa || "Zapytanie"}`,
+      subject: `[${leadPriority}] ${labels.subjectPrefix} - ${normalized.Osoba_kontaktowa || "Zapytanie"}`,
       html: emailHtml,
     };
 
