@@ -758,7 +758,6 @@ a:hover{color:var(--gold-light)}
   font-size:.78rem;
   text-align:center;
 }
-.appetizer-qty:disabled{opacity:.45;cursor:not-allowed}
 .bemary-info{grid-column:1/-1;border:1px solid rgba(200,148,62,.35);border-radius:10px;background:rgba(200,148,62,.12);padding:12px 14px;color:var(--cream);font-size:.82rem;line-height:1.55}
 .bemary-info h5{font-family:var(--font-serif);font-size:.9rem;letter-spacing:.04em;color:var(--gold);margin:0 0 8px}
 .bemary-info ul{margin:0;padding-left:18px}
@@ -871,9 +870,9 @@ a:hover{color:var(--gold-light)}
                 <div class="menu-card-body">
                 <p class="appetizer-note">Przystawki s&#261; podawane na st&#243;&#322; po przyj&#347;ciu go&#347;ci. Zaznacz pozycje i podaj ilo&#347;&#263;.</p>
                 <div class="menu-option-grid">
-                  <div class="form-choice-item with-qty"><input type="checkbox" id="app1" name="menu_appetizer_choices" value="matjas"><label for="app1">Matjas w oleju (33 zl)</label><input type="number" id="app1Qty" class="appetizer-qty" data-qty-for="app1" min="1" max="30" step="1" value="1" inputmode="numeric" aria-label="Ilosc Matjas w oleju" disabled></div>
-                  <div class="form-choice-item with-qty"><input type="checkbox" id="app2" name="menu_appetizer_choices" value="beef_tartare"><label for="app2">Tatar z poledwicy wolowej (63 zl)</label><input type="number" id="app2Qty" class="appetizer-qty" data-qty-for="app2" min="1" max="30" step="1" value="1" inputmode="numeric" aria-label="Ilosc Tatar z poledwicy wolowej" disabled></div>
-                  <div class="form-choice-item with-qty"><input type="checkbox" id="app3" name="menu_appetizer_choices" value="cheese_board"><label for="app3">Deska serow zagrodowych (83 zl)</label><input type="number" id="app3Qty" class="appetizer-qty" data-qty-for="app3" min="1" max="30" step="1" value="1" inputmode="numeric" aria-label="Ilosc Deska serow zagrodowych" disabled></div>
+                  <div class="form-choice-item with-qty"><input type="checkbox" id="app1" name="menu_appetizer_choices" value="matjas"><label for="app1">Matjas w oleju (33 zl)</label><input type="number" id="app1Qty" class="appetizer-qty" data-qty-for="app1" min="1" max="30" step="1" value="1" inputmode="numeric" aria-label="Ilosc Matjas w oleju"></div>
+                  <div class="form-choice-item with-qty"><input type="checkbox" id="app2" name="menu_appetizer_choices" value="beef_tartare"><label for="app2">Tatar z poledwicy wolowej (63 zl)</label><input type="number" id="app2Qty" class="appetizer-qty" data-qty-for="app2" min="1" max="30" step="1" value="1" inputmode="numeric" aria-label="Ilosc Tatar z poledwicy wolowej"></div>
+                  <div class="form-choice-item with-qty"><input type="checkbox" id="app3" name="menu_appetizer_choices" value="cheese_board"><label for="app3">Deska serow zagrodowych (83 zl)</label><input type="number" id="app3Qty" class="appetizer-qty" data-qty-for="app3" min="1" max="30" step="1" value="1" inputmode="numeric" aria-label="Ilosc Deska serow zagrodowych"></div>
                   <div class="form-choice-item"><input type="checkbox" id="app7" name="menu_appetizer_choices" value="none" data-exclusive="true"><label for="app7">Bez przystawek</label></div>
                   <div class="form-choice-item"><input type="checkbox" id="app8" name="menu_appetizer_choices" value="undecided" data-exclusive="true"><label for="app8">Do ustalenia</label></div>
                 </div>
@@ -1197,10 +1196,8 @@ a:hover{color:var(--gold-light)}
     appetizerQtyInputs.forEach((qtyInput) => {
       const targetId = qtyInput.dataset.qtyFor;
       const targetInput = targetId ? document.getElementById(targetId) : null;
-      const active = Boolean(targetInput && targetInput.checked && targetInput.dataset.exclusive !== 'true' && !targetInput.disabled);
-      qtyInput.disabled = !active;
+      const active = Boolean(targetInput && targetInput.checked && targetInput.dataset.exclusive !== 'true');
       if (active) normalizeQtyInputValue(qtyInput);
-      if (!active) qtyInput.value = qtyInput.min || '1';
     });
   }
 
@@ -1339,6 +1336,15 @@ a:hover{color:var(--gold-light)}
   appetizerQtyInputs.forEach((input) => {
     input.addEventListener('input', function onQtyInput() {
       normalizeQtyInputValue(this);
+      const targetId = this.dataset.qtyFor;
+      const targetInput = targetId ? document.getElementById(targetId) : null;
+      if (targetInput) {
+        targetInput.checked = true;
+        appetizerChoiceInputs.forEach((other) => {
+          if (other.dataset.exclusive === 'true') other.checked = false;
+        });
+      }
+      syncAppetizerQtyInputs();
     });
     input.addEventListener('blur', function onQtyBlur() {
       normalizeQtyInputValue(this);
@@ -1482,6 +1488,5 @@ a:hover{color:var(--gold-light)}
 
 </body>
 </html>
-
 
 

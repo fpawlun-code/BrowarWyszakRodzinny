@@ -125,13 +125,12 @@ a:hover{color:var(--gold-light)}
 .section-sep{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 24px;border:none}
 .section-text{max-width:700px;margin:0 auto;font-size:.95rem;color:var(--cream-dim);text-align:center;line-height:1.9;overflow-wrap:anywhere;word-break:break-word}
 
-/* ===== ICON BOXES ===== */
-.icon-boxes{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1000px;margin:0 auto}
-.icon-box{text-align:center;padding:40px 24px;background:var(--glass);border:1px solid var(--glass-border);border-radius:12px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:all .4s ease}
-.icon-box:hover{transform:translateY(-6px);box-shadow:0 15px 40px rgba(200,148,62,.12);border-color:var(--gold)}
-.icon-box-svg{width:60px;height:60px;margin:0 auto 20px}
-.icon-box h3{font-family:var(--font-serif);font-size:1.1rem;letter-spacing:.06em;color:var(--cream);margin-bottom:8px}
-.icon-box p{font-size:.9rem;color:var(--cream-dim);line-height:1.7}
+/* ===== MINI ICON BOXES (inline in description) ===== */
+.mini-icons{display:flex;justify-content:center;gap:32px;margin-top:36px;flex-wrap:wrap}
+.mini-icon{display:flex;align-items:center;gap:10px;padding:10px 18px;background:var(--glass);border:1px solid var(--glass-border);border-radius:8px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.mini-icon svg{width:28px;height:28px;flex-shrink:0}
+.mini-icon-text h4{font-family:var(--font-serif);font-size:.8rem;letter-spacing:.04em;color:var(--cream);line-height:1.2}
+.mini-icon-text p{font-size:.72rem;color:var(--cream-dim);line-height:1.4}
 
 /* ===== FORMULAR FUR FIRMENEVENTS ===== */
 .corp-form-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:16px;padding:48px 40px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);max-width:720px;margin:0 auto}
@@ -208,7 +207,7 @@ a:hover{color:var(--gold-light)}
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:1024px){
-  .icon-boxes{grid-template-columns:1fr;max-width:400px}
+  .mini-icons{gap:20px}
   .corp-form-card{padding:40px 28px}
   .form-fields-grid{gap:20px}
   .photo-grid{grid-template-columns:1fr}
@@ -226,6 +225,7 @@ a:hover{color:var(--gold-light)}
   .container{padding:0 20px}
   .section{padding:70px 0}
   .btn{width:100%;max-width:260px;justify-content:center;padding:12px 24px;font-size:12px}
+  .mini-icons{flex-direction:column;align-items:center;gap:12px}
   .corp-form-card{padding:32px 20px}
   .form-fields-grid{grid-template-columns:1fr}
   .reservation-content{padding:40px 24px;margin:0 16px}
@@ -652,6 +652,20 @@ a:hover{color:var(--gold-light)}
       <h2 class="section-title">FIRMENVERANSTALTUNGEN</h2>
       <hr class="section-sep">
       <p class="section-text">Wir organisieren die perfekte Veranstaltung f&uuml;r Sie &ndash; ob Firmenfeier, besonderer Familienanlass oder ein gro&szlig;es Treffen mit Freunden. Detaillierte Informationen erhalten Sie unter den Telefonnummern: 91 488 34 81, 662 233 678. Wir freuen uns auf Sie!</p>
+      <div class="mini-icons">
+        <div class="mini-icon">
+          <svg width="28" height="28" viewBox="0 0 60 60" fill="none"><path d="M30 12C22.3 12 15.4 15.4 10.6 20.8L7 17.2C12.8 10.8 20.9 7 30 7C39.1 7 47.2 10.8 53 17.2L49.4 20.8C44.6 15.4 37.7 12 30 12Z" fill="var(--gold)" opacity=".45"/><path d="M30 22C25.1 22 20.7 24.1 17.6 27.5L14 23.9C18.1 19.5 23.7 17 30 17C36.3 17 41.9 19.5 46 23.9L42.4 27.5C39.3 24.1 34.9 22 30 22Z" fill="var(--gold)" opacity=".65"/><path d="M30 32C27.2 32 24.7 33.2 22.9 35.1L19.3 31.5C22.1 28.5 25.8 27 30 27C34.2 27 37.9 28.5 40.7 31.5L37.1 35.1C35.3 33.2 32.8 32 30 32Z" fill="var(--gold)" opacity=".85"/><circle cx="30" cy="42" r="4" fill="var(--gold)"/></svg>
+          <div class="mini-icon-text"><h4>Kostenloses WLAN</h4><p>Im ganzen Lokal</p></div>
+        </div>
+        <div class="mini-icon">
+          <svg width="28" height="28" viewBox="0 0 60 60" fill="none"><path d="M15 10L18 28H42L45 10" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round" fill="none"/><path d="M18 28C18 28 19 38 30 38C41 38 42 28 42 28" stroke="var(--gold)" stroke-width="2.5" fill="none"/><line x1="30" y1="38" x2="30" y2="48" stroke="var(--gold)" stroke-width="2.5"/><line x1="22" y1="48" x2="38" y2="48" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round"/></svg>
+          <div class="mini-icon-text"><h4>Cocktailbar</h4><p>Fur Gaste geoffnet</p></div>
+        </div>
+        <div class="mini-icon">
+          <svg width="28" height="28" viewBox="0 0 60 60" fill="none"><rect x="14" y="16" width="28" height="34" rx="3" stroke="var(--gold)" stroke-width="2.5" fill="none"/><path d="M42 24H48C50.2 24 52 25.8 52 28V34C52 36.2 50.2 38 48 38H42" stroke="var(--gold)" stroke-width="2.5" fill="none"/><line x1="14" y1="22" x2="42" y2="22" stroke="var(--gold)" stroke-width="2" opacity=".5"/><path d="M22 8C22 8 20 12 22 16" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round" fill="none" opacity=".5"/><path d="M28 6C28 6 26 10 28 14" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round" fill="none" opacity=".4"/><path d="M34 8C34 8 32 12 34 16" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round" fill="none" opacity=".5"/></svg>
+          <div class="mini-icon-text"><h4>Handwerksbiere</h4><p>Mehrfach ausgezeichnet</p></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -662,55 +676,6 @@ a:hover{color:var(--gold-light)}
     <path d="M0,30 C240,55 480,5 720,35 C960,65 1200,15 1440,40 L1440,60 L0,60Z" fill="var(--bg-alt)"/>
   </svg>
 </div>
-
-<!-- ===== ICON BOXES ===== -->
-<section class="section section-alt" id="features">
-  <div class="container">
-    <div class="icon-boxes" data-reveal>
-      <div class="icon-box">
-        <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-box-svg">
-          <path d="M30 12C22.3 12 15.4 15.4 10.6 20.8L7 17.2C12.8 10.8 20.9 7 30 7C39.1 7 47.2 10.8 53 17.2L49.4 20.8C44.6 15.4 37.7 12 30 12Z" fill="var(--gold)" opacity=".45"/>
-          <path d="M30 22C25.1 22 20.7 24.1 17.6 27.5L14 23.9C18.1 19.5 23.7 17 30 17C36.3 17 41.9 19.5 46 23.9L42.4 27.5C39.3 24.1 34.9 22 30 22Z" fill="var(--gold)" opacity=".65"/>
-          <path d="M30 32C27.2 32 24.7 33.2 22.9 35.1L19.3 31.5C22.1 28.5 25.8 27 30 27C34.2 27 37.9 28.5 40.7 31.5L37.1 35.1C35.3 33.2 32.8 32 30 32Z" fill="var(--gold)" opacity=".85"/>
-          <circle cx="30" cy="42" r="4" fill="var(--gold)"/>
-        </svg>
-        <h3>Kostenloses WLAN</h3>
-        <p>Im gesamten Restaurant verf&uuml;gbar</p>
-      </div>
-      <div class="icon-box">
-        <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-box-svg">
-          <path d="M15 10L18 28H42L45 10" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-          <path d="M18 28C18 28 19 38 30 38C41 38 42 28 42 28" stroke="var(--gold)" stroke-width="2.5" fill="none"/>
-          <line x1="30" y1="38" x2="30" y2="48" stroke="var(--gold)" stroke-width="2.5"/>
-          <line x1="22" y1="48" x2="38" y2="48" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round"/>
-          <circle cx="12" cy="14" r="3" fill="var(--gold)" opacity=".5"/>
-          <circle cx="48" cy="8" r="2" fill="var(--gold)" opacity=".4"/>
-          <path d="M10 18Q8 12 12 8" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".4"/>
-          <path d="M24 14L22 20" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" opacity=".3"/>
-          <path d="M36 12L34 18" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" opacity=".3"/>
-        </svg>
-        <h3>Cocktailbar</h3>
-        <p>F&uuml;r unsere G&auml;ste ge&ouml;ffnet</p>
-      </div>
-      <div class="icon-box">
-        <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-box-svg">
-          <rect x="14" y="16" width="28" height="34" rx="3" stroke="var(--gold)" stroke-width="2.5" fill="none"/>
-          <path d="M42 24H48C50.2 24 52 25.8 52 28V34C52 36.2 50.2 38 48 38H42" stroke="var(--gold)" stroke-width="2.5" fill="none"/>
-          <line x1="14" y1="22" x2="42" y2="22" stroke="var(--gold)" stroke-width="2" opacity=".5"/>
-          <path d="M22 8C22 8 20 12 22 16" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round" fill="none" opacity=".5"/>
-          <path d="M28 6C28 6 26 10 28 14" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round" fill="none" opacity=".4"/>
-          <path d="M34 8C34 8 32 12 34 16" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round" fill="none" opacity=".5"/>
-          <circle cx="22" cy="32" r="2" fill="var(--gold)" opacity=".25"/>
-          <circle cx="30" cy="38" r="1.5" fill="var(--gold)" opacity=".2"/>
-          <circle cx="26" cy="42" r="1" fill="var(--gold)" opacity=".2"/>
-          <circle cx="34" cy="35" r="1.5" fill="var(--gold)" opacity=".25"/>
-        </svg>
-        <h3>Handwerksbiere</h3>
-        <p>Mehrfach preisgekr&ouml;nt</p>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ===== BUCHUNGSFORMULAR FUR FIRMENEVENTS ===== -->
 <style>
@@ -763,6 +728,34 @@ a:hover{color:var(--gold-light)}
 .menu-option-grid .form-choice-item{padding:8px 9px;background:rgba(255,245,216,.04);border:1px solid var(--glass-border)}
 .menu-option-grid .form-choice-item label{font-size:.8rem;line-height:1.35;color:var(--cream)}
 .menu-option-grid .form-choice-item input{accent-color:var(--gold)}
+.appetizer-note{
+  margin:0 0 10px;
+  padding:8px 9px;
+  border:1px dashed rgba(200,148,62,.45);
+  border-radius:8px;
+  background:rgba(200,148,62,.08);
+  color:var(--cream-dim);
+  font-size:.74rem;
+  line-height:1.45;
+}
+.menu-option-grid .form-choice-item.with-qty{
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) 78px;
+  align-items:center;
+  column-gap:8px;
+}
+.appetizer-qty{
+  width:100%;
+  min-height:32px;
+  padding:6px 8px;
+  border:1px solid var(--glass-border);
+  border-radius:6px;
+  background:rgba(13,10,8,.65);
+  color:var(--cream);
+  font-family:var(--font-sans);
+  font-size:.78rem;
+  text-align:center;
+}
 .bemary-info{grid-column:1/-1;border:1px solid rgba(200,148,62,.35);border-radius:10px;background:rgba(200,148,62,.12);padding:12px 14px;color:var(--cream);font-size:.82rem;line-height:1.55}
 .bemary-info h5{font-family:var(--font-serif);font-size:.9rem;letter-spacing:.04em;color:var(--gold);margin:0 0 8px}
 .bemary-info ul{margin:0;padding-left:18px}
@@ -787,6 +780,9 @@ a:hover{color:var(--gold-light)}
   #corporate-form .menu-card-body{max-height:190px;padding:8px}
   #corporate-form .form-choice-item{padding:9px}
   #corporate-form .form-choice-item label{font-size:.79rem;line-height:1.32}
+  #corporate-form .menu-option-grid .form-choice-item.with-qty{grid-template-columns:auto minmax(0,1fr) 70px}
+  #corporate-form .appetizer-qty{min-height:30px;padding:5px 6px;font-size:.75rem}
+  #corporate-form .appetizer-note{font-size:.71rem}
   #corporate-form .bemary-info{padding:10px 11px;font-size:.76rem}
   #corporate-form .bemary-info h5{font-size:.82rem}
   #corporate-form .form-warning-box{font-size:.79rem;padding:10px 11px}
@@ -868,12 +864,13 @@ a:hover{color:var(--gold-light)}
             <span class="menu-selection-notice">WAEHLEN SIE POSITIONEN, DIE IHRE GAESTE SPAETER IM EVENT-MENUE ZUR AUSWAHL BEKOMMEN.</span>
             <div class="menu-layout">
               <details class="menu-card" open>
-                <summary class="menu-card-head">Vorspeisen (beliebig viele waehlen)</summary>
+                <summary class="menu-card-head">Vorspeisen (Positionen und Menge waehlen)</summary>
                 <div class="menu-card-body">
+                <p class="appetizer-note">Vorspeisen werden nach der Ankunft der Gaeste auf dem Tisch serviert. Bitte Positionen und Menge angeben.</p>
                 <div class="menu-option-grid">
-                  <div class="form-choice-item"><input type="checkbox" id="app1de" name="menu_appetizer_choices" value="matjas"><label for="app1de">Matjeshering in Oel (33 zl)</label></div>
-                  <div class="form-choice-item"><input type="checkbox" id="app2de" name="menu_appetizer_choices" value="beef_tartare"><label for="app2de">Tatar vom Rinderfilet (63 zl)</label></div>
-                  <div class="form-choice-item"><input type="checkbox" id="app3de" name="menu_appetizer_choices" value="cheese_board"><label for="app3de">Kaeseplatte mit Bauernkaese (83 zl)</label></div>
+                  <div class="form-choice-item with-qty"><input type="checkbox" id="app1de" name="menu_appetizer_choices" value="matjas"><label for="app1de">Matjeshering in Oel (33 zl)</label><input type="number" id="app1QtyDe" class="appetizer-qty" data-qty-for="app1de" min="1" max="30" step="1" value="1" inputmode="numeric" aria-label="Menge Matjeshering in Oel"></div>
+                  <div class="form-choice-item with-qty"><input type="checkbox" id="app2de" name="menu_appetizer_choices" value="beef_tartare"><label for="app2de">Tatar vom Rinderfilet (63 zl)</label><input type="number" id="app2QtyDe" class="appetizer-qty" data-qty-for="app2de" min="1" max="30" step="1" value="1" inputmode="numeric" aria-label="Menge Tatar vom Rinderfilet"></div>
+                  <div class="form-choice-item with-qty"><input type="checkbox" id="app3de" name="menu_appetizer_choices" value="cheese_board"><label for="app3de">Kaeseplatte mit Bauernkaese (83 zl)</label><input type="number" id="app3QtyDe" class="appetizer-qty" data-qty-for="app3de" min="1" max="30" step="1" value="1" inputmode="numeric" aria-label="Menge Kaeseplatte mit Bauernkaese"></div>
                   <div class="form-choice-item"><input type="checkbox" id="app7de" name="menu_appetizer_choices" value="none" data-exclusive="true"><label for="app7de">Keine Vorspeisen</label></div>
                   <div class="form-choice-item"><input type="checkbox" id="app8de" name="menu_appetizer_choices" value="undecided" data-exclusive="true"><label for="app8de">Noch offen</label></div>
                 </div>
@@ -1168,6 +1165,7 @@ a:hover{color:var(--gold-light)}
   const warningBox = document.getElementById('formWarnings');
   const mainChoiceInputs = Array.from(document.querySelectorAll('input[name="menu_main_choices"]'));
   const appetizerChoiceInputs = Array.from(document.querySelectorAll('input[name="menu_appetizer_choices"]'));
+  const appetizerQtyInputs = Array.from(document.querySelectorAll('.appetizer-qty[data-qty-for]'));
   const soupChoiceInputs = Array.from(document.querySelectorAll('input[name="menu_soup_choices"]'));
   const menuChoiceInputs = Array.from(document.querySelectorAll('input[name="menu_main_choices"], input[name="menu_soup_choices"], input[name="menu_appetizer_choices"]'));
   const menuChoicesGroup = document.getElementById('menuChoicesGroup');
@@ -1179,6 +1177,46 @@ a:hover{color:var(--gold-light)}
 
   function getCheckedValues(inputs) {
     return inputs.filter(input => input.checked).map(input => input.value);
+  }
+
+  function normalizeQtyInputValue(input) {
+    const min = Number.parseInt(input.min || '1', 10);
+    const max = Number.parseInt(input.max || '99', 10);
+    const fallback = Number.isFinite(min) ? min : 1;
+    const parsed = Number.parseInt(input.value || '', 10);
+    const safe = Number.isFinite(parsed) ? parsed : fallback;
+    const clamped = Math.min(Math.max(safe, fallback), Number.isFinite(max) ? max : safe);
+    input.value = String(clamped);
+    return clamped;
+  }
+
+  function syncAppetizerQtyInputs() {
+    appetizerQtyInputs.forEach((qtyInput) => {
+      const targetId = qtyInput.dataset.qtyFor;
+      const targetInput = targetId ? document.getElementById(targetId) : null;
+      const active = Boolean(targetInput && targetInput.checked && targetInput.dataset.exclusive !== 'true');
+      if (active) normalizeQtyInputValue(qtyInput);
+    });
+  }
+
+  function getLabelForInput(input) {
+    const label = input ? document.querySelector(`label[for="${input.id}"]`) : null;
+    if (!label) return input?.value || '';
+    return (label.textContent || '').replace(/\s*\([^)]*\)\s*$/u, '').trim();
+  }
+
+  function getAppetizerSelectionsWithQty() {
+    return appetizerChoiceInputs
+      .filter((input) => input.checked && input.dataset.exclusive !== 'true')
+      .map((input) => {
+        const qtyInput = appetizerQtyInputs.find((item) => item.dataset.qtyFor === input.id);
+        const qty = qtyInput ? normalizeQtyInputValue(qtyInput) : 1;
+        return {
+          value: input.value,
+          label: getLabelForInput(input),
+          quantity: qty
+        };
+      });
   }
 
   function bindExclusiveChoices(inputs) {
@@ -1195,6 +1233,7 @@ a:hover{color:var(--gold-light)}
             if (other.dataset.exclusive === 'true') other.checked = false;
           });
         }
+        syncAppetizerQtyInputs();
       });
     });
   }
@@ -1213,6 +1252,7 @@ a:hover{color:var(--gold-light)}
       if (hideChoices) input.checked = false;
       input.disabled = hideChoices;
     });
+    syncAppetizerQtyInputs();
     if (mainChoicesHint) mainChoicesHint.style.display = 'none';
   }
 
@@ -1288,6 +1328,27 @@ a:hover{color:var(--gold-light)}
   }
   bindExclusiveChoices(appetizerChoiceInputs);
   bindExclusiveChoices(soupChoiceInputs);
+  appetizerChoiceInputs.forEach((input) => {
+    input.addEventListener('change', syncAppetizerQtyInputs);
+  });
+  appetizerQtyInputs.forEach((input) => {
+    input.addEventListener('input', function onQtyInput() {
+      normalizeQtyInputValue(this);
+      const targetId = this.dataset.qtyFor;
+      const targetInput = targetId ? document.getElementById(targetId) : null;
+      if (targetInput) {
+        targetInput.checked = true;
+        appetizerChoiceInputs.forEach((other) => {
+          if (other.dataset.exclusive === 'true') other.checked = false;
+        });
+      }
+      syncAppetizerQtyInputs();
+    });
+    input.addEventListener('blur', function onQtyBlur() {
+      normalizeQtyInputValue(this);
+    });
+  });
+  syncAppetizerQtyInputs();
 
   mainChoiceInputs.forEach((input) => {
     input.addEventListener('change', function onMainChoiceChange() {
@@ -1335,6 +1396,8 @@ a:hover{color:var(--gold-light)}
       const eventTimeValue = formData.get('event_time') || '';
       const additionalInfoValue = formData.get('additional_info') || '';
       const selectedAppetizers = getCheckedValues(appetizerChoiceInputs);
+      const selectedAppetizersWithQty = getAppetizerSelectionsWithQty();
+      const appetizerSummary = selectedAppetizersWithQty.map((item) => `${item.label} x${item.quantity}`);
       const selectedSoups = getCheckedValues(soupChoiceInputs);
       const warningsGenerated = getWarnings();
 
@@ -1356,6 +1419,8 @@ a:hover{color:var(--gold-light)}
         menu_main_choices: selectedMainChoices,
         menu_soup_choices: selectedSoups,
         menu_appetizer_choices: selectedAppetizers,
+        menu_appetizer_choices_with_qty: selectedAppetizersWithQty,
+        menu_appetizer_summary: appetizerSummary,
         menu_soup_choice: selectedSoups[0] || 'undecided',
         menu_appetizer_choice: selectedAppetizers[0] || 'undecided',
         dietary_notes: formData.get('dietary_notes') || '',
