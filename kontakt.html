@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kontakt â€“ Browar Wyszak | Rezerwuj Stolik</title>
+<title>Kontakt – Browar Wyszak | Rezerwuj Stolik</title>
 <meta name="robots" content="max-image-preview:large">
 <link rel="alternate" href="kontakt.html" hreflang="pl">
 <link rel="alternate" href="en-home.html" hreflang="en">
@@ -593,7 +593,7 @@ a:hover{color:var(--gold-light)}
       <img src="browarwyszak-e1501835022493.png" alt="Browar Wyszak" width="180" height="50">
     </a>
     <div class="nav-left">
-      <a href="piwa-rzemieslnicze.html" class="nav-link">Piwo RzemieĹ›lnicze</a>
+      <a href="piwa-rzemieslnicze.html" class="nav-link">Piwo Rzemieślnicze</a>
       <a href="menu.html" class="nav-link">Menu</a>
     </div>
     <a href="/" class="logo logo-desktop">
@@ -632,7 +632,7 @@ a:hover{color:var(--gold-light)}
   <img src="browarwyszak-e1501835022493.png" alt="Browar Wyszak" class="mobile-nav-logo" width="180" height="50">
   <hr class="mobile-nav-sep">
   <div class="mobile-nav-links">
-    <a href="piwa-rzemieslnicze.html">Piwo RzemieĹ›lnicze</a>
+    <a href="piwa-rzemieslnicze.html">Piwo Rzemieślnicze</a>
     <a href="menu.html">Menu</a>
     <a href="imprezy-firmowe.html">Imprezy Firmowe</a>
     <a href="kontakt.html">Kontakt</a>
@@ -676,7 +676,7 @@ a:hover{color:var(--gold-light)}
   </div>
 </section>
 
-<!-- ===== MIEJSCE SPOTKAĹ SECTION ===== -->
+<!-- ===== MIEJSCE SPOTKAŃ SECTION ===== -->
 <section class="section" id="miejsce-spotkan" style="padding-bottom:40px">
   <div class="container">
     <div class="section-heading" data-reveal>
@@ -732,7 +732,7 @@ a:hover{color:var(--gold-light)}
           <button type="submit" class="form-submit">Rezerwuj</button>
         </form>
         <div class="form-success" id="formSuccess" style="display:none;text-align:center;padding:32px;color:var(--gold);font-family:var(--font-serif);font-size:1.1rem;letter-spacing:.04em">
-          DziÄ™kujemy! Skontaktujemy siÄ™ w ciÄ…gu 24 godzin.
+          Dziękujemy! Skontaktujemy się w ciągu 24 godzin.
         </div>
       </div>
 
@@ -812,7 +812,7 @@ a:hover{color:var(--gold-light)}
       </div>
       <div>
         <h4 class="footer-heading">Browar Wyszak</h4>
-        <p class="footer-text">Browar Wyszak powstaĹ‚ z miĹ‚oĹ›ci do piwa i pasji do dobrej kuchni. Sam lokal wziÄ…Ĺ‚ swojÄ… nazwÄ™ od legendarnego pirata szczeciĹ„skiego, ktĂłry w 1126 roku udaĹ‚ siÄ™ na czele szeĹ›ciu okrÄ™tĂłw z wyprawÄ… Ĺ‚upieĹĽczÄ… do Danii.</p>
+        <p class="footer-text">Browar Wyszak powstał z miłości do piwa i pasji do dobrej kuchni. Sam lokal wziął swoją nazwę od legendarnego pirata szczecińskiego, który w 1126 roku udał się na czele sześciu okrętów z wyprawą łupieżczą do Danii.</p>
       </div>
       <div>
         <h4 class="footer-heading">Godziny Otwarcia</h4>
@@ -825,7 +825,7 @@ a:hover{color:var(--gold-light)}
       <div>
         <h4 class="footer-heading">Kontakt</h4>
         <p class="footer-text">
-          ul. MĹ›ciwoja II 8,<br>70-535 Szczecin<br><br>
+          ul. Mściwoja II 8,<br>70-535 Szczecin<br><br>
           <a href="tel:662233678">(48) 662-233-678</a><br>
           <a href="mailto:info@browarwyszak.pl">info@browarwyszak.pl</a>
         </p>
@@ -837,7 +837,7 @@ a:hover{color:var(--gold-light)}
       </div>
       <nav class="footer-nav">
         <a href="menu.html">Menu</a>
-        <a href="piwa-rzemieslnicze.html">Piwa RzemieĹ›lnicze</a>
+        <a href="piwa-rzemieslnicze.html">Piwa Rzemieślnicze</a>
         <a href="imprezy-firmowe.html">Imprezy Firmowe</a>
         <a href="kontakt.html">Kontakt</a>
       </nav>
@@ -1017,7 +1017,7 @@ a:hover{color:var(--gold-light)}
 
     // Generate time slots based on day of week
     function generateTimeSlots(dayOfWeek) {
-      timeSelect.innerHTML = '<option value="">Wybierz godzinÄ™</option>';
+      timeSelect.innerHTML = '<option value="">Wybierz godzinę</option>';
 
       let startHour, endHour, endMinute;
 
@@ -1074,7 +1074,7 @@ a:hover{color:var(--gold-light)}
 
       const submitBtn = reservationForm.querySelector('.form-submit');
       submitBtn.disabled = true;
-      submitBtn.textContent = 'WysyĹ‚anie...';
+      submitBtn.textContent = 'Wysyłanie...';
 
       const formData = new FormData(reservationForm);
 
@@ -1104,7 +1104,7 @@ a:hover{color:var(--gold-light)}
           throw new Error('Failed to send');
         }
       } catch (error) {
-        alert('WystÄ…piĹ‚ bĹ‚Ä…d. Prosimy zadzwoniÄ‡: 91 488 34 81');
+        alert('Wystąpił błąd. Prosimy zadzwonić: 91 488 34 81');
         submitBtn.disabled = false;
         submitBtn.textContent = 'Rezerwuj';
       }
@@ -1118,6 +1118,7 @@ a:hover{color:var(--gold-light)}
 
 </body>
 </html>
+
 
 
 
