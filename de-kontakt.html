@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="de-DE">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kontakt – Brauerei Wyszak | Tisch Reservieren</title>
+<title>Kontakt â€“ Brauerei Wyszak | Tisch Reservieren</title>
 <meta name="robots" content="max-image-preview:large">
 <link rel="alternate" href="kontakt.html" hreflang="pl">
 <link rel="alternate" href="en-kontakt.html" hreflang="en">
@@ -245,6 +245,24 @@ a:hover{color:var(--gold-light)}
   .logo img{height:60px}
   .scrolled .logo img{height:45px}
   .map-section iframe{height:320px}
+}
+
+/* ===== MOBILE HERO-FIRST-SECTION TUNE ===== */
+@media(max-width:768px){
+  .page-hero{height:clamp(220px,34vh,320px);min-height:220px;align-items:flex-start;padding-top:86px}
+  .page-hero + .foam-divider + .section{padding-top:36px}
+  .page-hero + .foam-divider + .section .section-heading{max-width:760px;margin:0 auto;padding:24px 18px;border:1px solid var(--glass-border);border-radius:14px;background:linear-gradient(180deg,rgba(255,245,216,.08),rgba(255,245,216,.03));backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 12px 34px rgba(0,0,0,.28)}
+  .page-hero + .foam-divider + .section .section-icon{width:48px;margin:0 auto 14px}
+  .page-hero + .foam-divider + .section .section-title{font-size:clamp(1.65rem,7.2vw,2.1rem);margin-bottom:12px}
+  .page-hero + .foam-divider + .section .section-sep{margin:0 auto 16px}
+  .page-hero + .foam-divider + .section .section-text{font-size:.95rem;line-height:1.75}
+}
+@media(max-width:480px){
+  .page-hero{height:210px;min-height:210px;padding-top:80px}
+  .page-hero + .foam-divider + .section{padding-top:24px}
+  .page-hero + .foam-divider + .section .section-heading{padding:18px 14px;border-radius:12px}
+  .page-hero + .foam-divider + .section .section-title{font-size:clamp(1.45rem,8.4vw,1.9rem);letter-spacing:.055em}
+  .page-hero + .foam-divider + .section .section-text{font-size:.9rem}
 }
 </style>
 </head>
@@ -569,7 +587,7 @@ a:hover{color:var(--gold-light)}
     </a>
     <div class="nav-left">
       <a href="de-piwa-rzemieslnicze.html" class="nav-link">Handwerksbier</a>
-      <a href="de-menu.html" class="nav-link">Menü</a>
+      <a href="de-menu.html" class="nav-link">MenĂĽ</a>
     </div>
     <a href="de-home.html" class="logo logo-desktop">
       <img src="browarwyszak-e1501835022493.png" alt="Browar Wyszak" width="180" height="50">
@@ -607,7 +625,7 @@ a:hover{color:var(--gold-light)}
   <hr class="mobile-nav-sep">
   <div class="mobile-nav-links">
     <a href="de-piwa-rzemieslnicze.html">Handwerksbier</a>
-    <a href="de-menu.html">Menü</a>
+    <a href="de-menu.html">MenĂĽ</a>
     <a href="de-imprezy-firmowe.html">Firmenveranstaltungen</a>
     <a href="de-kontakt.html">Kontakt</a>
   </div>
@@ -785,10 +803,10 @@ a:hover{color:var(--gold-light)}
       </div>
       <div>
         <h4 class="footer-heading">Wyszak Brauerei</h4>
-        <p class="footer-text">Die Wyszak Brauerei wurde aus der Liebe zum Bier und der Leidenschaft für gutes Essen geboren. Das Restaurant trägt den Namen eines legendären Stettiner Piraten, der 1126 mit sechs Schiffen zu einer Plünderungsexpedition nach Dänemark aufbrach.</p>
+        <p class="footer-text">Die Wyszak Brauerei wurde aus der Liebe zum Bier und der Leidenschaft fĂĽr gutes Essen geboren. Das Restaurant trĂ¤gt den Namen eines legendĂ¤ren Stettiner Piraten, der 1126 mit sechs Schiffen zu einer PlĂĽnderungsexpedition nach DĂ¤nemark aufbrach.</p>
       </div>
       <div>
-        <h4 class="footer-heading">Öffnungszeiten</h4>
+        <h4 class="footer-heading">Ă–ffnungszeiten</h4>
         <ul class="footer-hours">
           <li><span>Mo - Do</span><span>15:00 - 23:00</span></li>
           <li><span>Fr - Sa</span><span>13:00 - 01:00</span></li>
@@ -798,7 +816,7 @@ a:hover{color:var(--gold-light)}
       <div>
         <h4 class="footer-heading">Kontakt</h4>
         <p class="footer-text">
-          ul. Mściwoja II 8,<br>70-535 Szczecin<br><br>
+          ul. MĹ›ciwoja II 8,<br>70-535 Szczecin<br><br>
           <a href="tel:662233678">(48) 662-233-678</a><br>
           <a href="mailto:info@browarwyszak.pl">info@browarwyszak.pl</a>
         </p>
@@ -809,7 +827,7 @@ a:hover{color:var(--gold-light)}
         Wyszak Familienbrauerei &copy; 2026 &mdash; Erstellt von: <a href="https://pawlun.dev" target="_blank" rel="noopener noreferrer" class="pawlun-credit"><span class="pawlun-bracket">&lt;</span>pawlun.dev<span class="pawlun-bracket">/&gt;</span></a>
       </div>
       <nav class="footer-nav">
-        <a href="de-menu.html">Menü</a>
+        <a href="de-menu.html">MenĂĽ</a>
         <a href="de-piwa-rzemieslnicze.html">Handwerksbier</a>
         <a href="de-imprezy-firmowe.html">Firmenveranstaltungen</a>
         <a href="de-kontakt.html">Kontakt</a>
@@ -1081,6 +1099,7 @@ a:hover{color:var(--gold-light)}
 
 </body>
 </html>
+
 
 
 

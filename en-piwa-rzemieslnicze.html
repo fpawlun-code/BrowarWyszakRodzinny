@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en-GB">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Craft Beer – Wyszak Family Brewery</title>
+<title>Craft Beer â€“ Wyszak Family Brewery</title>
 <meta name="robots" content="max-image-preview:large">
 <link rel="alternate" href="piwa-rzemieslnicze.html" hreflang="pl">
 <link rel="alternate" href="en-piwa-rzemieslnicze.html" hreflang="en">
@@ -232,6 +232,24 @@ a:hover{color:var(--gold-light)}
   .logo img{height:60px}
   .scrolled .logo img{height:45px}
   .beer-card{padding:24px 16px}
+}
+
+/* ===== MOBILE HERO-FIRST-SECTION TUNE ===== */
+@media(max-width:768px){
+  .page-hero{height:clamp(220px,34vh,320px);min-height:220px;align-items:flex-start;padding-top:86px}
+  .page-hero + .foam-divider + .section{padding-top:36px}
+  .page-hero + .foam-divider + .section .section-heading{max-width:760px;margin:0 auto;padding:24px 18px;border:1px solid var(--glass-border);border-radius:14px;background:linear-gradient(180deg,rgba(255,245,216,.08),rgba(255,245,216,.03));backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 12px 34px rgba(0,0,0,.28)}
+  .page-hero + .foam-divider + .section .section-icon{width:48px;margin:0 auto 14px}
+  .page-hero + .foam-divider + .section .section-title{font-size:clamp(1.65rem,7.2vw,2.1rem);margin-bottom:12px}
+  .page-hero + .foam-divider + .section .section-sep{margin:0 auto 16px}
+  .page-hero + .foam-divider + .section .section-text{font-size:.95rem;line-height:1.75}
+}
+@media(max-width:480px){
+  .page-hero{height:210px;min-height:210px;padding-top:80px}
+  .page-hero + .foam-divider + .section{padding-top:24px}
+  .page-hero + .foam-divider + .section .section-heading{padding:18px 14px;border-radius:12px}
+  .page-hero + .foam-divider + .section .section-title{font-size:clamp(1.45rem,8.4vw,1.9rem);letter-spacing:.055em}
+  .page-hero + .foam-divider + .section .section-text{font-size:.9rem}
 }
 </style>
 </head>
@@ -953,7 +971,7 @@ a:hover{color:var(--gold-light)}
       <div>
         <h4 class="footer-heading">Contact</h4>
         <p class="footer-text">
-          ul. Mściwoja II 8,<br>70-535 Szczecin<br><br>
+          ul. MĹ›ciwoja II 8,<br>70-535 Szczecin<br><br>
           <a href="tel:662233678">(48) 662-233-678</a><br>
           <a href="mailto:info@browarwyszak.pl">info@browarwyszak.pl</a>
         </p>
@@ -1166,6 +1184,7 @@ document.querySelectorAll('.smooth-scroll').forEach(function(link){
 
 </body>
 </html>
+
 
 
 
